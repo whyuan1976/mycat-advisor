@@ -1,1 +1,35 @@
-null
+{
+	"pages/service/service_main.html": {
+		"resources": [
+			"mui/css/mui.min.css"
+		]
+	},
+	"pages/user/user_main.html": {
+		"resources": [
+			"images/user/icon23.png",
+			"images/user/icon19.png",
+			"images/user/u42.png",
+			"css/userCenter.css",
+			"images/user/icon18.png",
+			"images/user/icon21.png",
+			"images/user/arrow.png",
+			"images/user/icon20.png",
+			"mui/js/mui.min.js",
+			"mui/css/mui.min.css"
+		]
+	},
+	"pages/main.html": {
+		"resources": [
+			"pages/service/service_main.html",
+			"mui/js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css"
+		],
+		"refer": [
+			"pages/problem/problem_main.html",
+			"pages/service/service_main.html",
+			"pages/user/user_main.html",
+			"pages/adviser/adviser_main.html"
+		]
+	}
+}
