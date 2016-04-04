@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+        "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="org.apache.mycat.advisor.persistence.dao.TabUserLikeTypeMapper">
+
+        <select id="listByUserNameAndTypeCode" parameterType="org.apache.mycat.advisor.persistence.model.TabUserLikeType" resultType="org.apache.mycat.advisor.persistence.model.TabUserLikeType">
+           select userlt.id as id ,useri.username as userName,dicpt.name as typeName,dicpt.code as typeCode from tab_user_like_type userlt 
+			INNER JOIN tab_user_info useri on useri.id=userlt.user_id
+			INNER JOIN dic_problem_type dicpt on dicpt.id=userlt.type_id
+			  <where>
+			      <if test="userName!=null and userName!=''"> 
+			      	useri.username like CONCAT('%',#{userName},'%') or dicpt.name like CONCAT('%',#{userName},'%') or dicpt.code like CONCAT('%',#{userName},'%') 
+			      </if>
+			  </where>
+        </select>
+
+</mapper>

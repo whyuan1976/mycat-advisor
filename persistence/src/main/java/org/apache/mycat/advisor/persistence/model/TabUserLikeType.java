@@ -4,6 +4,7 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 /**
  * Created by cjl on 2016/3/20.
@@ -15,8 +16,13 @@ public class TabUserLikeType {
     private Long id;
     private Long typeId;
     private Long userId;
-
-
+    @Transient
+    private String userName;
+    @Transient
+    private String typeName;
+    @Transient
+    private String typeCode;
+    
     public Long getId() {
         return id;
     }
@@ -45,7 +51,37 @@ public class TabUserLikeType {
         this.userId = userId;
     }
 
-    @Override
+    @Basic
+    @Column(name = "userName", nullable = true, insertable = false, updatable = false)
+    public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	@Basic
+	@Column(name = "typeName", nullable = true, insertable = false, updatable = false)
+	public String getTypeName() {
+		return typeName;
+	}
+
+	public void setTypeName(String typeName) {
+		this.typeName = typeName;
+	}
+
+	@Basic
+	@Column(name = "typeCode", nullable = true, insertable = false, updatable = false)
+	public String getTypeCode() {
+		return typeCode;
+	}
+
+	public void setTypeCode(String typeCode) {
+		this.typeCode = typeCode;
+	}
+
+	@Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
