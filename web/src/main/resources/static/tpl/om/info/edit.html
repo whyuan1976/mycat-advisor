@@ -1,5 +1,5 @@
 <div class="modal-header">
-    <h4 class="modal-title">{{if id == null }}新增{{else}}修改{{/if}}</h4>
+    <h4 class="modal-title">修改</h4>
 </div>
 <form class="form-horizontal form-validate" id="doorSaveForm" method="post" action="om/info/save">
 
@@ -11,41 +11,45 @@
 
             <div class="col-sm-5">
                 <div class="fg-line">
-                    <input type="text" class="form-control input-sm validate[required,maxSize[16]]" id="type" name="type"
-                           placeholder="类型" value="{{type}}">
+                      <select class="select-picker" name="type" data-value="{{type}}">
+                          <option value="">请选择</option>
+                          <option value="3">远程订单</option>
+                          <option value="4">在线订单</option>
+                          <option value="5">现场订单</option>
+                      </select>
                 </div>
                 <small class="help-block">&nbsp;</small>
             </div>
         </div>
         <div class="form-group">
             <label for="peopleNum" class="col-sm-4 control-label">下单人</label>
-
+			<input name="placeId" type="hidden" value="{{placeId}}"/>
             <div class="col-sm-5">
                 <div class="fg-line">
-                    <input type="text" class="form-control input-sm validate[required,maxSize[16]]" id="placeId" name="placeId"
-                           placeholder="下单人" value="{{placeId}}">
+                    <input type="text" class="form-control input-sm" id="placeName" name="placeName"
+                           placeholder="下单人" readonly value="{{placeName}}">
                 </div>
                 <small class="help-block">&nbsp;</small>
             </div>
         </div>
         <div class="form-group">
-            <label for="peopleNum" class="col-sm-4 control-label">问题id</label>
-
+            <label for="peopleNum" class="col-sm-4 control-label">问题</label>
+			<input name="problemId" type="hidden" value="{{problemId}}"/>
             <div class="col-sm-5">
                 <div class="fg-line">
-                    <input type="text" class="form-control input-sm validate[required,maxSize[16]]" id="problemId" name="problemId"
-                           placeholder="问题id" value="{{problemId}}">
+                    <input type="text" class="form-control input-sm " id="problemName" name="problemName"
+                           placeholder="问题" readonly value="{{problemName}}">
                 </div>
                 <small class="help-block">&nbsp;</small>
             </div>
         </div>
         <div class="form-group">
-            <label for="peopleNum" class="col-sm-4 control-label">顾问id</label>
-
+            <label for="peopleNum" class="col-sm-4 control-label">顾问</label>
+			<input name="advisorId" type="hidden" value="{{advisorId}}"/>
             <div class="col-sm-5">
                 <div class="fg-line">
-                    <input type="text" class="form-control input-sm validate[required,maxSize[16]]" id="advisorId" name="advisorId"
-                           placeholder="顾问id" value="{{advisorId}}">
+                    <input type="text" class="form-control input-sm " id="advisorName" name="advisorName"
+                           placeholder="顾问" readonly value="{{advisorName}}">
                 </div>
                 <small class="help-block">&nbsp;</small>
             </div>
@@ -69,17 +73,6 @@
                 <div class="fg-line">
                     <input type="text" class="form-control input-sm validate[required,maxSize[16]]" id="paynumber" name="paynumber"
                            placeholder="支付交易号" value="{{paynumber}}">
-                </div>
-                <small class="help-block">&nbsp;</small>
-            </div>
-        </div>
-          <div class="form-group">
-            <label for="peopleNum" class="col-sm-4 control-label">支付渠道</label>
-
-            <div class="col-sm-5">
-                <div class="fg-line">
-                    <input type="text" class="form-control input-sm validate[required,maxSize[16]]" id="paytype" name="paytype"
-                           placeholder="支付渠道" value="{{paytype}}">
                 </div>
                 <small class="help-block">&nbsp;</small>
             </div>
