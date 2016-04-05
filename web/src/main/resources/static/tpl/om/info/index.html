@@ -14,17 +14,20 @@
 		</div>
 
 		<div class="bootgrid-header container-fluid">
-			<form id="frmSearch" action="#om/info/list?tpl=om/info/save" role="form">
+			<form id="frmSearch" action="#om/info/list?tpl=om/info/index" role="form">
 				<div class="row">
 					<div class="col-sm-3">
 						<div class="input-group">
 							<span class="input-group-addon"><i class="zmdi zmdi-search"></i></span>
 
-							<div class="fg-line">
-								<input type="text" class="form-control auto-complete" name="code"
-									   data-url="_data/typeahead/all.json" value="{{query.code}}" hidden="true"
-									   placeholder="名称和编码进行搜索">
-							</div>
+					<div class="fg-line">
+                      <select class="select-picker" name="type" data-value="{{query.type}}">
+                          <option value="">请选择</option>
+                          <option value="3">远程订单</option>
+                          <option value="4">在线订单</option>
+                          <option value="5">现场订单</option>
+                      </select>
+                	</div>
 						</div>
 					</div>
 					<div class="col-sm-2">
@@ -42,11 +45,10 @@
 					<th width="5%">#</th>
 					<th width="10%">订单类型</th>
 					<th width="10%">下单人</th>
-					<th width="10%">问题id</th>
-					<th width="5%">顾问id</th>
-					<th width="10%">状态</th>
-					<th width="13%">支付交易号</th>
-					<th width="10%">支付渠道</th>
+					<th width="25%">问题</th>
+					<th width="10%">顾问</th>
+					<th width="5%">状态</th>
+					<th width="10%">支付交易号</th>
 					<th width="5%">订单流程</th>
 					<th width="*">操作</th>
 				</tr>
@@ -55,19 +57,18 @@
 				{{each list}}
 				<tr>
 					<td>{{$index+1}}</td>
-					<td title="">{{if $value.type==3}} 远程订单 {{else if type===4}} 在线订单  {{else}} 现场订单 {{/if}}</td>
-					<td title="{{$value.placeId}}">{{$value.placeId}}</td>
-					<td title="{{$value.problemId}}">{{$value.problemId}}</td>
-					<td title="{{$value.advisorId}}">{{$value.advisorId}}</td>
+					<td title="{{$value.typeName}}">{{$value.typeName}}</td>
+					<td title="{{$value.placeName}}">{{$value.placeName}}</td>
+					<td title="{{$value.problemName}}">{{$value.problemName}}</td>
+					<td title="{{$value.advisorName}}">{{$value.advisorName}}</td>
 					<td title="">{{if $value.status==1 }}可用{{else}}不可用{{/if}}</td>
 					<td title="{{$value.paynumber}}">{{$value.paynumber }}</td>
-					<td title="{{$value.paytype}}">{{$value.paytype}}</td>
 					<td title="{{$value.orderStep}}">
 						{{$value.orderStep}}
 					</td>
 					<td>
 						<button type="button" class="btn btn-xs btn-default btn-icon btn-modal waves-effect waves-circle waves-float waves-effect waves-circle waves-float"
-								 data-href="om/info/get/{{$value.id}}?tpl=om/info/save">
+								 data-href="om/info/get/{{$value.id}}?tpl=om/info/edit">
 							<span class="zmdi zmdi-edit"></span> </button>
 						<button type="button" class="btn btn-xs btn-danger btn-icon btn-del"
 								data-url="om/info/del/{{$value.id}}">
