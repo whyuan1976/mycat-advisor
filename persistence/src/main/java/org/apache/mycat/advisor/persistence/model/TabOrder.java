@@ -4,6 +4,7 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 /**
  * Created by cjl on 2016/3/20.
@@ -14,9 +15,17 @@ public class TabOrder {
     @Column(name = "id", nullable = false, insertable = true, updatable = true)
     private Long id;
     private Long type;
+    @Transient
+    private String typeName;
     private Long placeId;
+    @Transient
+    private String placeName;
     private Long problemId;
+    @Transient
+    private String problemName;
     private Long advisorId;
+    @Transient
+    private String advisorName;
     private Integer status;
     private String paynumber;
     private Integer paytype;
@@ -40,6 +49,16 @@ public class TabOrder {
     public void setType(Long type) {
         this.type = type;
     }
+    
+    @Basic
+    @Column(name="typename",nullable=true,insertable=false,updatable=false)
+    public String getTypeName() {
+		return typeName;
+	}
+    
+    public void setTypeName(String typeName) {
+		this.typeName = typeName;
+	}
 
     @Basic
     @Column(name = "place_id", nullable = true, insertable = true, updatable = true)
@@ -50,6 +69,16 @@ public class TabOrder {
     public void setPlaceId(Long placeId) {
         this.placeId = placeId;
     }
+    
+    @Basic
+    @Column(name="placename",nullable=true,insertable=false,updatable=false)
+    public String getPlaceName() {
+		return placeName;
+	}
+    
+    public void setPlaceName(String placeName) {
+		this.placeName = placeName;
+	}
 
     @Basic
     @Column(name = "problem_id", nullable = true, insertable = true, updatable = true)
@@ -60,6 +89,16 @@ public class TabOrder {
     public void setProblemId(Long problemId) {
         this.problemId = problemId;
     }
+    
+    @Basic
+    @Column(name="problemname",nullable=true,insertable=false,updatable=false)
+    public String getProblemName() {
+		return problemName;
+	}
+    
+    public void setProblemName(String problemName) {
+		this.problemName = problemName;
+	}
 
     @Basic
     @Column(name = "advisor_id", nullable = true, insertable = true, updatable = true)
@@ -70,6 +109,16 @@ public class TabOrder {
     public void setAdvisorId(Long advisorId) {
         this.advisorId = advisorId;
     }
+    
+    @Basic
+    @Column(name="advisorname",nullable=true,insertable=false,updatable=false)
+    public String getAdvisorName() {
+		return advisorName;
+	}
+    
+    public void setAdvisorName(String advisorName) {
+		this.advisorName = advisorName;
+	}
 
     @Basic
     @Column(name = "status", nullable = true, insertable = true, updatable = true)
