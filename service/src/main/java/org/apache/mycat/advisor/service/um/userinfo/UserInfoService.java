@@ -16,4 +16,7 @@ public interface UserInfoService extends BaseService<TabUserInfo> {
     TabUserInfo findByUsernameAndPassword(String email, String password);
 
     public boolean save(TabUserInfo o);
+    
+    List<TabUserInfo> getAllByUsername(String name);
+
 }
