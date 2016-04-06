@@ -41,6 +41,7 @@
         },
         // 短日期格式
         dateFormat: 'YYYY-MM-DD',
+        dateFormatLang: 'YYYY-MM-DD HH:mm:ss',
         // 通知插件配置
         notifyOption: {
             placement: {
@@ -502,7 +503,10 @@
         $selector.find('.date-picker').datetimepicker({
             format: option.dateFormat
         });
-        $selector.find('.date-time-picker').datetimepicker();
+        $selector.find('.date-time-picker').datetimepicker({
+            format: option.dateFormatLang,
+            showClose:true
+        });
         $selector.find('.daterange-picker').daterangepicker({
             autoApply: true,
             locale: {

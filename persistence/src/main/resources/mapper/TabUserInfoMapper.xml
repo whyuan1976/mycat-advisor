@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+        "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="org.apache.mycat.advisor.persistence.dao.TabUserInfoMapper">
+
+    <select id="findByNameOrCode" resultType="map">
+                <![CDATA[
+                SELECT
+                  userI.id,
+                  userI.username,
+                  userI.user_type as userType,
+                  userI.user_alias as userAlias,
+                  userI.telephone,
+                  company.`name` as companyName,
+                  type.name as typeName
+                FROM
+                  tab_user_info userI
+                  Left JOIN tab_company company ON userI.company = company.id
+                  LEFT JOIN  tab_user_type type ON  type.id = userI.user_type
+                where userI.username like #{name} or userI.user_alias like #{name}
+                ]]>
+    </select>
+    <select id="getCompanyAndPostByUserId" resultType="map">
+        <![CDATA[
+                SELECT
+                  company.`name` as companyName,
+                  post.name as postName
+                FROM
+                  tab_user_info userI
+                  Left JOIN tab_company company ON userI.company = company.id
+                  LEFT JOIN  tab_post_info post ON  post.id = userI.post
+                where userI.id = #{id}
+        ]]>
+    </select>
+
+
+    <select id="findListMapByUserName" resultType="map">
+        <![CDATA[
+                SELECT
+                  userI.id,
+                  userI.username as name
+                FROM
+                  tab_user_info userI
+                where userI.username LIKE #{username}
+        ]]>
+    </select>
+
+</mapper>

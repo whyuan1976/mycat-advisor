@@ -1,46 +1,38 @@
-package org.apache.mycat.advisor.web.controller.um;
+package org.apache.mycat.advisor.web.controller.vip;
 
 import org.apache.mycat.advisor.common.controller.BaseController;
 import org.apache.mycat.advisor.common.controller.Page;
 import org.apache.mycat.advisor.common.controller.ResultMap;
-import org.apache.mycat.advisor.persistence.model.TabCompany;
-import org.apache.mycat.advisor.service.um.company.UserCompanyService;
+import org.apache.mycat.advisor.persistence.model.TabVip;
+import org.apache.mycat.advisor.service.vip.vipinfo.VipInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
 import java.util.Map;
 
 /**
  * Created by cjl on 2016/3/18.
  */
 @RestController
-@RequestMapping("/um/company/")
-public class UserCompanyController extends BaseController {
+@RequestMapping("/vip/info/")
+public class VipInfoController extends BaseController {
     @Autowired
-    UserCompanyService userCompanyService;
+    VipInfoService vipInfoService;
 
 
     @RequestMapping("list")
 
     public ResultMap list(@RequestParam Map<String, Object> param) {
-        Page page = userCompanyService.page(param);
+        Page page = vipInfoService.pageList(param);
         return sucess(page);
     }
 
-    @RequestMapping("findByName")
-    public List<Map<String,Object>> findByName(String query) {
-        List<Map<String, Object>> list = userCompanyService.findListMapByName(query);
-        return list;
-    }
-
-
     @RequestMapping("save")
-    public ResultMap save(TabCompany company) {
-        if (userCompanyService.save(company)) {
+    public ResultMap save(TabVip info) {
+        if (vipInfoService.saveOrUpdate(info)) {
             return success();
         } else {
             return failure("保存操作失败!");
@@ -54,13 +46,13 @@ public class UserCompanyController extends BaseController {
 
     @RequestMapping("get/{id}")
     public ResultMap info(@PathVariable long id) {
-        TabCompany info = userCompanyService.get(id);
-        return success(info);
+        TabVip vip = vipInfoService.get(id);
+        return success(vip);
     }
 
     @RequestMapping("del/{id}")
     public ResultMap del(@PathVariable long id) {
-        if (userCompanyService.delete(id)) {
+        if (vipInfoService.delete(id)) {
             return success();
         } else {
             return failure("删除操作失败！");

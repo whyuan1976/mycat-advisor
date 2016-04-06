@@ -5,12 +5,15 @@ import org.apache.mycat.advisor.common.controller.Page;
 import org.apache.mycat.advisor.common.controller.ResultMap;
 import org.apache.mycat.advisor.persistence.model.TabUserInfo;
 import org.apache.mycat.advisor.service.um.userinfo.UserInfoService;
+import org.apache.mycat.advisor.service.um.usertype.UserTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -21,18 +24,26 @@ import java.util.Map;
 public class UserInfoController extends BaseController {
     @Autowired
     UserInfoService userInfoService;
+    @Autowired
+    UserTypeService userTypeService;
 
 
     @RequestMapping("list")
 
     public ResultMap list(@RequestParam Map<String, Object> param) {
-        Page page = userInfoService.page(param);
+        Page<Map> page = userInfoService.pageList(param);
         return sucess(page);
+    }
+
+    @RequestMapping("findByName")
+    public List<Map<String,Object>> findByName(String query) {
+        List<Map<String, Object>> list = userInfoService.findListMapByUserName(query);
+        return list;
     }
 
     @RequestMapping("save")
     public ResultMap save(TabUserInfo info) {
-        if (userInfoService.saveOrUpdate(info)) {
+        if (userInfoService.save(info)) {
             return success();
         } else {
             return failure("保存操作失败!");
@@ -41,13 +52,18 @@ public class UserInfoController extends BaseController {
 
     @RequestMapping("init")
     public ResultMap init() {
-        return success();
+        Map<String, Object> data = new HashMap<>();
+        data.put("userTypes", userTypeService.all());
+        return success(data);
     }
 
     @RequestMapping("get/{id}")
     public ResultMap info(@PathVariable long id) {
-        TabUserInfo type = userInfoService.get(id);
-        return success(type);
+        TabUserInfo info = userInfoService.get(id);
+        Map<String, Object> data = object2map(info);
+        data.put("userTypes", userTypeService.all());
+
+        return success(data);
     }
 
     @RequestMapping("del/{id}")

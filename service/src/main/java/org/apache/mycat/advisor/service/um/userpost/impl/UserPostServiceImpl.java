@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by cjl on 2016/3/18.
@@ -26,10 +28,10 @@ public class UserPostServiceImpl extends BaseServiceImpl<TabPostInfo> implements
 
     @Override
     public TabPostInfo get(long id) {
-        TabPostInfo tabPostInfo = new TabPostInfo();
-        tabPostInfo.setId(id);
+        TabPostInfo tabPostInfo = postInfoMapper.selectByPrimaryKey(id);
 
-        return postInfoMapper.selectByPrimaryKey(new Long(id));
+
+        return tabPostInfo;
     }
 
     @Override
@@ -43,5 +45,13 @@ public class UserPostServiceImpl extends BaseServiceImpl<TabPostInfo> implements
         o.setUpdateTime(new Date());
         o.setInsertTime(new Date());
         return super.saveOrUpdate(o);
+    }
+
+    @Override
+    public List<Map<String, Object>> findByName(String query) {
+        List<Map<String, Object>> list = postInfoMapper.getIdAndNameByName("%" + query + "%");
+
+
+        return list;
     }
 }
