@@ -95,7 +95,7 @@
 	},
 	"plus": {
 		"splashscreen": {
-			"autoclose": false,/*是否自动关闭程序启动界面，true表示应用加载应用入口页面后自动关闭；false则需调plus.navigator.closeSplashscreen()关闭*/
+			"autoclose": true,/*是否自动关闭程序启动界面，true表示应用加载应用入口页面后自动关闭；false则需调plus.navigator.closeSplashscreen()关闭*/
 			"waiting": true,
 			"delay": "0"
 		},
@@ -252,11 +252,16 @@
 					"fonts/iconfont.woff",
 					"images/default_logo.png",
 					"mui/js/jquery-1.12.0.js",
-					"fonts/iconfont.ttf"
+					"fonts/iconfont.ttf",
+					"pages/service/service_main.html",
+					"fonts/mui.ttf"
 				],
 				"refer": [
 					"pages/index.html",
-					"pages/login.html"
+					"pages/login.html",
+					"pages/problem/problem_main.html",
+					"pages/user/user_main.html",
+					"pages/adviser/adviser_main.html"
 				],
 				"priority": 0
 			},
@@ -1154,6 +1159,29 @@
 				],
 				"refer": [],
 				"priority": 0
+			},
+			"pages/service/service_main.html": {
+				"resources": [
+					"mui/css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"pages/user/user_main.html": {
+				"resources": [
+					"images/user/icon23.png",
+					"images/user/icon19.png",
+					"images/user/u42.png",
+					"css/userCenter.css",
+					"images/user/icon18.png",
+					"images/user/icon21.png",
+					"images/user/arrow.png",
+					"images/user/icon20.png",
+					"mui/js/mui.min.js",
+					"mui/css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
 			}
 		},
 		"index": {
@@ -1238,7 +1266,6 @@
 				"mui/css/mui.poppicker.css",
 				"mui/fonts/mui.ttf",
 				"pages/safeCenterModule/resetPassword_2.js",
-				"mui/css/mui.min.css",
 				"pages/safeCenterModule/resetPassword_2.html",
 				"pages/systemSetModule/sytem_feedback.js",
 				"pages/capitalModule/withdrawal_record.html",

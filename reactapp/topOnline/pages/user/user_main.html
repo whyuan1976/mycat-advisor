@@ -6,20 +6,86 @@
     <title></title>
     <script type="text/javascript" src="../../mui/js/mui.min.js"></script>
     <link href="../../mui/css/mui.min.css" rel="stylesheet"/>
+     <link href="./../css/userCommon.css" type="text/css" rel="stylesheet">
+     <link href="../../css/userCenter.css" type="text/css" rel="stylesheet">
     <script type="text/javascript" charset="UTF-8">
       	mui.init();
     </script>
+<style>
+
+	.user_top{
+	padding-top: 35px !important;
+	padding-left: 35px;
+  	background-color: #00CCFF  !important;
+	}
+	#user_pic,#user_info{
+	width: 80px;
+	height: 80px;
+	}
+	.top2_c{
+		float: left;
+		padding-left: 30;
+		width: 30%;
+		height: 50px;
+		border: 1 solid black;
+	}
+	.top2{
+	  color:whitesmoke;
+		height: 50px !important;
+		background-color: #1FC2EB !important;
+	}
+	</style>
 </head>
 <body>
-<div class="mui-content">
-			<div class="title">
-			  222首页
+	<div class="wrap">
+		<div class="top user_top" id="needlogin">
+			<div class="" style="float: left;"><img id="user_pic" src="../../images/user/u42.png"></div>
+			<div class="color: white;" style="float: left;">
+			<p class="mui-media-body" style="padding-left:20px;padding-top:20px">
+					匿名用户
+			</p></div>
+		</div> 
+		<div class="top2" id="islogin" style="display: block;">
+			<div class="top2_c">
+			  余额<br />
+			  0.0元
+			</div>
+			<div class="top2_c">
+			  积分<br />
+			  100
+			</div>
+			<div class="top2_c">
+			  优惠卷<br />
+			  0
 			</div>
 		</div>
-	</body>
-	<script>
-		mui.init({
-			swipeBack:true //启用右滑关闭功能
-		});
-	</script>
+		</div>
+		<div class="center" id="user_contorl">
+			<ul>
+	            <li rel="center/orderlist" title="我的顾问">
+	                <span><img src="../../images/user/icon18.png" width="15" height="20"></span>
+	                <a>我的顾问</a>
+	            </li>
+	            <li rel="center/account" title="我的订单">
+	                <span><img src="../../images/user/icon19.png" width="15" height="20"></span>
+	                <a>我的订单</a>
+	            </li>
+	            <li rel="center/info" title="投诉建议">
+	                <span><img src="../../images/user/icon20.png" width="20" height="20"></span>
+	                <a>投诉建议</a>
+	            </li>
+	            <li rel="center/coupon" title="分享有奖">
+	                <span><img src="../../images/user/icon21.png" width="20" height="20"></span>
+	                <a>分享有奖</a>
+	            </li>
+	            <li rel="center/alipay" title="设置">
+	                <span><img src="../../images/user/icon23.png" width="23" height="20"></span>
+	                <a>设置</a>
+	            </li>
+	        </ul>
+		</div>
+		<div class="bottom" id="loginout" style="display: none;"><input id="loginout_btn" type="button" value="退   出" /></div>
+	</div>
+	<script src="../js/main-center.js"></script>
+</body>
 </html>
