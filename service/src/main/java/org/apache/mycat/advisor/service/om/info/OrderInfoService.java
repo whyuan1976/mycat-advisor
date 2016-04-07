@@ -7,4 +7,5 @@ import org.apache.mycat.advisor.service.base.BaseService;
 
 public interface OrderInfoService extends BaseService<TabOrder> {
 	
+	
 }

@@ -56,5 +56,12 @@ public class UserInfoServiceImpl extends BaseServiceImpl<TabUserInfo> implements
         return super.saveOrUpdate(o);
     }
 
+	@Override
+	public List<TabUserInfo> getAllByUsername(String name) {
+		 TabUserInfo userInfo = new TabUserInfo();
+	     userInfo.setUsername(name);
+		return tabUserInfoMapper.getAllByName(userInfo);
+	}
+
 
 }
