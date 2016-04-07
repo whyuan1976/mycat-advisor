@@ -4,18 +4,22 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 /**
  * Created by cjl on 2016/3/20.
  */
-@Table(name = "tab_user_like_consultant")
+@Table(name = "tab_user_like_advisor")
 public class TabUserLikeConsultant {
     @Id
     @Column(name = "id", nullable = false, insertable = true, updatable = true)
     private Long id;
     private Long userId;
     private Long consultantId;
-
+    @Transient
+    private String userName;
+    @Transient
+    private String advisorName;
 
     public Long getId() {
         return id;
@@ -45,7 +49,27 @@ public class TabUserLikeConsultant {
         this.consultantId = consultantId;
     }
 
-    @Override
+    @Basic
+    @Column(name = "userName", nullable = true, insertable = false, updatable = false)
+    public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+    @Basic
+    @Column(name = "advisorName", nullable = true, insertable = false, updatable = false)
+	public String getAdvisorName() {
+		return advisorName;
+	}
+
+	public void setAdvisorName(String advisorName) {
+		this.advisorName = advisorName;
+	}
+
+	@Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
