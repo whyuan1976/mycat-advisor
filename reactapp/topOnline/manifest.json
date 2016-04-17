@@ -14,7 +14,7 @@
 	"icons": {
 		"72": "icon.png"
 	},
-	"launch_path": "pages/main.html",/*应用的入口页面，默认为根目录下的index.html；支持网络地址，必须以http://或https://开头*/
+	"launch_path": "pages/index.html",/*应用的入口页面，默认为根目录下的index.html；支持网络地址，必须以http://或https://开头*/
 	"developer": {
 		"name": "",/*开发者名称*/
 		"email": "",/*开发者邮箱地址*/
@@ -24,15 +24,21 @@
 		"Accelerometer": {
 			"description": "访问加速度感应器"
 		},
-
+		"Audio": {
+			"description": "访问麦克风"
+		},
 		"Cache": {
 			"description": "管理应用缓存"
 		},
-
+		"Camera": {
+			"description": "访问摄像头"
+		},
 		"Console": {
 			"description": "跟踪调试输出日志"
 		},
-
+		"Contacts": {
+			"description": "访问系统联系人信息"
+		},
 		"Device": {
 			"description": "访问设备信息"
 		},
@@ -45,12 +51,18 @@
 		"File": {
 			"description": "访问本地文件系统"
 		},
-
-
+		"Gallery": {
+			"description": "访问系统相册"
+		},
+		"Geolocation": {
+			"description": "访问位置信息"
+		},
 		"Invocation": {
 			"description": "使用Native.js能力"
 		},
-
+		"Messaging": {
+			"description": "访问通讯能力"
+		},
 		"Orientation": {
 			"description": "访问方向感应器"
 		},
@@ -76,7 +88,9 @@
 		"Barcode": {
 			"description": "管理二维码扫描插件"
 		},
-
+		"Maps": {
+			"description": "管理地图插件"
+		},
 		"Speech": {
 			"description": "管理语音识别插件"
 		},
@@ -91,38 +105,60 @@
 		},
 		"NativeObj": {
 			"description": "原生对象"
-		},"Push":{}
+		},
+		"Share": {}
 	},
 	"plus": {
+		"hardwareAccelerated": true,
 		"splashscreen": {
-			"autoclose": true,/*是否自动关闭程序启动界面，true表示应用加载应用入口页面后自动关闭；false则需调plus.navigator.closeSplashscreen()关闭*/
+			"autoclose": false,/*是否自动关闭程序启动界面，true表示应用加载应用入口页面后自动关闭；false则需调plus.navigator.closeSplashscreen()关闭*/
 			"waiting": true,
 			"delay": "0"
 		},
 		"runmode": "liberate",/*应用的首次启动运行模式，可取liberate或normal，liberate模式在第一次启动时将解压应用资源（Android平台File API才可正常访问_www目录）*/
 		"signature": "Sk9JTiBVUyBtYWlsdG86aHIyMDEzQGRjbG91ZC5pbw==",/*可选，保留给应用签名，暂不使用*/
 		"distribute": {
-			"plugins": {
-				"push": {"igexin":{"appid":"reftMi1N3k7rvD9Nah6VG2","appkey":"PJ8adKDmIQ9oR80rQ4yc5A","appsecret":"efxdX5ADbM6nEo444AEQ71"}
-					
-				}
-			},
 			"apple": {
 				"appid": "",/*iOS应用标识，苹果开发网站申请的appid，如io.dcloud.HelloH5*/
 				"mobileprovision": "",/*iOS应用打包配置文件*/
 				"password": "",/*iOS应用打包个人证书导入密码*/
 				"p12": "",/*iOS应用打包个人证书，打包配置文件关联的个人证书*/
 				"devices": "universal",/*iOS应用支持的设备类型，可取值iphone/ipad/universal*/
-				"StatusBarBackground": "#43cbdb",/*设置状态栏的背景颜色，iOS7以上系统有效，支持#RRGGBB格式*/
-				"UIStatusBarStyle": "UIStatusBarStyleDefault",
-				"frameworks": []
+				"frameworks": [],
+				"StatusBarBackground": "#099FDE"
 			},
 			"google": {
+				"hardwareAccelerated": true,
 				"packagename": "",/*Android应用包名，如io.dcloud.HelloH5*/
 				"keystore": "",/*Android应用打包使用的密钥库文件*/
 				"password": "",/*Android应用打包使用密钥库中证书的密码*/
 				"aliasname": "",/*Android应用打包使用密钥库中证书的别名*/
-				"permissions": ["<uses-permission android:name=\"android.permission.RECORD_AUDIO\"/>","<uses-permission android:name=\"android.permission.CHANGE_NETWORK_STATE\"/>","<uses-permission android:name=\"com.android.launcher.permission.INSTALL_SHORTCUT\"/>","<uses-permission android:name=\"android.permission.GET_TASKS\"/>","<uses-permission android:name=\"android.permission.CHANGE_WIFI_STATE\"/>","<uses-permission android:name=\"android.permission.READ_PHONE_STATE\"/>","<uses-permission android:name=\"android.permission.VIBRATE\"/>","<uses-permission android:name=\"android.permission.READ_LOGS\"/>","<uses-permission android:name=\"android.permission.WAKE_LOCK\"/>","<uses-permission android:name=\"android.permission.CALL_PHONE\"/>","<uses-permission android:name=\"android.permission.FLASHLIGHT\"/>","<uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\"/>","<uses-feature android:name=\"android.hardware.camera.autofocus\"/>","<uses-feature android:name=\"android.hardware.camera\"/>","<uses-permission android:name=\"android.permission.RECEIVE_USER_PRESENT\"/>","<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\"/>","<uses-permission android:name=\"android.permission.RECEIVE_BOOT_COMPLETED\"/>","<uses-permission android:name=\"com.android.launcher.permission.UNINSTALL_SHORTCUT\"/>","<uses-permission android:name=\"android.permission.CAMERA\"/>"]
+				"permissions": [
+					"<uses-permission android:name=\"android.permission.CHANGE_NETWORK_STATE\"/>",
+					"<uses-permission android:name=\"android.permission.MOUNT_UNMOUNT_FILESYSTEMS\"/>",
+					"<uses-permission android:name=\"android.permission.READ_CONTACTS\"/>",
+					"<uses-permission android:name=\"android.permission.VIBRATE\"/>",
+					"<uses-permission android:name=\"android.permission.READ_LOGS\"/>",
+					"<uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\"/>",
+					"<uses-feature android:name=\"android.hardware.camera.autofocus\"/>",
+					"<uses-permission android:name=\"android.permission.WRITE_CONTACTS\"/>",
+					"<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\"/>",
+					"<uses-permission android:name=\"com.android.launcher.permission.UNINSTALL_SHORTCUT\"/>",
+					"<uses-permission android:name=\"android.permission.CAMERA\"/>",
+					"<uses-permission android:name=\"android.permission.GET_ACCOUNTS\"/>",
+					"<uses-permission android:name=\"android.permission.RECORD_AUDIO\"/>",
+					"<uses-permission android:name=\"android.permission.MODIFY_AUDIO_SETTINGS\"/>",
+					"<uses-permission android:name=\"com.android.launcher.permission.INSTALL_SHORTCUT\"/>",
+					"<uses-permission android:name=\"android.permission.READ_PHONE_STATE\"/>",
+					"<uses-permission android:name=\"android.permission.CHANGE_WIFI_STATE\"/>",
+					"<uses-permission android:name=\"android.permission.WAKE_LOCK\"/>",
+					"<uses-permission android:name=\"android.permission.FLASHLIGHT\"/>",
+					"<uses-permission android:name=\"android.permission.CALL_PHONE\"/>",
+					"<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\"/>",
+					"<uses-feature android:name=\"android.hardware.camera\"/>",
+					"<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\"/>",
+					"<uses-permission android:name=\"android.permission.WRITE_SETTINGS\"/>"
+				]
 			},
 			"orientation": [
 				"portrait-primary",
@@ -133,1197 +169,497 @@
 					"prerendered": true, /*应用图标是否已经高亮处理，在iOS6及以下设备上有效*/
 					"auto": "", /*应用图标，分辨率：512x512，用于自动生成各种尺寸程序图标*/
 					"iphone": {
-						"normal": "D:/工作文档/桌面图标/桌面图标/iphone图标/57-57.png",/*iPhone普通屏幕程序图标，分辨率：57x57*/
-						"retina": "D:/工作文档/桌面图标/桌面图标/iphone图标/114-114.png",/*iPhone高分屏程序图标，分辨率：114x114*/
-						"retina7": "D:/工作文档/桌面图标/桌面图标/iphone图标/120-120.png",/*iPhone iOS7高分屏程序图标，分辨率：120x120*/
-						"spotlight-normal": "D:/工作文档/桌面图标/桌面图标/iphone图标/29-29.png", /*iPhone Spotlight搜索程序图标，分辨率：29x29*/
-						"spotlight-retina": "D:/工作文档/桌面图标/桌面图标/iphone图标/58-58.png", /*iPhone高分屏Spotlight搜索程序图标，分辨率：58x58*/
-						"spotlight-retina7": "D:/工作文档/桌面图标/桌面图标/iphone图标/80-80.png",/*iPhone iOS7高分屏Spotlight搜索程序图标，分辨率：80x80*/
-						"settings-normal": "D:/工作文档/桌面图标/桌面图标/iphone图标/29-29.png", /*iPhone设置页面程序图标，分辨率：29x29*/
-						"settings-retina": "D:/工作文档/桌面图标/桌面图标/iphone图标/58-58.png",
-						"retina8": "D:/工作文档/桌面图标/桌面图标/iphone图标/180-180.png",
-						"settings-retina8": "D:/工作文档/桌面图标/桌面图标/iphone图标/87-87.png"
+						"normal": "unpackage/res/icons/57x57.png",/*iPhone普通屏幕程序图标，分辨率：57x57*/
+						"retina": "unpackage/res/icons/114x114.png",/*iPhone高分屏程序图标，分辨率：114x114*/
+						"retina7": "unpackage/res/icons/120x120.png",/*iPhone iOS7高分屏程序图标，分辨率：120x120*/
+						"spotlight-normal": "unpackage/res/icons/29x29.png", /*iPhone Spotlight搜索程序图标，分辨率：29x29*/
+						"spotlight-retina": "unpackage/res/icons/58x58.png", /*iPhone高分屏Spotlight搜索程序图标，分辨率：58x58*/
+						"spotlight-retina7": "unpackage/res/icons/80x80.png",/*iPhone iOS7高分屏Spotlight搜索程序图标，分辨率：80x80*/
+						"settings-normal": "unpackage/res/icons/29x29.png", /*iPhone设置页面程序图标，分辨率：29x29*/
+						"settings-retina": "unpackage/res/icons/58x58.png",
+						"retina8": "unpackage/res/icons/180x180.png",
+						"settings-retina8": "unpackage/res/icons/87x87.png"
 					},
 					"ipad": {
-						"normal": "D:/工作文档/桌面图标/桌面图标/ipad图标/72-72.png", /*iPad普通屏幕程序图标，分辨率：72x72*/
-						"retina": "D:/工作文档/桌面图标/桌面图标/ipad图标/144-144.png", /*iPad高分屏程序图标，分辨率：144x144*/
-						"normal7": "D:/工作文档/桌面图标/桌面图标/ipad图标/76-76.png", /*iPad iOS7程序图标，分辨率：76x76*/
-						"retina7": "D:/工作文档/桌面图标/桌面图标/ipad图标/152-152.png", /*iPad iOS7高分屏程序图标，分辨率：152x152*/
-						"spotlight-normal": "D:/工作文档/桌面图标/桌面图标/ipad图标/50-50.png", /*iPad Spotlight搜索程序图标，分辨率：50x50*/
-						"spotlight-retina": "D:/工作文档/桌面图标/桌面图标/ipad图标/100-100.png", /*iPad高分屏Spotlight搜索程序图标，分辨率：100x100*/
-						"spotlight-normal7": "D:/工作文档/桌面图标/桌面图标/ipad图标/40-40.png",/*iPad iOS7 Spotlight搜索程序图标，分辨率：40x40*/
-						"spotlight-retina7": "D:/工作文档/桌面图标/桌面图标/ipad图标/80-80.png",/*iPad iOS7高分屏Spotlight搜索程序图标，分辨率：80x80*/
-						"settings-normal": "D:/工作文档/桌面图标/桌面图标/ipad图标/29-29.png",/*iPad设置页面程序图标，分辨率：29x29*/
-						"settings-retina": "D:/工作文档/桌面图标/桌面图标/ipad图标/58-58.png"
+						"normal": "unpackage/res/icons/72x72.png", /*iPad普通屏幕程序图标，分辨率：72x72*/
+						"retina": "unpackage/res/icons/144x144.png", /*iPad高分屏程序图标，分辨率：144x144*/
+						"normal7": "unpackage/res/icons/76x76.png", /*iPad iOS7程序图标，分辨率：76x76*/
+						"retina7": "unpackage/res/icons/152x152.png", /*iPad iOS7高分屏程序图标，分辨率：152x152*/
+						"spotlight-normal": "unpackage/res/icons/50x50.png", /*iPad Spotlight搜索程序图标，分辨率：50x50*/
+						"spotlight-retina": "unpackage/res/icons/100x100.png", /*iPad高分屏Spotlight搜索程序图标，分辨率：100x100*/
+						"spotlight-normal7": "unpackage/res/icons/40x40.png",/*iPad iOS7 Spotlight搜索程序图标，分辨率：40x40*/
+						"spotlight-retina7": "unpackage/res/icons/80x80.png",/*iPad iOS7高分屏Spotlight搜索程序图标，分辨率：80x80*/
+						"settings-normal": "unpackage/res/icons/29x29.png",/*iPad设置页面程序图标，分辨率：29x29*/
+						"settings-retina": "unpackage/res/icons/58x58.png"
 					}
 				},
 				"android": {
-					"mdpi": "D:/工作文档/桌面图标/桌面图标/Android图标/48-48.png", /*普通屏程序图标，分辨率：48x48*/
-					"ldpi": "D:/工作文档/桌面图标/桌面图标/Android图标/48-48.png", /*大屏程序图标，分辨率：48x48*/
-					"hdpi": "D:/工作文档/桌面图标/桌面图标/Android图标/72-72.png", /*高分屏程序图标，分辨率：72x72*/
-					"xhdpi": "D:/工作文档/桌面图标/桌面图标/Android图标/96-96.png",/*720P高分屏程序图标，分辨率：96x96*/
-					"xxhdpi": "D:/工作文档/桌面图标/桌面图标/Android图标/144-144.png"
+					"mdpi": "unpackage/res/icons/48x48.png", /*普通屏程序图标，分辨率：48x48*/
+					"ldpi": "unpackage/res/icons/48x48.png", /*大屏程序图标，分辨率：48x48*/
+					"hdpi": "unpackage/res/icons/72x72.png", /*高分屏程序图标，分辨率：72x72*/
+					"xhdpi": "unpackage/res/icons/96x96.png",/*720P高分屏程序图标，分辨率：96x96*/
+					"xxhdpi": "unpackage/res/icons/144x144.png"
 				}
 			},
 			"splashscreen": {
 				"ios": {
 					"iphone": {
-						/*iPhone3启动图片选，分辨率：320x480*/
-						"retina35": "unpackage/res/startImg/ios/640-960.png",/*3.5英寸设备(iPhone4)启动图片，分辨率：640x960*/
-						"retina40": "unpackage/res/startImg/ios/640-1136.png",
-						"retina55": "unpackage/res/startImg/ios/1242-2208.jpg",
-						"retina47": "unpackage/res/startImg/ios/750-1334.png",
-						"retina55l": "unpackage/res/startImg/ios/2208-1240.png",
-						"default": "unpackage/res/startImg/ios/320-480.png"
+						"default": "", /*iPhone3启动图片选，分辨率：320x480*/
+						"retina35": "",/*3.5英寸设备(iPhone4)启动图片，分辨率：640x960*/
+						"retina40": ""
 					},
 					"ipad": {
-						"portrait": "unpackage/res/startImg/ios/768-1004.png", /*iPad竖屏启动图片，分辨率：768x1004*/
-						"portrait-retina": "unpackage/res/startImg/ios/1536-2008.png",/*iPad高分屏竖屏图片，分辨率：1536x2008*/
-						"landscape": "unpackage/res/startImg/ios/1024-748.png", /*iPad横屏启动图片，分辨率：1024x748*/
-						"landscape-retina": "unpackage/res/startImg/ios/2048-1496.png", /*iPad高分屏横屏启动图片，分辨率：2048x1496*/
-						"portrait7": "unpackage/res/startImg/ios/768-1024.png", /*iPad iOS7竖屏启动图片，分辨率：768x1024*/
-						"portrait-retina7": "unpackage/res/startImg/ios/1536-2048.png",/*iPad iOS7高分屏竖屏图片，分辨率：1536x2048*/
-						"landscape7": "unpackage/res/startImg/ios/1024-768.png", /*iPad iOS7横屏启动图片，分辨率：1024x768*/
-						"landscape-retina7": "unpackage/res/startImg/ios/2048-1536.png"
+						"portrait": "", /*iPad竖屏启动图片，分辨率：768x1004*/
+						"portrait-retina": "",/*iPad高分屏竖屏图片，分辨率：1536x2008*/
+						"landscape": "", /*iPad横屏启动图片，分辨率：1024x748*/
+						"landscape-retina": "", /*iPad高分屏横屏启动图片，分辨率：2048x1496*/
+						"portrait7": "", /*iPad iOS7竖屏启动图片，分辨率：768x1024*/
+						"portrait-retina7": "",/*iPad iOS7高分屏竖屏图片，分辨率：1536x2048*/
+						"landscape7": "", /*iPad iOS7横屏启动图片，分辨率：1024x768*/
+						"landscape-retina7": ""
 					}
 				},
 				"android": {
-					"mdpi": "unpackage/res/startImg/android/240-282.png", /*普通屏启动图片，分辨率：240x282*/
-					"ldpi": "unpackage/res/startImg/android/320-442.png", /*大屏启动图片，分辨率：320x442*/
-					"hdpi": "unpackage/res/startImg/android/480-762.png", /*高分屏启动图片，分辨率：480x762*/
-					"xhdpi": "unpackage/res/startImg/android/720-1242.png", /*720P高分屏启动图片，分辨率：720x1242*/
-					"xxhdpi": "unpackage/res/startImg/android/1080-1882.png"
+					"mdpi": "", /*普通屏启动图片，分辨率：240x282*/
+					"ldpi": "", /*大屏启动图片，分辨率：320x442*/
+					"hdpi": "", /*高分屏启动图片，分辨率：480x762*/
+					"xhdpi": "", /*720P高分屏启动图片，分辨率：720x1242*/
+					"xxhdpi": ""
 				}
-			}
+			},
+			"debug": true
 		}
 	},
 	"dependencies": {
 		"pages": {
+			"pages/hotel-list-inner.html": {
+				"resources": [
+					"pages/hotel-list-inner.js",
+					"controls/hotel-price-filter/ui.html",
+					"styles/images/hotel-loading.png",
+					"mui/css/mui.picker.min.css",
+					"font-awesome/fonts/fontawesome-webfont.woff",
+					"mui/js/mui.picker.min.js",
+					"font-awesome/css/font-awesome.min.css"
+				],
+				"refer": [
+					"pages/query-filter.html",
+					"pages/area-filter.html",
+					"pages/hotel-detail.html"
+				],
+				"priority": 0
+			},
 			"pages/index.html": {
 				"resources": [
-					"images/back_index.png",
-					"css/index.css",
-					"libs/utils.js",
-					"fonts/mui.ttf",
-					"pages/index.js",
+					"font-awesome/fonts/fontawesome-webfont.woff",
+					"libs/vue.js",
+					"mui/css/mui.min.css",
 					"mui/js/mui.picker.min.js",
+					"common/vue-filter.js",
+					"controls/hotel-price-filter/main.js",
 					"libs/tp.js",
-					"libs/jquery-1.11.3.min.js",
-					"css/base.css",
-					"common/cache.js",
-					"fonts/iconfont.woff",
-					"images/index_logo.png",
+					"common/event-binder.js",
+					"styles/default.css",
+					"font-awesome/css/font-awesome.min.css",
+					"mui/css/mui.picker.min.css",
+					"common/page-helper.js",
+					"controls/hotel-price-filter/ui.html",
 					"mui/js/mui.min.js",
-					"css/iconfont.css",
-					"css/mui.min.css",
-					"libs/ems.js",
-					"mui/js/muix.js",
-					"images/default_logo.png",
-					"common/immersed.js"
-				],
-				"refer": [
-					"pages/systemSetModule/systemMyIndex.html",
-					"pages/orderModule/orderIndex.html",
-					"pages/userInfoModule/managerInfoList.html",
-					"pages/capitalModule/capitalIndex.html",
-					"pages/accountModule/add_accountMa.html",
-					"pages/userDataModule/userDataIndex.html",
-					"pages/cardModule/cardList.html",
-					"pages/systemSetModule/systemIndex.html",
-					"pages/messageModule/messageIndex.html",
-					"pages/safeCenterModule/safeIndex.html",
-					"pages/redPacketsModule/redList.html"
-				],
-				"priority": 0
-			},
-			"pages/main.html": {
-				"resources": [
-					"css/base.css",
-					"common/cache.js",
-					"images/index_logo.png",
-					"mui/js/mui.min.js",
-					"css/login.css",
-					"images/login-back.png",
-					"css/iconfont.css",
-					"css/mui.min.css",
-					"pages/main.js",
-					"libs/ems.js",
-					"mui/js/muix.js",
-					"fonts/iconfont.woff",
-					"images/default_logo.png",
-					"mui/js/jquery-1.12.0.js",
-					"fonts/iconfont.ttf",
-					"pages/service/service_main.html",
-					"fonts/mui.ttf"
-				],
-				"refer": [
-					"pages/index.html",
-					"pages/login.html",
-					"pages/problem/problem_main.html",
-					"pages/user/user_main.html",
-					"pages/adviser/adviser_main.html"
-				],
-				"priority": 0
-			},
-			"pages/systemSetModule/systemMyIndex.html": {
-				"resources": [
-					"pages/systemSetModule/systemMyIndex.js",
-					"css/systemIndex.css",
-					"css/base.css",
-					"common/cache.js",
-					"mui/js/mui.min.js",
-					"fonts/mui.ttf",
-					"css/iconfont.css",
-					"css/mui.min.css",
-					"mui/js/muix.js",
-					"fonts/iconfont.woff",
-					"common/immersed.js"
-				],
-				"refer": [
-					"pages/systemSetModule/system_notice.html",
-					"pages/login.html",
-					"pages/systemSetModule/sytAbout_bingbee.html"
-				],
-				"priority": 0
-			},
-			"pages/orderModule/orderIndex.html": {
-				"resources": [
-					"css/base.css",
-					"mui/js/mui.pullToRefresh.material.js",
-					"fonts/mui.ttf",
-					"pages/orderModule/orderIndex.js",
-					"libs/tp.js",
-					"css/withdrawal_record.css",
-					"css/order_list.css",
-					"css/index.css",
-					"mui/js/mui.min.js",
-					"css/loading.css",
+					"libs/utils.js",
 					"libs/jquery.js",
-					"css/iconfont.css",
-					"css/mui.min.css",
-					"mui/js/mui.pullToRefresh.js",
-					"mui/js/muix.js",
-					"fonts/iconfont.woff",
-					"images/loadingFail.gif",
-					"common/immersed.js",
-					"fonts/iconfont.ttf"
+					"pages/index.js",
+					"controls/hotel-price-filter/style.css",
+					"common/element-maper.js",
+					"mui/fonts/mui.ttf",
+					"libs/ems-text.js",
+					"libs/ems.js",
+					"styles/images/yuantiao.jpg",
+					"styles/images/shuijiao.jpg",
+					"styles/images/muwu.jpg",
+					"pages/service.html",
+					"pages/home.html",
+					"manifest.json",
+					"font-awesome/fonts/FontAwesome.otf",
+					"pages/blank.html",
+					"libs/ems-json.js",
+					"models/hotel.js",
+					"pages/tmpl-head.js",
+					"pages/tmpl-head.html",
+					".settings/com.aptana.editor.common.prefs",
+					"controls/room-type-filter/ui.html",
+					"controls/price-detail/ui.html",
+					"controls/booking-date/style.css",
+					"favicon.ico",
+					"controls/booking-date/ui.html",
+					"controls/price-detail/style.css",
+					"controls/room-type-filter/style.css",
+					"controls/room-type-filter/main.js",
+					"controls/price-detail/main.js",
+					"controls/booking-date/main.js",
+					"models/service.js",
+					"pages/booking-done.js",
+					"styles/images/hotel-loading.png",
+					"mui/js/mui.indexedlist.js",
+					"mui/css/mui.indexedlist.css",
+					"font-awesome/fonts/fontawesome-webfont.ttf",
+					"font-awesome/fonts/fontawesome-webfont.svg",
+					"font-awesome/fonts/fontawesome-webfont.eot",
+					"font-awesome/fonts/fontawesome-webfont.woff2"
 				],
 				"refer": [
-					"pages/orderModule/orderDetailsContent.html"
+					"pages/hotel-list.html",
+					"pages/city.html",
+					"pages/query-keyword.html",
+					"pages/guide.html",
+					"pages/hotel-info.html",
+					"pages/hotel-pic.html",
+					"pages/booking.html",
+					"pages/comment.html",
+					"pages/room-info.html",
+					"pages/hotel-detail.html",
+					"pages/query-filter.html",
+					"pages/area-filter.html"
 				],
 				"priority": 0
 			},
-			"pages/userInfoModule/managerInfoList.html": {
+			"pages/hotel-list.html": {
 				"resources": [
-					"css/manageInfo.css",
-					"css/base.css",
-					"mui/js/mui.min.js",
-					"css/loading.css",
-					"fonts/mui.ttf",
-					"css/iconfont.css",
-					"pages/userInfoModule/managerInfoList.js",
-					"css/mui.min.css",
+					"pages/hotel-list-inner.html",
+					"controls/hotel-price-filter/ui.html",
+					"pages/hotel-list.js",
+					"libs/vue.js",
+					"mui/css/mui.min.css",
+					"common/vue-filter.js",
+					"controls/hotel-price-filter/main.js",
 					"libs/tp.js",
-					"mui/js/muix.js",
+					"common/event-binder.js",
+					"styles/default.css",
+					"common/page-helper.js",
+					"mui/js/mui.min.js",
+					"libs/utils.js",
 					"libs/jquery.js",
-					"images/loadingFail.gif",
-					"common/immersed.js"
+					"controls/hotel-price-filter/style.css",
+					"mui/fonts/mui.ttf",
+					"common/element-maper.js",
+					"libs/ems-text.js",
+					"libs/ems.js"
 				],
 				"refer": [],
 				"priority": 0
 			},
-			"pages/capitalModule/capitalIndex.html": {
+			"pages/city.html": {
 				"resources": [
-					"images/back_index.png",
-					"css/base.css",
-					"libs/jquery.min.js",
-					"common/cache.js",
-					"fonts/mui.ttf",
-					"libs/tp.js",
-					"css/TipBox.css",
-					"css/capitalModule.css",
-					"fonts/iconfont.woff",
-					"css/manageInfo.css",
-					"css/index.css",
+					"pages/city.js",
+					"libs/vue.js",
+					"mui/css/mui.min.css",
+					"common/vue-filter.js",
+					"mui/js/mui.indexedlist.js",
+					"common/event-binder.js",
+					"styles/default.css",
+					"common/page-helper.js",
+					"mui/css/mui.indexedlist.css",
 					"mui/js/mui.min.js",
-					"css/iconfont.css",
-					"common/TipBox.js",
-					"css/mui.min.css",
-					"pages/capitalModule/funds.js",
-					"mui/js/muix.js",
-					"libs/layer.js",
-					"common/immersed.js",
-					"libs/need/layer.css"
+					"libs/utils.js",
+					"mui/fonts/mui.ttf",
+					"common/element-maper.js",
+					"libs/ems.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"pages/query-keyword.html": {
+				"resources": [
+					"common/page-helper.js",
+					"mui/js/mui.min.js",
+					"libs/utils.js",
+					"libs/vue.js",
+					"mui/css/mui.min.css",
+					"common/vue-filter.js",
+					"mui/fonts/mui.ttf",
+					"common/element-maper.js",
+					"common/event-binder.js",
+					"pages/query-keyword.js",
+					"libs/ems.js",
+					"styles/default.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"pages/query-filter.html": {
+				"resources": [
+					"pages/query-filter.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"pages/area-filter.html": {
+				"resources": [
+					"common/page-helper.js",
+					"mui/js/mui.min.js",
+					"libs/utils.js",
+					"libs/vue.js",
+					"mui/css/mui.min.css",
+					"common/vue-filter.js",
+					"common/element-maper.js",
+					"common/event-binder.js",
+					"mui/fonts/mui.ttf",
+					"pages/area-filter.js",
+					"libs/ems.js",
+					"styles/default.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"pages/hotel-detail.html": {
+				"resources": [
+					"pages/hotel-detail.js",
+					"controls/booking-date/ui.html",
+					"controls/room-type-filter/style.css",
+					"controls/room-type-filter/ui.html",
+					"controls/booking-date/style.css",
+					"controls/booking-date/main.js",
+					"controls/room-type-filter/main.js"
 				],
 				"refer": [
-					"pages/capitalModule/capitalRecord.html",
-					"pages/capitalModule/capitalCash.html",
-					"pages/capitalModule/setCapitalPwd_1.html"
+					"pages/booking.html",
+					"pages/comment.html",
+					"pages/hotel-pic.html",
+					"pages/hotel-info.html",
+					"pages/room-info.html"
 				],
 				"priority": 0
+			},
+			"pages/booking.html": {
+				"resources": [
+					"mui/css/mui.picker.min.css",
+					"mui/js/mui.min.js",
+					"mui/css/mui.min.css",
+					"mui/js/mui.picker.min.js",
+					"pages/booking.js",
+					"libs/ems.js",
+					"styles/default.css",
+					"libs/vue.js",
+					"controls/price-detail/ui.html",
+					"controls/booking-date/style.css",
+					"controls/booking-date/main.js",
+					"common/vue-filter.js",
+					"libs/tp.js",
+					"common/event-binder.js",
+					"controls/booking-date/ui.html",
+					"common/page-helper.js",
+					"controls/price-detail/style.css",
+					"libs/utils.js",
+					"libs/jquery.js",
+					"mui/fonts/mui.ttf",
+					"common/element-maper.js",
+					"controls/price-detail/main.js",
+					"libs/ems-text.js"
+				],
+				"refer": [
+					"pages/booking-done.html"
+				],
+				"priority": 0
+			},
+			"pages/comment.html": {
+				"resources": [
+					"pages/comment.js",
+					"mui/js/mui.min.js",
+					"mui/css/mui.min.css",
+					"mui/fonts/mui.ttf",
+					"libs/ems.js",
+					"styles/default.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"pages/service.html": {
+				"resources": [
+					"font-awesome/fonts/fontawesome-webfont.woff",
+					"pages/service.js",
+					"libs/vue.js",
+					"mui/css/mui.min.css",
+					"mui/js/mui.picker.min.js",
+					"common/vue-filter.js",
+					"controls/hotel-price-filter/main.js",
+					"libs/tp.js",
+					"common/event-binder.js",
+					"styles/default.css",
+					"font-awesome/css/font-awesome.min.css",
+					"mui/css/mui.picker.min.css",
+					"common/page-helper.js",
+					"controls/hotel-price-filter/ui.html",
+					"mui/js/mui.min.js",
+					"libs/utils.js",
+					"libs/jquery.js",
+					"controls/hotel-price-filter/style.css",
+					"mui/fonts/mui.ttf",
+					"common/element-maper.js",
+					"libs/ems-text.js",
+					"libs/ems.js"
+				],
+				"refer": [
+					"pages/hotel-list.html",
+					"pages/query-keyword.html"
+				],
+				"priority": 0
+			},
+			"pages/home.html": {
+				"resources": [
+					"styles/images/yuantiao.jpg",
+					"styles/images/muwu.jpg",
+					"styles/images/shuijiao.jpg",
+					"pages/service.html",
+					"pages/login.html",
+					"mui/css/mui.picker.min.css",
+					"mui/js/mui.min.js",
+					"mui/css/mui.min.css",
+					"mui/js/mui.picker.min.js",
+					"mui/fonts/mui.ttf",
+					"font-awesome/css/font-awesome.min.css",
+					"styles/default.css",
+					"pages/unlock.html",
+					"pages/setting.html"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"pages/guide.html": {
+				"resources": [
+					"mui/js/mui.min.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"pages/hotel-info.html": {
+				"href": "pages/hotel-info.html",
+				"resources": [
+					"pages/hotel-info.js",
+					"mui/js/mui.min.js",
+					"mui/css/mui.min.css",
+					"mui/fonts/mui.ttf",
+					"libs/ems.js",
+					"styles/default.css"
+				],
+				"priority": 2,
+				"refer": []
+			},
+			"pages/hotel-pic.html": {
+				"href": "pages/hotel-pic.html",
+				"resources": [
+					"pages/hotel-pic.js"
+				],
+				"priority": 3,
+				"refer": []
+			},
+			"pages/order-detail.html": {
+				"href": "pages/order-detail.html",
+				"resources": [
+					"pages/order-detail.js"
+				],
+				"refer": [
+					"pages/hotel-detail.html",
+					"pages/booking.html"
+				],
+				"priority": 4
+			},
+			"pages/booking-done.html": {
+				"href": "pages/booking-done.html",
+				"resources": [
+					"pages/booking.js",
+					"controls/booking-date/ui.html",
+					"controls/price-detail/ui.html",
+					"font-awesome/fonts/fontawesome-webfont.woff",
+					"font-awesome/css/font-awesome.min.css"
+				],
+				"refer": [
+					"pages/order-detail.html"
+				],
+				"priority": 4
+			},
+			"pages/room-info.html": {
+				"href": "pages/room-info.html",
+				"resources": [
+					"pages/room-info.js",
+					"common/page-helper.js",
+					"mui/js/mui.min.js",
+					"libs/utils.js",
+					"libs/vue.js",
+					"mui/css/mui.min.css",
+					"common/vue-filter.js",
+					"styles/images/hotel-loading.png",
+					"common/element-maper.js",
+					"common/event-binder.js",
+					"mui/fonts/mui.ttf",
+					"libs/ems.js",
+					"styles/default.css"
+				],
+				"refer": [
+					"pages/booking.html"
+				],
+				"priority": 7
 			},
 			"pages/login.html": {
 				"resources": [
-					"pages/login.js",
-					"css/base.css",
-					"common/cache.js",
-					"libs/jquery.min.js",
-					"images/index_logo.png",
+					"mui/css/mui.min.css",
 					"mui/js/mui.min.js",
-					"css/login.css",
-					"images/login-back.png",
-					"css/iconfont.css",
-					"css/mui.min.css",
-					"common/validator.js",
-					"mui/js/muix.js",
-					"fonts/iconfont.woff",
-					"pages/main.js",
-					"libs/ems.js",
-					"common/immersed.js",
-					"images/default_logo.png"
+					"mui/fonts/mui.ttf",
+					"mui/js/app.js",
+					"mui/js/mui.enterfocus.js"
 				],
 				"refer": [
 					"pages/index.html",
-					"pages/forgotPwdModule/forgotpwd_1.html",
-					"pages/safeCenterModule/bindingPhone_1.html"
+					"pages/reg.html",
+					"pages/forget_password.html"
 				],
 				"priority": 0
 			},
-			"pages/accountModule/add_accountMa.html": {
+			"pages/reg.html": {
 				"resources": [
-					"images/loadingFail2.gif",
-					"css/base.css",
-					"libs/jquery.min.js",
-					"fonts/mui.ttf",
-					"css/withdrawal_record.css",
-					"css/order_list.css",
-					"css/index.css",
-					"mui/js/mui.min.js",
-					"css/loading.css",
-					"pages/accountModule/add_accountMa.js",
-					"css/iconfont.css",
-					"css/mui.min.css",
-					"css/account_module.css",
-					"mui/js/muix.js",
-					"images/default_logo.png",
-					"common/immersed.js"
-				],
-				"refer": [
-					"pages/accountModule/account_managerDetalis.html"
-				],
-				"priority": 0
-			},
-			"pages/userDataModule/userDataIndex.html": {
-				"resources": [
-					"pages/userDataModule/userDataIndex.js",
-					"common/cache.js",
-					"mui/js/mui.min.js",
-					"fonts/mui.ttf",
-					"css/iconfont.css",
-					"css/mui.min.css",
-					"libs/tp.js",
-					"css/userDataModule.css",
-					"mui/js/muix.js",
-					"fonts/iconfont.woff",
-					"common/immersed.js"
-				],
-				"refer": [
-					"pages/userDataModule/userDataSearch.html",
-					"pages/userDataModule/userDataChart.html",
-					"pages/userDataModule/bigDataChart.html",
-					"pages/userDataModule/userDataRecord.html"
-				],
-				"priority": 0
-			},
-			"pages/userDataModule/userDataSearch.html": {
-				"resources": [
-					"mui/js/mui.poppicker.js",
-					"css/base.css",
-					"libs/jquery.min.js",
-					"common/cache.js",
-					"pages/userDataModule/userDataSearch.js",
-					"fonts/mui.ttf",
-					"mui/js/mui.picker.min.js",
-					"fonts/iconfont.woff",
-					"mui/js/mui.min.js",
-					"css/iconfont.css",
-					"css/mui.min.css",
-					"css/mui.picker.min.css",
-					"css/mui.poppicker.css",
-					"css/userDataModule.css",
-					"mui/js/muix.js",
-					"libs/tp.js",
-					"common/immersed.js"
-				],
-				"refer": [
-					"pages/userDataModule/userDataChart.html"
-				],
-				"priority": 0
-			},
-			"pages/userDataModule/userDataChart.html": {
-				"resources": [
-					"images/loadingFail2.gif",
-					"css/base.css",
-					"libs/jquery.min.js",
-					"common/cache.js",
-					"pages/userDataModule/userDataChart.js",
-					"fonts/mui.ttf",
-					"libs/tp.js",
-					"mui/js/echarts-all.js",
-					"fonts/iconfont.woff",
-					"mui/js/mui.min.js",
-					"css/loading.css",
-					"css/iconfont.css",
-					"css/mui.min.css",
-					"css/userDataModule.css",
-					"mui/js/muix.js",
-					"mui/js/echarts.js"
-				],
-				"refer": [
-					"pages/userDataModule/userDataSearch.html"
-				],
-				"priority": 0
-			},
-			"pages/userDataModule/bigDataChart.html": {
-				"resources": [
-					"images/loadingFail2.gif",
-					"css/base.css",
-					"libs/jquery.min.js",
-					"mui/js/mui.min.js",
-					"css/loading.css",
-					"fonts/mui.ttf",
-					"css/iconfont.css",
-					"css/mui.min.css",
-					"mui/js/echarts.js",
-					"libs/tp.js",
-					"css/userDataModule.css",
-					"pages/userDataModule/bigDataChart.js",
-					"mui/js/muix.js"
+					"mui/css/mui.min.css",
+					"mui/fonts/mui.ttf",
+					"mui/js/app.js",
+					"mui/js/mui.min.js"
 				],
 				"refer": [],
 				"priority": 0
 			},
-			"pages/userDataModule/userDataRecord.html": {
+			"pages/forget_password.html": {
 				"resources": [
-					"css/base.css",
-					"libs/jquery.min.js",
-					"pages/userDataModule/userDataRecord.js",
-					"mui/js/mui.min.js",
-					"fonts/mui.ttf",
-					"css/iconfont.css",
-					"css/mui.min.css",
-					"css/userDataModule.css",
-					"mui/js/echarts-all.js",
-					"mui/js/muix.js",
-					"fonts/iconfont.woff",
-					"mui/js/echarts.js",
-					"common/immersed.js"
-				],
-				"refer": [
-					"pages/userDataModule/dataSearch.html"
-				],
-				"priority": 0
-			},
-			"pages/systemSetModule/system_notice.html": {
-				"resources": [
-					"css/base.css",
-					"pages/systemSetModule/system_notice.js",
-					"common/cache.js",
-					"libs/vue.js",
-					"fonts/mui.ttf",
-					"mui/js/mui.picker.min.js",
-					"css/systemIndex.css",
-					"mui/js/echarts-all.js",
-					"mui/js/mui.min.js",
-					"css/iconfont.css",
-					"css/mui.min.css",
-					"mui/js/muix.js",
-					"libs/ems.js",
-					"mui/js/echarts.js",
-					"common/immersed.js"
+					"mui/css/mui.min.css",
+					"mui/fonts/mui.ttf",
+					"mui/js/app.js",
+					"mui/js/mui.min.js"
 				],
 				"refer": [],
 				"priority": 0
 			},
-			"pages/cardModule/cardList.html": {
+			"pages/unlock.html": {
 				"resources": [
-					"mui/js/mui.pullToRefresh.material.js",
-					"libs/jqueryx.js",
-					"css/loading.css",
-					"css/cardModule.css",
-					"common/cacheContant.js",
-					"pages/cardModule/cardList.js",
-					"mui/js/mui.pullToRefresh.js",
-					"css/withdrawal_record.css",
-					"css/base.css",
-					"libs/jquery.min.js",
-					"common/cache.js",
-					"fonts/mui.ttf",
-					"libs/tp.js",
-					"fonts/iconfont.woff",
-					"css/index.css",
+					"mui/js/app.js",
 					"mui/js/mui.min.js",
-					"css/iconfont.css",
-					"css/mui.min.css",
-					"mui/js/muix.js",
-					"common/immersed.js"
+					"mui/css/mui.min.css",
+					"mui/js/mui.locker.js"
 				],
 				"refer": [
-					"pages/cardModule/releaseCard.html",
-					"pages/cardModule/cardDetails.html",
-					"pages/cardModule/releaseCard_1.html"
+					"pages/login.html"
 				],
 				"priority": 0
 			},
-			"pages/userDataModule/dataSearch.html": {
+			"pages/setting.html": {
 				"resources": [
-					"mui/js/mui.picker.min.js",
-					"css/mui.picker.min.css",
-					"common/cache.js",
-					"css/base.css",
-					"libs/jquery.min.js",
-					"mui/js/mui.min.js",
-					"fonts/mui.ttf",
-					"css/iconfont.css",
-					"css/mui.min.css",
-					"css/userDataModule.css",
-					"fonts/iconfont.woff",
-					"mui/js/muix.js"
-				],
-				"refer": [
-					"pages/userDataModule/userDataResult.html"
-				],
-				"priority": 0
-			},
-			"pages/userDataModule/userDataResult.html": {
-				"resources": [
-					"css/loading.css",
-					"pages/userDataModule/userDataResult.js",
-					"mui/js/mui.pullToRefresh.js",
-					"mui/js/echarts-all.js",
-					"mui/js/muix.js",
-					"css/base.css",
-					"libs/jquery.min.js",
-					"common/cache.js",
-					"fonts/mui.ttf",
-					"mui/js/mui.min.js",
-					"css/iconfont.css",
-					"css/mui.min.css",
-					"css/userDataModule.css",
-					"libs/dataUtil.js",
-					"libs/jqueryx.js",
-					"fonts/iconfont.woff",
-					"mui/js/echarts.js",
-					"common/immersed.js",
-					"fonts/iconfont.ttf"
-				],
-				"refer": [],
-				"priority": 0
-			},
-			"pages/systemSetModule/systemIndex.html": {
-				"resources": [
-					"css/base.css",
-					"libs/jquery.min.js",
-					"fonts/mui.ttf",
-					"css/systemIndex.css",
-					"css/TipBox.css",
-					"css/order_list.css",
-					"css/index.css",
-					"mui/js/mui.min.js",
-					"css/loading.css",
-					"pages/systemSetModule/systemIndex.js",
-					"css/iconfont.css",
-					"css/mui.min.css",
-					"common/TipBox.js",
-					"mui/js/muix.js",
-					"images/loadingFail.gif",
-					"libs/layer.js",
-					"libs/need/layer.css",
-					"common/immersed.js"
-				],
-				"refer": [],
-				"priority": 0
-			},
-			"pages/cardModule/releaseCard.html": {
-				"resources": [
-					"pages/cardModule/releaseCard.js",
-					"common/TipBox.js",
-					"mui/js/mui.picker.min.js",
-					"css/mui.picker.min.css",
-					"css/TipBox.css",
-					"mui/js/tool.js",
-					"css/base.css",
-					"libs/jquery.min.js",
-					"css/cardModule.css",
-					"fonts/mui.ttf",
-					"fonts/iconfont.woff",
-					"mui/js/mui.min.js",
-					"css/iconfont.css",
-					"css/mui.min.css",
-					"mui/js/muix.js",
-					"common/immersed.js",
-					"libs/layer.js",
-					"libs/need/layer.css"
-				],
-				"refer": [
-					"pages/cardModule/cardList.html"
-				],
-				"priority": 0
-			},
-			"pages/messageModule/messageIndex.html": {
-				"resources": [
-					"pages/messageModule/messageIndex.js",
-					"css/messageModule.css",
-					"images/messageModule_logo_01.jpg",
-					"images/messageModule_logo_04.jpg",
-					"images/messageModule_logo_02.jpg",
-					"mui/js/mui.pullToRefresh.material.js",
-					"libs/jqueryx.js",
-					"mui/js/mui.pullToRefresh.js",
-					"css/base.css",
-					"common/cache.js",
-					"libs/jquery.min.js",
-					"fonts/mui.ttf",
-					"libs/tp.js",
-					"mui/js/mui.min.js",
-					"css/loading.css",
-					"css/iconfont.css",
-					"css/mui.min.css",
-					"mui/js/muix.js",
-					"images/loadingFail2.gif",
-					"images/messageModule_logo_03.jpg",
-					"common/immersed.js"
-				],
-				"refer": [
-					"pages/messageModule/messageDetails.html"
-				],
-				"priority": 0
-			},
-			"pages/safeCenterModule/safeIndex.html": {
-				"resources": [
-					"pages/safeCenterModule/safeIndex.js",
-					"mui/js/tool.js",
-					"css/base.css",
-					"common/cache.js",
-					"libs/jquery.min.js",
-					"mui/js/mui.min.js",
-					"css/iconfont.css",
-					"css/mui.min.css",
-					"css/systemIndex.css",
-					"libs/tp.js",
-					"mui/js/muix.js",
-					"fonts/mui.ttf",
-					"fonts/iconfont.woff",
-					"common/immersed.js"
-				],
-				"refer": [
-					"pages/safeCenterModule/withdrawal_reset_1.html",
-					"pages/safeCenterModule/resetPassword_1.html"
-				],
-				"priority": 0
-			},
-			"pages/capitalModule/capitalRecord.html": {
-				"resources": [
-					"mui/js/mui.pullToRefresh.material.js",
-					"css/loading.css",
-					"pages/capitalModule/capitalRecord.js",
-					"mui/js/mui.pullToRefresh.js",
-					"css/withdrawal_record.css",
-					"css/order_list.css",
-					"css/base.css",
-					"libs/jquery.min.js",
-					"fonts/mui.ttf",
-					"libs/tp.js",
-					"fonts/iconfont.woff",
-					"css/index.css",
-					"mui/js/mui.min.js",
-					"css/iconfont.css",
-					"css/mui.min.css",
-					"mui/js/muix.js",
-					"images/loadingFail.gif",
-					"common/immersed.js"
-				],
-				"refer": [
-					"pages/capitalModule/withdrawalRecord_details.html"
-				],
-				"priority": 0
-			},
-			"pages/capitalModule/withdrawalRecord_details.html": {
-				"resources": [
-					"pages/capitalModule/record_details.js",
-					"images/money_incon.png",
-					"css/base.css",
-					"mui/js/mui.pullToRefresh.material.js",
-					"libs/jquery.min.js",
-					"fonts/mui.ttf",
-					"libs/tp.js",
-					"css/withdrawal_record.css",
-					"css/order_list.css",
-					"fonts/iconfont.woff",
-					"common/immersed.js",
-					"css/index.css",
-					"mui/js/mui.min.js",
-					"css/loading.css",
-					"css/iconfont.css",
-					"css/mui.min.css",
-					"mui/js/mui.pullToRefresh.js",
-					"mui/js/muix.js"
-				],
-				"refer": [],
-				"priority": 0
-			},
-			"pages/accountModule/account_managerDetalis.html": {
-				"resources": [
-					"pages/accountModule/account_managerDetalis.js",
-					"css/base.css",
-					"libs/jquery.min.js",
-					"fonts/mui.ttf",
-					"css/withdrawal_record.css",
-					"css/order_list.css",
-					"common/immersed.js",
-					"css/index.css",
-					"mui/js/mui.min.js",
-					"css/loading.css",
-					"css/iconfont.css",
-					"css/mui.min.css",
-					"css/account_module.css",
-					"mui/js/muix.js"
-				],
-				"refer": [
-					"pages/accountModule/add_accountMa.html"
-				],
-				"priority": 0
-			},
-			"pages/orderModule/orderDetailsContent.html": {
-				"resources": [
-					"css/base.css",
-					"fonts/mui.ttf",
-					"libs/tp.js",
-					"pages/orderModule/orderDetailsContent.js",
-					"css/order_list.css",
-					"images/audit_incon.png",
-					"common/immersed.js",
-					"css/index.css",
-					"mui/js/mui.min.js",
-					"css/loading.css",
-					"css/iconfont.css",
-					"libs/jquery.js",
-					"css/mui.min.css",
-					"mui/js/muix.js",
-					"images/loadingFail.gif"
-				],
-				"refer": [],
-				"priority": 0
-			},
-			"pages/messageModule/messageDetails.html": {
-				"resources": [
-					"libs/mui.min.js",
-					"css/base.css",
-					"libs/jquery.min.js",
-					"common/cache.js",
-					"mui/js/mui.min.js",
-					"css/messageModule.css",
-					"libs/jqueryx.js",
-					"fonts/mui.ttf",
-					"css/iconfont.css",
-					"css/mui.min.css",
-					"mui/js/muix.js"
-				],
-				"refer": [],
-				"priority": 0
-			},
-			"pages/forgotPwdModule/forgotpwd_1.html": {
-				"resources": [
-					"css/index.css",
-					"pages/forgotPwdModule/forgotpwd_1.js",
-					"fonts/mui.ttf",
-					"css/ForgotPassword.css",
-					"common/safeCommon.js",
-					"mui/js/tool.js"
-				],
-				"refer": [],
-				"priority": 0
-			},
-			"pages/capitalModule/capitalCash.html": {
-				"resources": [
-					"pages/capitalModule/capitalCash.js",
-					"common/base64.js",
-					"css/base.css",
-					"libs/jquery.min.js",
-					"mui/js/mui.min.js",
-					"fonts/mui.ttf",
-					"css/iconfont.css",
-					"common/TipBox.js",
-					"css/mui.min.css",
-					"css/capitalModule.css",
-					"css/TipBox.css",
-					"mui/js/muix.js",
-					"fonts/iconfont.woff",
-					"css/loading.css",
-					"common/immersed.js",
-					"libs/layer.js",
-					"libs/need/layer.css",
-					"images/loadingFail2.gif",
-					"fonts/iconfont.ttf"
-				],
-				"refer": [
-					"pages/capitalModule/forgotCapitalPwd_1.html",
-					"pages/capitalModule/withdrawal_success.html",
-					"pages/capitalModule/capitalIndex.html"
-				],
-				"priority": 0
-			},
-			"pages/capitalModule/forgotCapitalPwd_1.html": {
-				"resources": [
-					"css/capitalPwd.css",
-					"pages/capitalModule/updatepwd.js",
-					"css/ForgotPassword.css",
-					"css/index.css",
-					"css/base.css",
-					"libs/jquery.min.js",
-					"mui/js/mui.min.js",
-					"fonts/mui.ttf",
-					"css/iconfont.css",
-					"css/mui.min.css",
-					"mui/js/muix.js",
-					"common/immersed.js",
-					"css/loading.css",
-					"common/base64.js"
-				],
-				"refer": [
-					"pages/capitalModule/forgotCapitalPwd_2.html"
-				],
-				"priority": 0
-			},
-			"pages/capitalModule/forgotCapitalPwd_2.html": {
-				"resources": [
-					"pages/capitalModule/forgotCapitalPwd_2.js",
-					"css/index.css",
-					"css/base.css",
-					"libs/jquery.min.js",
-					"mui/js/mui.min.js",
-					"fonts/mui.ttf",
-					"css/iconfont.css",
-					"css/mui.min.css",
-					"css/ForgotPassword.css",
-					"mui/js/muix.js"
-				],
-				"refer": [
-					"pages/capitalModule/forgotCapitalPwd_3.html"
-				],
-				"priority": 0
-			},
-			"pages/safeCenterModule/withdrawal_reset_1.html": {
-				"resources": [
-					"css/base.css",
-					"libs/jquery.min.js",
-					"fonts/mui.ttf",
-					"css/ForgotPassword.css",
-					"common/validator.js",
-					"common/base64.js",
-					"css/index.css",
-					"mui/js/mui.min.js",
-					"css/iconfont.css",
-					"css/mui.min.css",
-					"pages/safeCenterModule/withdrawal_reset_1.js",
-					"css/safeCenterModule.css",
-					"common/safeCommon.js",
-					"mui/js/muix.js",
-					"mui/js/tool.js"
-				],
-				"refer": [
-					"pages/safeCenterModule/withdrawal_reset_2.html"
-				],
-				"priority": 0
-			},
-			"pages/safeCenterModule/resetPassword_1.html": {
-				"resources": [
-					"css/index.css",
-					"pages/safeCenterModule/resetPassword_1.js",
-					"css/ForgotPassword.css",
-					"css/safeCenterModule.css",
-					"common/safeCommon.js",
-					"common/validator.js",
-					"css/base.css",
-					"libs/jquery.min.js",
-					"fonts/mui.ttf",
-					"mui/js/mui.min.js",
-					"css/iconfont.css",
-					"css/mui.min.css",
-					"mui/js/muix.js",
-					"mui/js/tool.js"
-				],
-				"refer": [],
-				"priority": 0
-			},
-			"pages/capitalModule/withdrawal_success.html": {
-				"resources": [
-					"css/withdrawal_record.css",
-					"css/order_list.css",
-					"css/index.css",
-					"css/base.css",
-					"libs/jquery.min.js",
-					"mui/js/mui.min.js",
-					"css/iconfont.css",
-					"css/mui.min.css",
-					"mui/js/muix.js",
-					"fonts/iconfont.woff",
-					"common/immersed.js"
-				],
-				"refer": [
-					"pages/capitalModule/capitalRecord.html",
-					"pages/capitalModule/capitalCash.html"
-				],
-				"priority": 0
-			},
-			"pages/safeCenterModule/bindingPhone_1.html": {
-				"resources": [
-					"css/base.css",
-					"libs/jquery.min.js",
-					"common/cache.js",
-					"fonts/mui.ttf",
-					"css/ForgotPassword.css",
-					"common/validator.js",
-					"fonts/iconfont.woff",
-					"css/index.css",
-					"mui/js/mui.min.js",
-					"css/iconfont.css",
-					"css/mui.min.css",
-					"pages/safeCenterModule/bindingPhone_1.js",
-					"css/safeCenterModule.css",
-					"common/safeCommon.js",
-					"css/account_module.css",
-					"mui/js/muix.js",
-					"mui/js/tool.js"
-				],
-				"refer": [],
-				"priority": 0
-			},
-			"pages/cardModule/cardDetails.html": {
-				"resources": [
-					"css/base.css",
-					"common/cache.js",
-					"libs/jquery.min.js",
-					"css/cardModule.css",
-					"fonts/mui.ttf",
-					"pages/cardModule/cardDetails.js",
-					"common/cacheContant.js",
-					"libs/tp.js",
-					"css/order_list.css",
-					"images/audit_incon.png",
-					"css/index.css",
-					"mui/js/mui.min.js",
-					"css/loading.css",
-					"libs/jqueryx.js",
-					"css/iconfont.css",
-					"css/mui.min.css",
-					"mui/js/muix.js",
-					"images/cardState.png",
-					"images/loadingFail2.gif"
-				],
-				"refer": [
-					"pages/cardModule/cardList.html"
-				],
-				"priority": 0
-			},
-			"pages/capitalModule/setCapitalPwd_1.html": {
-				"resources": [
-					"css/ForgotPassword.css"
-				],
-				"refer": [
-					"pages/capitalModule/setCapitalPwd_2.html"
-				],
-				"priority": 0
-			},
-			"pages/capitalModule/setCapitalPwd_2.html": {
-				"resources": [
-					"pages/capitalModule/set-password.js",
-					"css/capitalPwd.css",
-					"css/loading.css"
-				],
-				"refer": [
-					"pages/capitalModule/setCapitalPwd_3.html"
-				],
-				"priority": 0
-			},
-			"pages/safeCenterModule/withdrawal_reset_2.html": {
-				"resources": [
-					"pages/safeCenterModule/withdrawal_reset_2.js",
-					"css/base.css",
-					"libs/jquery.min.js",
-					"fonts/mui.ttf",
-					"css/ForgotPassword.css",
-					"common/validator.js",
-					"css/index.css",
-					"mui/js/mui.min.js",
-					"css/iconfont.css",
-					"css/mui.min.css",
-					"css/safeCenterModule.css",
-					"common/safeCommon.js",
-					"mui/js/muix.js",
-					"mui/js/tool.js"
-				],
-				"refer": [
-					"pages/safeCenterModule/withdrawal_reset_3.html"
-				],
-				"priority": 0
-			},
-			"pages/safeCenterModule/withdrawal_reset_3.html": {
-				"resources": [
-					"pages/safeCenterModule/withdrawal_reset_3.js",
-					"css/index.css",
-					"css/base.css",
-					"libs/jquery.min.js",
-					"mui/js/mui.min.js",
-					"css/iconfont.css",
-					"css/mui.min.css",
-					"css/ForgotPassword.css",
-					"css/safeCenterModule.css",
-					"mui/js/muix.js",
-					"fonts/iconfont.woff"
-				],
-				"refer": [],
-				"priority": 0
-			},
-			"pages/capitalModule/forgotCapitalPwd_3.html": {
-				"resources": [
-					"fonts/iconfont.woff"
-				],
-				"refer": [],
-				"priority": 0
-			},
-			"pages/systemSetModule/sytAbout_bingbee.html": {
-				"resources": [
-					"images/about_login.png",
-					"css/base.css",
-					"mui/js/mui.min.js",
-					"fonts/mui.ttf",
-					"css/iconfont.css",
-					"css/mui.min.css",
-					"css/systemIndex.css",
-					"pages/systemSetModule/sytAbout_bingbee.js",
-					"mui/js/muix.js",
-					"fonts/iconfont.woff",
-					"common/immersed.js"
-				],
-				"refer": [],
-				"priority": 0
-			},
-			"pages/cardModule/releaseCard_1.html": {
-				"resources": [
-					"pages/cardModule/release_1.js",
-					"libs/layer.js",
-					"css/ForgotPassword.css",
-					"css/mui.picker.min.css",
-					"css/TipBox.css",
-					"mui/js/tool.js",
-					"libs/need/layer.css",
-					"css/base.css",
-					"libs/jquery.min.js",
-					"css/cardModule.css",
-					"fonts/mui.ttf",
-					"mui/js/mui.picker.min.js",
-					"fonts/iconfont.woff",
-					"common/immersed.js",
-					"css/index.css",
-					"mui/js/mui.min.js",
-					"css/iconfont.css",
-					"css/mui.min.css",
-					"mui/js/muix.js"
-				],
-				"refer": [],
-				"priority": 0
-			},
-			"pages/redPacketsModule/redList.html": {
-				"resources": [
-					"images/loadingFail2.gif",
-					"css/base.css",
-					"common/cache.js",
-					"libs/jquery.min.js",
-					"mui/js/mui.pullToRefresh.material.js",
-					"css/cardModule.css",
-					"fonts/mui.ttf",
-					"libs/tp.js",
-					"common/cacheContant.js",
-					"css/withdrawal_record.css",
-					"common/immersed.js",
-					"css/index.css",
-					"mui/js/mui.min.js",
-					"css/loading.css",
-					"libs/jqueryx.js",
-					"pages/redPacketsModule/redList.js",
-					"css/iconfont.css",
-					"css/mui.min.css",
-					"mui/js/mui.pullToRefresh.js",
-					"mui/js/muix.js"
-				],
-				"refer": [],
-				"priority": 0
-			},
-			"pages/service/service_main.html": {
-				"resources": [
-					"mui/css/mui.min.css"
-				],
-				"refer": [],
-				"priority": 0
-			},
-			"pages/user/user_main.html": {
-				"resources": [
-					"images/user/icon23.png",
-					"images/user/icon19.png",
-					"images/user/u42.png",
-					"css/userCenter.css",
-					"images/user/icon18.png",
-					"images/user/icon21.png",
-					"images/user/arrow.png",
-					"images/user/icon20.png",
-					"mui/js/mui.min.js",
-					"mui/css/mui.min.css"
+					"mui/js/app.js",
+					"mui/js/mui.locker.js",
+					"mui/js/mui.view.js"
 				],
 				"refer": [],
 				"priority": 0
 			}
 		},
-		"index": {
-			"resources": [
-				"css/base.css",
-				"common/cache.js",
-				"images/index_logo.png",
-				"mui/js/mui.min.js",
-				"css/login.css",
-				"images/login-back.png",
-				"css/iconfont.css",
-				"css/mui.min.css",
-				"pages/main.js",
-				"libs/ems.js",
-				"mui/js/muix.js",
-				"fonts/iconfont.woff"
-			],
-			"refer": [
-				"pages/index.html"
-			],
-			"priority": 0
-		},
 		"idle": {
 			"resources": [
-				"libs/feedback.js",
-				"pages/safeCenterModule/updateBindingPhone_1.html",
-				"pages/safeCenterModule/resetPassword_3.js",
-				"common/element-maper.js",
-				"libs/feedback-page.js",
-				"pages/cardModule/cardList-backup.html",
-				"pages/dialog/test.html",
-				"pages/safeCenterModule/bindingPhone_success.js",
-				"pages/safeCenterModule/updateBindingPhone_3.js",
-				"templates/page_template.html",
-				"pages/safeCenterModule/updateBindingPhone_3.html",
-				"libs/easemob.im-1.0.5.js",
-				"pages/accountModule/account_management.js",
-				"models/hotel.js",
-				"common/event-binder.js",
-				"pages/dialog/testDialog.html",
-				"libs/mui.view.js",
-				"libs/json2.js",
-				"pages/forgotPwdModule/forgotpwd_2.js",
-				"libs/ems-json.js",
-				"pages/userInfoModule/managerInfo.html",
-				"mui/js/mui.picker.js",
-				"pages/orderModule/orderDetails.js",
-				"pages/templates/loadingFail.html",
-				"pages/templates/page_template.html",
-				"mui/css/mui.picker.min.css",
-				"common/page-helper.js",
-				"mui/css/mui.indexedlist.css",
-				"models/service.js",
-				"pages/safeCenterModule/resetPassword_3.html",
-				"libs/strophe-custom-2.0.0.js",
-				"pages/systemSetModule/sytem_feedback.html",
-				"libs/template.js",
-				"pages/safeCenterModule/bindingPhone_no.html",
-				"common/templates.js",
-				"common/vue-filter.js",
-				"fonts/iconfont.eot",
-				"pages/accountModule/new_account.html",
-				"images/password.png",
-				"images/earnings_leftTop.png",
-				"pages/forgotPwdModule/forgotpwd_2.html",
-				"mui/js/mui.js",
-				"pages/safeCenterModule/bindingPhone_ok.html",
-				"pages/safeCenterModule/updateBindingPhone_2.html",
-				"mui/css/mui.picker.css",
-				"pages/forgotPwdModule/forgotpwd_3.js",
-				"pages/orderModule/order_all.html",
-				"mui/js/mui.dtpicker.js",
-				"pages/forgotPwdModule/forgotpwd_3.html",
-				"pages/accountModule/account_manager.js",
-				"pages/safeCenterModule/bindingPhone_ok.js",
-				"images/binding_logo.png",
-				"mui/js/mui.indexedlist.js",
-				"pages/safeCenterModule/bindingPhone_no.js",
-				"pages/cardModule/cardTest.html",
-				"pages/dialog/testDelete.html",
-				"mui/css/mui.dtpicker.css",
-				"mui/css/mui.poppicker.css",
-				"mui/fonts/mui.ttf",
-				"pages/safeCenterModule/resetPassword_2.js",
-				"pages/safeCenterModule/resetPassword_2.html",
-				"pages/systemSetModule/sytem_feedback.js",
-				"pages/capitalModule/withdrawal_record.html",
-				"pages/accountModule/account_management.html",
-				"pages/safeCenterModule/updateBindingPhone_2.js",
-				"pages/safeCenterModule/bindingPhone_success.html",
-				"pages/cardModule/cardListOld.html",
-				"pages/userInfoModule/managerInfoDetails.html",
-				"libs/ems-text.js",
-				"common/boss_rights_helper.js",
-				"pages/accountModule/new_account.js",
-				"pages/safeCenterModule/updateBindingPhone_1.js",
-				"fonts/iconfont.svg",
-				"common/boss_storage_helper.js",
-				"pages/orderModule/orderDetails.html",
-				"css/mui.picker.css"
+				"styles/images/qrcode.png",
+				"styles/images/icon.png"
 			]
 		}
-	},
-	"unpackage":[
-	  "common/boss_rights_helper.js",
-	  "common/boss_storage_helper.js",
-	  "common/element-maper.js",
-	  "common/event-binder.js",
-	  "common/page-helper.js",
-	  "common/templates.js",
-	  "common/vue-filter.js",
-	  "css/mui.picker.css",
-	  "fonts/iconfont.eot",
-	  "fonts/iconfont.svg",
-	  "images/binding_logo.png",
-	  "images/earnings_leftTop.png",
-	  "images/password.png",
-	  "libs/easemob.im-1.0.5.js",
-	  "libs/ems-json.js",
-	  "libs/ems-text.js",
-	  "libs/feedback-page.js",
-	  "libs/feedback.js",
-	  "libs/json2.js",
-	  "libs/mui.view.js",
-	  "libs/strophe-custom-2.0.0.js",
-	  "libs/template.js",
-	  "models/hotel.js",
-	  "models/service.js",
-	  "mui/css/mui.dtpicker.css",
-	  "mui/css/mui.indexedlist.css",
-	  "mui/css/mui.min.css",
-	  "mui/css/mui.picker.css",
-	  "mui/css/mui.picker.min.css",
-	  "mui/css/mui.poppicker.css",
-	  "mui/fonts/mui.ttf",
-	  "mui/js/mui.dtpicker.js",
-	  "mui/js/mui.indexedlist.js",
-	  "mui/js/mui.picker.js",
-	  "pages/templates/loadingFail.html",
-	  "pages/templates/page_template.html",
-	  "pages/userInfoModule/managerInfo.html",
-	  "pages/userInfoModule/managerInfoDetails.html",
-	  "templates/page_template.html"
-	]
+	}
 }

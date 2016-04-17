@@ -1,71 +1,211 @@
 <!DOCTYPE html>
-<html>
+<html class="ui-page-login">
+
 	<head>
-	<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,user-scalable=no" />
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <title>登录</title>
-  
-    <link href="../css/mui.min.css" rel="stylesheet"/>
-    <link href="../css/iconfont.css" rel="stylesheet" />
-    <link rel="stylesheet" href="../css/login.css" />
-    <link rel="stylesheet" href="../css/base.css" />
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link href="../mui/css/mui.min.css" rel="stylesheet" />
+		<link href="../mui/css/style.css" rel="stylesheet" />
+		<style>
+			.area {
+				margin: 20px auto 0px auto;
+			}
+			
+			.mui-input-group {
+				margin-top: 10px;
+			}
+			
+			.mui-input-group:first-child {
+				margin-top: 20px;
+			}
+			
+			.mui-input-group label {
+				width: 22%;
+			}
+			
+			.mui-input-row label~input,
+			.mui-input-row label~select,
+			.mui-input-row label~textarea {
+				width: 78%;
+			}
+			
+			.mui-checkbox input[type=checkbox],
+			.mui-radio input[type=radio] {
+				top: 6px;
+			}
+			
+			.mui-content-padded {
+				margin-top: 25px;
+			}
+			
+			.mui-btn {
+				padding: 10px;
+			}
+			
+			.link-area {
+				display: block;
+				margin-top: 25px;
+				text-align: center;
+			}
+			
+			.spliter {
+				color: #bbb;
+				padding: 0px 8px;
+			}
+			
+		</style>
+
 	</head>
-	<style>
-	 
-	</style>
-	<body style="background: #2EBBCB;">
-		<div id="login-back" class="login-back">
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<h1 class="mui-title">登录</h1>
+		</header>
+		<div class="mui-content">
+			<form id='login-form' class="mui-input-group">
+				<div class="mui-input-row">
+					<label>账号</label>
+					<input id='account' type="text" class="mui-input-clear mui-input" placeholder="请输入账号">
+				</div>
+				<div class="mui-input-row">
+					<label>密码</label>
+					<input id='password' type="password" class="mui-input-clear mui-input" placeholder="请输入密码">
+				</div>
+			</form>
+			<form class="mui-input-group">
+				<ul class="mui-table-view mui-table-view-chevron">
+					<li class="mui-table-view-cell">
+						自动登录
+						<div id="autoLogin" class="mui-switch">
+							<div class="mui-switch-handle"></div>
+						</div>
+					</li>
+				</ul>
+			</form>
+			<div class="mui-content-padded">
+				<button id='login' class="mui-btn mui-btn-block mui-btn-primary">登录</button>
+				<div class="link-area"><a id='reg' >注册账号</a> <span class="spliter">|</span> <a id='forgetPassword'>忘记密码</a>
+				</div>
+			</div>
+
 		</div>
-	    <div class="mui-content login-logo">
-	    	<p class="login-Imag">
-	    		<!--
-	    			<img id="logo" width="110" height="110" src="../images/default_logo.png"" />
-	    		-->
-	    		<span></span>
-	    	</p>
-	    	<h4 class="login-name">
-	    		顶尖顾问在线
-	    	</h4>
-			<div class="login-Msg">
-				<h4>正在登录...</h4>
-			</div>
-	    </div>
-	    <div class="mui-content" id="loginCont">  
-	        <div class="mui-content-padded " style="margin: 5px;">  
-			    <form class="mui-input-group" id="login-form">  
-			        <div class="mui-input-row login-row" >  
-			            <input type="text" id="phone" maxlength="20" value="" placeholder="请输入账号/手机号">  
-			        </div>  
-			        <div class="mui-input-row login-row">  			            
-			            <input type="password" id="password" maxlength="16" value=""  placeholder="请输入密码">  
-			        </div>  
-			    </form>  
-			</div>  
-			<div class="login-row clickBut" style="background: #60d7e3;"> 
-			    <button class="mui-btn mui-btn-primary" style="background: none !important" id="btn-login">登录</button>  			    
-			</div> 
-			<div class="login-footer">
-				<a  id="btn-forgotpwd">忘记密码?</a>
-			</div>
-			<div class="login-phone">
-				<i class="icon iconfont">&#xe612;</i>
-				<span>
-					客服电话：888-888-8888
-				</span>
-			</div>
-	    </div> 
-	    <!--<div class="mui-bar mui-bar-tab" style="height:20px;line-height:20px;font-size:10px;text-align:center;">  
-                                  这是底部信息  
-    	</div> -->
+		<script src="../mui/js/mui.min.js"></script>
+		<script src="../mui/js/mui.enterfocus.js"></script>
+		<script src="../mui/js/app.js"></script>
+		<script>
+			(function($, doc) {
+				$.init({
+					statusBarBackground: '#f7f7f7'
+				});
+				$.plusReady(function() {
+					plus.screen.lockOrientation("portrait-primary");
+					var settings = app.getSettings();
+					var state = app.getState();
+					var mainPage = $.preload({
+						"id": 'main',
+						"url": 'index.html'
+					});
+					var toMain = function() {
+						$.fire(mainPage, 'show', null);
+						setTimeout(function() {
+							$.openWindow({
+								id: 'main',
+								show: {
+									aniShow: 'pop-in'
+								},
+								waiting: {
+									autoShow: false
+								}
+							});
+						}, 0);
+					};
+					//检查 "登录状态/锁屏状态" 开始
+					if (settings.autoLogin && state.token && settings.gestures) {
+						$.openWindow({
+							url: 'unlock.html',
+							id: 'unlock',
+							show: {
+								aniShow: 'pop-in'
+							},
+							waiting: {
+								autoShow: false
+							}
+						});
+					} else if (settings.autoLogin && state.token) {
+						toMain();
+					} else {
+						
+					}
+
+					//检查 "登录状态/锁屏状态" 结束
+					var loginButton = doc.getElementById('login');
+					var accountBox = doc.getElementById('account');
+					var passwordBox = doc.getElementById('password');
+					var autoLoginButton = doc.getElementById("autoLogin");
+					var regButton = doc.getElementById('reg');
+					var forgetButton = doc.getElementById('forgetPassword');
+					loginButton.addEventListener('tap', function(event) {
+						var loginInfo = {
+							account: accountBox.value,
+							password: passwordBox.value
+						};
+						app.login(loginInfo, function(err) {
+							if (err) {
+								plus.nativeUI.toast(err);
+								return;
+							}
+							toMain();
+						});
+					});
+					$.enterfocus('#login-form input', function() {
+						$.trigger(loginButton, 'tap');
+					});
+					autoLoginButton.classList[settings.autoLogin ? 'add' : 'remove']('mui-active')
+					autoLoginButton.addEventListener('toggle', function(event) {
+						setTimeout(function() {
+							var isActive = event.detail.isActive;
+							settings.autoLogin = isActive;
+							app.setSettings(settings);
+						}, 50);
+					}, false);
+					regButton.addEventListener('tap', function(event) {
+						$.openWindow({
+							url: 'reg.html',
+							id: 'reg',
+							preload: true,
+							show: {
+								aniShow: 'pop-in'
+							},
+							styles: {
+								popGesture: 'hide'
+							},
+							waiting: {
+								autoShow: false
+							}
+						});
+					}, false);
+					forgetButton.addEventListener('tap', function(event) {
+						$.openWindow({
+							url: 'forget_password.html',
+							id: 'forget_password',
+							preload: true,
+							show: {
+								aniShow: 'pop-in'
+							},
+							styles: {
+								popGesture: 'hide'
+							},
+							waiting: {
+								autoShow: false
+							}
+						});
+					}, false);
+					
+
+				});
+			}(mui, document));
+		</script>
 	</body>
-	<script type="text/javascript" src="../mui/js/mui.min.js"></script>
-	<script type="text/javascript" src="../libs/jquery.min.js" ></script>
-	<script type="text/javascript" src="../mui/js/muix.js" ></script>
-	<script type="text/javascript" src="../common/immersed.js" ></script>
-	<script type="text/javascript" src="../common/validator.js" ></script>
-	<script type="text/javascript" src="../common/cache.js" ></script>
-	<!--<script src="../libs/ems.js" data-main='./main.js'></script>-->
-	<script type="text/javascript" src="login.js" ></script>
+
 </html>
