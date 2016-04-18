@@ -9,13 +9,18 @@ define(function(require, exports, module) {
 		plus.navigator.setStatusBarStyle("UIStatusBarStyleBlackOpaque");
 	});
 
+
 	var utils = require('../libs/utils.js');
 	var pageHepler = require('../common/page-helper');
 	var hotelPriceFilter = require('../controls/hotel-price-filter/main');
+	var skillFilter = require('../controls/skill-filter/main');
+
+
 
 	var self = exports;
 
 	self.dayNum = 1;
+	self.menNum = 1;
 	self.beginDate = utils.formatDate(new Date(), 'yyyy-MM-dd');
 
 	var calcEndDate = function() {
@@ -29,6 +34,13 @@ define(function(require, exports, module) {
 	self.changeDayNum = function(event) {
 		self.dayNum = parseInt(event.target.value);
 		calcEndDate();
+	};
+	
+	
+	//更改人数
+	self.changeMenNum = function(event) {
+		self.menNum = parseInt(event.target.value);
+		
 	};
 
 	//选择日期
@@ -47,14 +59,32 @@ define(function(require, exports, module) {
 
 	self.priceRange = hotelPriceFilter.priceRange;
 	self.star = hotelPriceFilter.star;
-
+	self.languageRange = skillFilter.languageRange;
+	self.platform = skillFilter.platform;
 	self.computed = {
 		priceAndStar: function() {
 			if (self.star.value == 0 &&
 				self.priceRange.value == 0) {
-				return "价格/星级"
+				return "价格/星级";
 			} else {
 				return self.priceRange.text + "," + self.star.text;
+			}
+		},
+		
+		skill: function() {
+			if (self.languageRange.value == 0 &&
+				self.platform.value == 0) {
+				return "技术要求";
+			} else {
+				return self.languageRange.text + "," + self.platform.text;
+			}
+		},
+		
+		paymentStr: function() {
+			if (self.payment == undefined) {
+				return "付款方式";
+			} else {
+				return self.payment.text;
 			}
 		}
 	};
@@ -66,6 +96,64 @@ define(function(require, exports, module) {
 			self.star = rs.star;
 		});
 	};
+
+	//设置技术要求条件
+	self.setSkillFilter = function() {
+		skillFilter.show(function(rs) {
+			self.languageRange = rs.languageRange;
+			self.platform = rs.platform;
+		});
+	};
+
+
+
+		
+	//设置技术要求条件
+	self.setPaymentMethod = function() {
+		if (!self.payment) {
+			self.payment = new mui.PopPicker();
+					self.payment.setData([{
+						value: '1',
+						text: '每月支付'
+					}, {
+						value: '2',
+						text: '每2月支付'
+					}, {
+						value: '3',
+						text: '一次性支付'
+					}, {
+						value: '4',
+						text: '分三次支付'
+					}]);
+		}
+		self.payment.show(function() {});
+		
+		
+
+	};
+	self.setInvoice = function() {
+		if (!self.iPicker) {
+			self.iPicker = new mui.PopPicker();
+			self.iPicker.setData([{
+				text: "不需要"
+			}, {
+				text: "到店领取"
+			}]);
+		}
+		self.iPicker.show(function() {});
+	};
+
+	self.setRequirement = function() {
+		if (window.plus) {
+			plus.nativeUI.prompt("请填写您的要求", function() {
+				//TODO: 
+			}, "特殊要求", "", ["确认", "取消"]);
+		} else {
+			var rs = prompt("请填写您的要求");
+			//TODO:
+		}
+	};
+
 
 	//初始化页面辅助模块
 	pageHepler.init({
@@ -92,7 +180,7 @@ define(function(require, exports, module) {
 			return false;
 		};
 		//关闭 splash 画面
-		plus.navigator.closeSplashscreen();
+		//plus.navigator.closeSplashscreen();
 	});
 
 });
