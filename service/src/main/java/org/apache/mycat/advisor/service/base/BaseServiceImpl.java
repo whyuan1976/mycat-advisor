@@ -33,8 +33,22 @@ public abstract class BaseServiceImpl<T> implements BaseService<T> {
         return twoPage(pageInfo);
     }
 
-    protected Page<T> twoPage(PageInfo<T> pageInfo) {
-        return new Page<T>(pageInfo.getList(), pageInfo.getTotal(), pageInfo.getPageNum() - 1, pageInfo.getPageSize());
+    protected void pageBegin(Map<String, Object> param){
+        int pageIndex = 0;
+        int pageCount = 8;
+        Object tmpIndex = param.get("pageIndex");
+        Object tmpCount = param.get("pageCount");
+        if (tmpIndex != null && StringUtils.isNotEmpty(tmpIndex.toString())) {
+            pageIndex = Integer.parseInt(tmpIndex.toString());
+        }
+        if (tmpCount != null && StringUtils.isNotEmpty(tmpCount.toString())) {
+            pageCount = Integer.parseInt(tmpCount.toString());
+        }
+        PageHelper.startPage(pageIndex+1, pageCount);
+    }
+
+    protected Page twoPage(PageInfo pageInfo) {
+        return new Page(pageInfo.getList(), pageInfo.getTotal(), pageInfo.getPageNum() - 1, pageInfo.getPageSize());
     }
 
 

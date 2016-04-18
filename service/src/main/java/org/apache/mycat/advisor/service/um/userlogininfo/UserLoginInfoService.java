@@ -8,3 +8,4 @@ import org.apache.mycat.advisor.service.base.BaseService;
  */
 public interface UserLoginInfoService extends BaseService<TabUserLoginInfo> {
 }
+

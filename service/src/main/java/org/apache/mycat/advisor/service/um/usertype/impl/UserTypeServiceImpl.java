@@ -12,6 +12,7 @@ import org.apache.mycat.advisor.service.um.usertype.UserTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -47,5 +48,10 @@ public class UserTypeServiceImpl extends BaseServiceImpl<TabUserType> implements
         PageHelper.startPage(pageIndex + 1, pageCount);
         PageInfo<TabUserType> pageInfo = new PageInfo<TabUserType>(mapper.listByNameOrCode("%"+name+"%"));
         return twoPage(pageInfo);
+    }
+
+    @Override
+    public List<TabUserType> all() {
+        return mapper.selectAll();
     }
 }

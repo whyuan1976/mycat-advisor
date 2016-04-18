@@ -1,7 +1,5 @@
 package org.apache.mycat.advisor.web.controller.um;
 
-import java.util.Map;
-
 import org.apache.mycat.advisor.common.controller.BaseController;
 import org.apache.mycat.advisor.common.controller.Page;
 import org.apache.mycat.advisor.common.controller.ResultMap;
@@ -12,6 +10,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Map;
 
 /**
  * Created by qyp on 2016/3/30.

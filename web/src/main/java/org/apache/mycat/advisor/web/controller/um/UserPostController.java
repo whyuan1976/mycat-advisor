@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -28,6 +29,14 @@ public class UserPostController extends BaseController {
     public ResultMap list(@RequestParam Map<String, Object> param) {
         Page page = userPostService.page(param);
         return sucess(page);
+    }
+
+    @RequestMapping("findByName")
+    public List<Map<String,Object>> findByName(String query) {
+
+        List<Map<String,Object>> list = userPostService.findByName(query);
+
+        return list;
     }
 
     @RequestMapping("save")

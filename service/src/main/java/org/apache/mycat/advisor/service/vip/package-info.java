@@ -10,7 +10,7 @@ package org.apache.mycat.advisor.service.vip;
 
 
 /**
- * pay 支付模块
+ * vip 会员模块模块
  *
  * services用法请参照 um.userpost.impl.UserPostServiceImpl
  */

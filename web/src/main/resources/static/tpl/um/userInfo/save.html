@@ -4,14 +4,6 @@
     <div class="card">
         <div class="card-header">
             <h2>{{if id == null }}新增{{else}}修改{{/if}}用户信息</h2>
-            <ul class="actions">
-                <li>
-                    <button type="button" class="btn btn-primary btn-save">{{lang.btn.save}}</button>
-                </li>
-                <li>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">{{lang.btn.close}}</button>
-                </li>
-            </ul>
         </div>
 
         <div class="card-body">
@@ -20,107 +12,209 @@
                 {{if id != null }}
                 <input name="insertTime" type="hidden" value="{{insertTime | dateFormat}}">
                 {{/if}}
-                <!--<input name="status" type="hidden" value="{{status}}">-->
+                <input name="status" type="hidden" value="{{status}}">
                 <input name="delFlag" type="hidden" value="{{delFlag}}">
                 <div class="form-group">
-                    <label for="name" class="col-sm-4 control-label">公司名称</label>
+                    <label for="username" class="col-sm-2 control-label">用户基本信息</label>
 
-                    <div class="col-sm-5">
+                    <div class="col-sm-2">
                         <div class="fg-line">
-                            <input type="text" class="form-control input-sm validate[required,maxSize[16]]" id="name" name="name"
-                                   placeholder="公司名称" value="{{name}}">
+                            <input type="text" class="form-control input-sm validate[required,maxSize[16]]" id="username" name="username"
+                                   placeholder="用户名" value="{{username}}">
+                        </div>
+                        <small class="help-block">&nbsp;</small>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="fg-line">
+                            <input type="text" class="form-control input-sm validate[required,maxSize[16]]" id="userAlias" name="userAlias"
+                                   placeholder="别名" value="{{userAlias}}">
+                        </div>
+                        <small class="help-block">&nbsp;</small>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="fg-line">
+                            <input type="password" class="form-control input-sm validate[required,maxSize[16]]" id="password" name="password"
+                                   placeholder="密码" value="{{password}}">
+                        </div>
+                        <small class="help-block">&nbsp;</small>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="fg-line">
+                            <select class="select-picker" name="userType" data-value="{{userType}}">
+                                {{each userTypes}}
+                                <option value="{{$value.id}}">{{$value.name}}</option>
+                                {{/each}}
+                            </select>
                         </div>
                         <small class="help-block">&nbsp;</small>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="industry" class="col-sm-4 control-label">创办时间</label>
+                    <label for="realName" class="col-sm-2 control-label">基本信息</label>
 
-                    <div class="col-sm-5">
+                    <div class="col-sm-2">
                         <div class="fg-line">
-                            <input type="text" class="form-control date-picker validate[required,maxSize[16]]" id="createDate" name="createDate"
-                                   placeholder="所在行业" value="{{createDate}}">
+                            <input type="text" class="form-control  input-sm  validate[required,maxSize[16]]" id="realName" name="realName"
+                                   placeholder="姓名" value="{{realName}}">
+                        </div>
+                        <small class="help-block">&nbsp;</small>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="fg-line">
+                            <input type="text" class="form-control date-picker validate[required]" id="birth" name="birth"
+                                   placeholder="出生日期" value="{{birth}}">
+                        </div>
+                        <small class="help-block">&nbsp;</small>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="fg-line">
+                            <select class="select-picker" name="gender" data-value="{{gender}}">
+                                <option value="1">男</option>
+                                <option value="0">女</option>
+                            </select>
+                        </div>
+                        <small class="help-block">&nbsp;</small>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="fg-line">
+                            <input type="text" class="form-control  input-sm  validate[required,maxSize[16]]" id="idcard" name="idcard"
+                                   placeholder="身份证号" value="{{idcard}}">
                         </div>
                         <small class="help-block">&nbsp;</small>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="industry" class="col-sm-4 control-label">所在行业</label>
+                    <label for="telephone" class="col-sm-2 control-label">通讯信息</label>
 
-                    <div class="col-sm-5">
-                        <div class="fg-line">
-                            <input type="text" class="form-control input-sm validate[required,maxSize[16]]" id="industry" name="industry"
-                                   placeholder="所在行业" value="{{industry}}">
-                        </div>
-                        <small class="help-block">&nbsp;</small>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="peopleNum" class="col-sm-4 control-label">公司人数</label>
-
-                    <div class="col-sm-5">
-                        <div class="fg-line">
-                            <input type="text" class="form-control input-sm validate[required,maxSize[16]]" id="peopleNum" name="peopleNum"
-                                   placeholder="公司人数" value="{{peopleNum}}">
-                        </div>
-                        <small class="help-block">&nbsp;</small>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="telephone" class="col-sm-4 control-label">联系电话</label>
-
-                    <div class="col-sm-5">
+                    <div class="col-sm-2">
                         <div class="fg-line">
                             <input type="text" class="form-control input-sm validate[required,maxSize[16]]" id="telephone" name="telephone"
-                                   placeholder="联系电话" value="{{telephone}}">
+                                   placeholder="电话号码" value="{{telephone}}">
+                        </div>
+                        <small class="help-block">&nbsp;</small>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="fg-line">
+                            <input type="text" class="form-control input-sm validate[required,maxSize[16]]" id="emailAddress" name="emailAddress"
+                                   placeholder="邮箱" value="{{emailAddress}}">
+                        </div>
+                        <small class="help-block">&nbsp;</small>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="fg-line">
+                            <input type="text" class="form-control input-sm validate[required,maxSize[16]]" id="address" name="address"
+                                   placeholder="住址" value="{{address}}">
+                        </div>
+                        <small class="help-block">&nbsp;</small>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="fg-line">
+                            <input type="text" class="form-control auto-select" name="company"
+                                   data-url="um/company/findByName" value="{{company}}"
+                                   data-text="{{companyName}}"
+                                   placeholder="公司自动完成(只能选择)">
+                        </div>
+                        <small class="help-block">&nbsp;</small>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="fg-line">
+                            <!--<input type="text" class="form-control input-sm validate[required,maxSize[16]]" id="post" name="post"
+                                   placeholder="职位" value="{{post}}">-->
+                            <input type="text" class="form-control auto-select" name="post"
+                                   data-url="um/post/findByName" value="{{post}}"
+                                   data-text="{{postName}}"
+                                   placeholder="职位自动完成(只能选择)">
                         </div>
                         <small class="help-block">&nbsp;</small>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="address" class="col-sm-4 control-label">公司地址</label>
+                    <label for="qq" class="col-sm-2 control-label">第三方账号</label>
 
-                    <div class="col-sm-5">
+                    <div class="col-sm-2">
                         <div class="fg-line">
-                            <input type="text" class="form-control input-sm validate[required,maxSize[50]]" id="address" name="address"
-                                   placeholder="公司地址" value="{{address}}">
+                            <input type="text" class="form-control input-sm validate[required,maxSize[16]]" id="qq" name="qq"
+                                   placeholder="QQ" value="{{qq}}">
+                        </div>
+                        <small class="help-block">&nbsp;</small>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="fg-line">
+                            <input type="text" class="form-control input-sm validate[required,maxSize[16]]" id="weixin" name="weixin"
+                                   placeholder="微信" value="{{weixin}}">
+                        </div>
+                        <small class="help-block">&nbsp;</small>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="fg-line">
+                            <input type="text" class="form-control input-sm validate[required,maxSize[16]]" id="weibo" name="weibo"
+                                   placeholder="新浪微博" value="{{weibo}}">
+                        </div>
+                        <small class="help-block">&nbsp;</small>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="fg-line">
+                            <input type="text" class="form-control input-sm validate[required,maxSize[16]]" id="zhifubao" name="zhifubao"
+                                   placeholder="支付宝" value="{{zhifubao}}">
+                        </div>
+                        <small class="help-block">&nbsp;</small>
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <label for="telephone" class="col-sm-2 control-label">是否可用</label>
+
+                    <div class="col-sm-2">
+                        <div class="fg-line">
+                            <select class="select-picker" name="enabled" data-value="{{enabled}}">
+                                <option value="1">可用</option>
+                                <option value="0">不可用</option>
+                            </select>
+                        </div>
+                        <small class="help-block">&nbsp;</small>
+                    </div>
+
+                    <label for="telephone" class="col-sm-2 control-label">是否锁定</label>
+
+                    <div class="col-sm-2">
+                        <div class="fg-line">
+                            <select class="select-picker" name="accountNonLocked" data-value="{{accountNonLocked}}">
+                                <option value="1">未锁定</option>
+                                <option value="0">锁定</option>
+                            </select>
                         </div>
                         <small class="help-block">&nbsp;</small>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="isMarket" class="col-sm-4 control-label">是否上市</label>
+                    <label for="telephone" class="col-sm-2 control-label">是否过期</label>
 
-                    <div class="col-sm-5">
+                    <div class="col-sm-2">
                         <div class="fg-line">
-                            <input type="radio" id="isMarket" name="isMarket" value="1"  {{if isMarket===1}} checked{{/if}}/> 是
-                            <input type="radio" name="isMarket" value="0" {{if isMarket===0}} checked{{/if}}/> 否
+                            <select class="select-picker" name="accountNonExpired" data-value="{{accountNonExpired}}">
+                                <option value="1">未过期</option>
+                                <option value="0">过期</option>
+                            </select>
+                        </div>
+                        <small class="help-block">&nbsp;</small>
+                    </div>
 
+                    <label for="telephone" class="col-sm-2 control-label">证书是否有效</label>
+
+                    <div class="col-sm-2">
+                        <div class="fg-line">
+                            <select class="select-picker" name="credentialsNonExpired" data-value="{{credentialsNonExpired}}">
+                                <option value="1">有效</option>
+                                <option value="0">失效</option>
+                            </select>
                         </div>
                         <small class="help-block">&nbsp;</small>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label for="stockCode" class="col-sm-4 control-label">股票代码</label>
 
-                    <div class="col-sm-5">
-                        <div class="fg-line">
-                            <input type="text" class="form-control input-sm validate[required,maxSize[50]]" id="stockCode" name="stockCode"
-                                   placeholder="股票代码" value="{{stockCode}}">
-                        </div>
-                        <small class="help-block">&nbsp;</small>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="note" class="col-sm-4 control-label">备注</label>
-
-                    <div class="col-sm-5">
-                        <div class="fg-line">
-                            <input type="text" class="form-control input-sm validate[required,maxSize[16]]" id="note" name="note"
-                                   placeholder="备注" value="{{note}}">
-                        </div>
-                        <small class="help-block">&nbsp;</small>
-                    </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn-save" data-fn="jump">{{lang.btn.save}}</button>
+                    <button type="button" class="btn btn-default" onclick="history.go(-1)">{{lang.btn.close}}</button>
                 </div>
 
             </form>
