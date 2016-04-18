@@ -68,36 +68,6 @@ public class UserInfoServiceImpl extends BaseServiceImpl<TabUserInfo> implements
     @Override
     public Page<Map> pageList(Map<String, Object> param) {
         pageBegin(param);
-       /* List<Ext> extList = new ArrayList<>();
-        for (int i=0;i<5;i++){
-            Ext ext1 = new Ext();
-            ext1.start();
-            extList.add(ext1);
-        }
-        for (int i=0;i<5;i++){
-            try {
-                extList.get(i).join();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-        int sum = 0;
-        for (int i=0;i<5;i++) {
-            sum += extList.get(i).getInt();
-        }
-	@Override
-	public List<TabUserInfo> getAllByUsername(String name) {
-		 TabUserInfo userInfo = new TabUserInfo();
-	     userInfo.setUsername(name);
-		return tabUserInfoMapper.getAllByName(userInfo);
-	}
-
-<<<<<<< .mine
-
-        System.out.println(sum);
-*/
-
-
         Object code = param.get("code");
         String str="%%";
         if (code!=null&&StringUtils.isNotEmpty(code.toString())) {
@@ -115,6 +85,13 @@ public class UserInfoServiceImpl extends BaseServiceImpl<TabUserInfo> implements
     }
 
     @Override
+    public List<TabUserInfo> getAllByUsername(String name) {
+        TabUserInfo userInfo = new TabUserInfo();
+        userInfo.setUsername(name);
+        return tabUserInfoMapper.getAllByName(userInfo);
+    }
+
+    @Override
     public TabUserInfo get(long id) {
         TabUserInfo tabUserInfo = tabUserInfoMapper.selectByPrimaryKey(id);
         Map<String,Object> ext = tabUserInfoMapper.getCompanyAndPostByUserId(id);
@@ -128,41 +105,5 @@ public class UserInfoServiceImpl extends BaseServiceImpl<TabUserInfo> implements
 
         return tabUserInfo;
     }
-=======
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
->>>>>>> .theirs
 }
