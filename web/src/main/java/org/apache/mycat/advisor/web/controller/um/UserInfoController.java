@@ -1,5 +1,10 @@
 package org.apache.mycat.advisor.web.controller.um;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.apache.mycat.advisor.common.controller.BaseController;
 import org.apache.mycat.advisor.common.controller.Page;
 import org.apache.mycat.advisor.common.controller.ResultMap;
@@ -73,6 +78,20 @@ public class UserInfoController extends BaseController {
         } else {
             return failure("删除操作失败！");
         }
+    }
+    
+    @RequestMapping("getUserByName")
+    public List<Map<String,Object>> getUserByName(String query){
+    	List<TabUserInfo> userList = userInfoService.getAllByUsername(query);
+    	List<Map<String,Object>> users = new ArrayList<>();
+    	for(TabUserInfo userInfo : userList){
+    		Map<String,Object> temp = new HashMap<>();
+    		temp.put("id", userInfo.getId());
+    		temp.put("name", userInfo.getUsername());
+    		users.add(temp);
+    	}
+    	
+    	return users;
     }
 
 

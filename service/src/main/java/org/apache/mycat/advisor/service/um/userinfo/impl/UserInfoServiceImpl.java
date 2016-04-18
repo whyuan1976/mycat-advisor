@@ -85,7 +85,14 @@ public class UserInfoServiceImpl extends BaseServiceImpl<TabUserInfo> implements
         for (int i=0;i<5;i++) {
             sum += extList.get(i).getInt();
         }
+	@Override
+	public List<TabUserInfo> getAllByUsername(String name) {
+		 TabUserInfo userInfo = new TabUserInfo();
+	     userInfo.setUsername(name);
+		return tabUserInfoMapper.getAllByName(userInfo);
+	}
 
+<<<<<<< .mine
 
         System.out.println(sum);
 */
@@ -121,4 +128,41 @@ public class UserInfoServiceImpl extends BaseServiceImpl<TabUserInfo> implements
 
         return tabUserInfo;
     }
+=======
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> .theirs
 }

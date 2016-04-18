@@ -22,4 +22,7 @@ public interface UserInfoService extends BaseService<TabUserInfo> {
     Page<Map> pageList(Map<String, Object> param);
 
     List<Map<String,Object>> findListMapByUserName(String query);
+    
+    List<TabUserInfo> getAllByUsername(String name);
+
 }

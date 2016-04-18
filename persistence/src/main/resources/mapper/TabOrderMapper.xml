@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+        "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="org.apache.mycat.advisor.persistence.dao.TabOrderMapper">
+
+        <select id="listByType" parameterType="org.apache.mycat.advisor.persistence.model.TabOrder" resultType="org.apache.mycat.advisor.persistence.model.TabOrder">
+           SELECT o.id as id, ot.name as typename,u1.username as placename,p.problem_title
+        as problemname,u2.username as advisorname,o.status as status,
+        o.paynumber as paynumber,o.order_step as orderStep
+			  FROM tab_order o 
+        left join dic_order_type ot
+        on o.type= ot.id
+        left join 
+        tab_user_info u1 
+        on u1.id=o.place_id
+        left join 
+              tab_user_info u2
+              on u2.id = o.advisor_id
+        left join 
+              tab_problem p
+              on p.id = o.problem_id
+			  <where>
+			      <if test="type!=null and type!=''"> o.type=#{type} </if>
+			  </where>
+        </select>
+        
+        <select id="getOrderInfoById" parameterType="java.lang.Long" resultType="org.apache.mycat.advisor.persistence.model.TabOrder">
+        	SELECT o.id as id,o.type as type, ot.name as typename,o.place_id as placeId,u1.username as placename,o.problem_id as problemId,p.problem_title
+		        as problemname,o.advisor_id as advisorId,u2.username as advisorname,o.status as status,
+		        o.paynumber as paynumber,o.order_step as orderStep
+		         FROM tab_order o 
+	        left join dic_order_type ot
+	        on o.type= ot.id
+	        left join 
+	        tab_user_info u1 
+	        on u1.id=o.place_id
+	        left join 
+	              tab_user_info u2
+	              on u2.id = o.advisor_id
+	        left join 
+	              tab_problem p
+              on p.id = o.problem_id
+		     where o.id=#{id}
+        </select>
+
+</mapper>

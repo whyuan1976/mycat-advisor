@@ -34,16 +34,9 @@ define(function(require, exports, module) {
 		mui(options.holder).on('tap', '[data-url]', function(event) {
 			var item = this;
 			var url = item.getAttribute('data-url');
-			var menuId = item.getAttribute('data-menuid');//传递菜单ID，方便生成子菜单
 			if (window.plus) {
-				plus.webview.close(url);
 				mui.openWindow({
 					url: url,
-					id: url,
-					createNew: true,
-					extras: {
-						menuId:menuId
-					},
 					show: {
 						aniShow: 'pop-in'
 					},

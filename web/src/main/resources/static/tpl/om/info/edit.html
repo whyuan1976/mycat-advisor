@@ -1,0 +1,96 @@
+<div class="modal-header">
+    <h4 class="modal-title">修改</h4>
+</div>
+<form class="form-horizontal form-validate" id="doorSaveForm" method="post" action="om/info/save">
+
+    <!--<input name="status" type="hidden" value="{{status}}">  -->
+     <input name="id" type="hidden" value="{{id}}">
+    <div class="modal-body">
+        <div class="form-group">
+            <label for="name" class="col-sm-4 control-label">类型</label>
+
+            <div class="col-sm-5">
+                <div class="fg-line">
+                      <select class="select-picker" name="type" data-value="{{type}}">
+                          <option value="">请选择</option>
+                          <option value="3">远程订单</option>
+                          <option value="4">在线订单</option>
+                          <option value="5">现场订单</option>
+                      </select>
+                </div>
+                <small class="help-block">&nbsp;</small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="peopleNum" class="col-sm-4 control-label">下单人</label>
+			<input name="placeId" type="hidden" value="{{placeId}}"/>
+            <div class="col-sm-5">
+                <div class="fg-line">
+                    <input type="text" class="form-control input-sm" id="placeName" name="placeName"
+                           placeholder="下单人" readonly value="{{placeName}}">
+                </div>
+                <small class="help-block">&nbsp;</small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="peopleNum" class="col-sm-4 control-label">问题</label>
+			<input name="problemId" type="hidden" value="{{problemId}}"/>
+            <div class="col-sm-5">
+                <div class="fg-line">
+                    <input type="text" class="form-control input-sm " id="problemName" name="problemName"
+                           placeholder="问题" readonly value="{{problemName}}">
+                </div>
+                <small class="help-block">&nbsp;</small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="peopleNum" class="col-sm-4 control-label">顾问</label>
+			<input name="advisorId" type="hidden" value="{{advisorId}}"/>
+            <div class="col-sm-5">
+                <div class="fg-line">
+                    <input type="text" class="form-control input-sm " id="advisorName" name="advisorName"
+                           placeholder="顾问" readonly value="{{advisorName}}">
+                </div>
+                <small class="help-block">&nbsp;</small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="status" class="col-sm-4 control-label">状态</label>
+
+            <div class="col-sm-5">
+                <div class="fg-line">
+                    <input type="radio" id="status" name="status" value="1"  {{if status===1}} checked{{/if}}/> 可用
+                    <input type="radio" name="status" value="0" {{if status===0}} checked{{/if}}/> 不可用
+
+                </div>
+                <small class="help-block">&nbsp;</small>
+            </div>
+        </div>
+          <div class="form-group">
+            <label for="peopleNum" class="col-sm-4 control-label">支付交易号</label>
+
+            <div class="col-sm-5">
+                <div class="fg-line">
+                    <input type="text" class="form-control input-sm validate[required,maxSize[16]]" id="paynumber" name="paynumber"
+                           placeholder="支付交易号" value="{{paynumber}}">
+                </div>
+                <small class="help-block">&nbsp;</small>
+            </div>
+        </div>
+          <div class="form-group">
+            <label for="peopleNum" class="col-sm-4 control-label">订单流程</label>
+
+            <div class="col-sm-5">
+                <div class="fg-line">
+                    <input type="text" class="form-control input-sm validate[required,maxSize[16]]" id="orderStep" name="orderStep"
+                           placeholder="订单流程" value="{{orderStep}}">
+                </div>
+                <small class="help-block">&nbsp;</small>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary btn-save">{{lang.btn.save}}</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">{{lang.btn.close}}</button>
+    </div>
+</form>
