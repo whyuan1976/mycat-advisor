@@ -418,7 +418,13 @@
 					"controls/room-type-filter/ui.html",
 					"controls/booking-date/style.css",
 					"controls/booking-date/main.js",
-					"controls/room-type-filter/main.js"
+					"controls/room-type-filter/main.js",
+					"styles/images/hotel-loading.png",
+					"mui/js/mui.picker.min.js",
+					"libs/tp.js",
+					"mui/css/mui.picker.min.css",
+					"libs/jquery.js",
+					"libs/ems-text.js"
 				],
 				"refer": [
 					"pages/booking.html",
@@ -585,7 +591,9 @@
 				],
 				"refer": [
 					"pages/hotel-detail.html",
-					"pages/booking.html"
+					"pages/booking.html",
+					"pages/confirm-done.html",
+					"pages/user-comment.html"
 				],
 				"priority": 4
 			},
@@ -695,6 +703,27 @@
 					"mui/js/app.js",
 					"mui/js/mui.locker.js",
 					"mui/js/mui.view.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"pages/confirm-done.html": {
+				"resources": [
+					"font-awesome/fonts/fontawesome-webfont.woff",
+					"pages/confirm-done.js",
+					"mui/js/mui.min.js",
+					"mui/css/mui.min.css",
+					"mui/fonts/mui.ttf",
+					"libs/ems.js",
+					"font-awesome/css/font-awesome.min.css",
+					"styles/default.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"pages/user-comment.html": {
+				"resources": [
+					"pages/user-comment.js"
 				],
 				"refer": [],
 				"priority": 0
