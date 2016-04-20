@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>确认成功</title>
+		<link href="../mui/css/mui.min.css" rel="stylesheet" />
+		<link href="../styles/default.css" rel="stylesheet" />
+		<link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+		<style>			
+		.mui-table-view {
+				margin-bottom: 15px;
+			}
+			.hotel-done-alert {
+				text-align: center;
+				padding: 20px;
+				font-size: 18px;
+			}
+			.hotel-done-alert i {
+				font-size: 75px;
+				color: #12b319;
+				vertical-align: middle;
+				margin-bottom: 5px;
+			}
+			.hotel-order-action {
+				margin: 0px;
+				padding: 0px 10px;
+				position: relative;
+				text-align: center;
+				color: #666;
+				height: 45px;
+				font-size: 0px;
+			}
+			.hotel-order-action li {
+				background-color: #fff;
+				border: solid 1px #c8c7cc;
+				border-left: none;
+				display: inline-block;
+				padding: 10px 7px;
+				margin: 0px;
+				width: 33.3%;
+				font-size: 11px;
+				text-align: center;
+				overflow: hidden;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+			}
+			.hotel-order-action li:first-child {
+				border-left: solid 1px #c8c7cc;
+			}
+			.hotel-order-action li:active {
+				border: solid 1px #099fde;
+				color: #099fde;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav hotel-header">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">确认成功</h1>
+		</header>
+		<div class="mui-content">
+			
+			<div class="hotel-done-alert">
+				<i class="fa fa-check-circle-o"></i>
+				<div>请尽快支付</div>
+			</div>
+			<ul class="mui-table-view">
+				<li class="mui-input-row mui-table-view-cell">
+					<a>
+						支付金额
+						<span class="hotel-right-padded hotel-color-orange ">￥320</span>
+					</a>
+				</li>
+			</ul>
+			<ul class="hotel-order-action">
+				<li>支付宝支付</li>
+				<li data-url='./booking.html'>微信支付</li>
+				<li data-event='tap>cancelOrder'>网银支付</li>
+			</ul>
+		</div>
+		<script src="../mui/js/mui.min.js"></script>
+		<script src="../libs/ems.js" data-main='./confirm-done.js'></script>
+	</body>
+
+</html>

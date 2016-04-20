@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>用户评价</title>
+		<link href="../mui/css/mui.min.css" rel="stylesheet" />
+		<link href="../styles/default.css" rel="stylesheet" />
+		<link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+		<style>
+			i.mui-media-object {
+				color: #ccc;
+				font-size: 18px;
+			}
+			.hotel-right {
+				position: absolute;
+				right: 0px;
+			}
+			.hotel-right-padded {
+				position: absolute;
+				right: 20px;
+			}
+			.hotel-right-text {
+				position: absolute;
+				font-size: 14px;
+				height: 16px;
+				line-height: 16px;
+				right: 40px;
+				top: 50%;
+				margin-top: -8px;
+			}
+			.hotel-bar-order-info {
+				position: relative;
+				padding: 10px;
+			}
+			.hotel-tips {
+				margin: 10px;
+				font-size: 10px;
+				background-color: #fff;
+				padding: 8px;
+				border-radius: 3px;
+			}
+			.hotel-order-action {
+				margin: 0px;
+				padding: 0px 10px;
+				position: relative;
+				text-align: center;
+				color: #666;
+				height: 45px;
+				font-size: 0px;
+			}
+			.hotel-order-action li {
+				background-color: #fff;
+				border: solid 1px #c8c7cc;
+				border-left: none;
+				display: inline-block;
+				padding: 10px 7px;
+				margin: 0px;
+				width: 33.3%;
+				font-size: 11px;
+				text-align: center;
+				overflow: hidden;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+			}
+			.hotel-order-action li:first-child {
+				border-left: solid 1px #c8c7cc;
+			}
+			.hotel-order-action li:active {
+				border: solid 1px #099fde;
+				color: #099fde;
+			}
+			.mui-table-view {
+				margin-bottom: 15px;
+			}
+			.hotel-costomer-btn {
+				margin-bottom: 20px;
+				padding: 10px;
+				font-size: 14px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav hotel-header">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">评价</h1>
+		</header>
+		<div class="mui-content">
+			<ul class="mui-table-view">
+				<li class="mui-input-row mui-table-view-cell">
+					<a>
+						这里需要实现5星评分控件显示，并提供用户输入一段文本信息
+						<span class="hotel-right-padded hotel-color-orange ">￥320</span>
+					</a>
+				</li>
+				
+			</ul>
+			
+			<div class="mui-content-padded">
+				<button class="hotel-costomer-btn mui-btn-block mui-btn-warning">提交评价</button>
+			</div>
+		</div>
+		<script src="../mui/js/mui.min.js"></script>
+		<script src="../libs/ems.js" data-main='./user-comment.js'></script>
+	</body>
+
+</html>
