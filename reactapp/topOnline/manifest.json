@@ -105,8 +105,7 @@
 		},
 		"NativeObj": {
 			"description": "原生对象"
-		},
-		"Share": {}
+		}
 	},
 	"plus": {
 		"hardwareAccelerated": true,
@@ -540,7 +539,9 @@
 					"libs/ems.js",
 					"libs/utils.js"
 				],
-				"refer": [],
+				"refer": [
+					"pages/company_service_order.html"
+				],
 				"priority": 0
 			},
 			"pages/guide.html": {
@@ -726,6 +727,40 @@
 					"pages/user-comment.js"
 				],
 				"refer": [],
+				"priority": 0
+			},
+			"pages/company_service_order.html": {
+				"resources": [
+					"pages/company_service_order.js",
+					"controls/hotel-price-filter/ui.html",
+					"mui/css/mui.indexedlist.css",
+					"controls/skill-filter/ui.html",
+					"mui/js/mui.indexedlist.js",
+					"controls/skill-filter/main.js",
+					"libs/vue.js",
+					"mui/css/mui.min.css",
+					"common/vue-filter.js",
+					"controls/hotel-price-filter/main.js",
+					"libs/tp.js",
+					"common/event-binder.js",
+					"styles/default.css",
+					"common/page-helper.js",
+					"controls/skill-filter/style.css",
+					"mui/js/mui.min.js",
+					"libs/utils.js",
+					"libs/jquery.js",
+					"controls/hotel-price-filter/style.css",
+					"common/element-maper.js",
+					"mui/fonts/mui.ttf",
+					"libs/ems-text.js",
+					"libs/ems.js",
+					"controls/service-filter/ui.html",
+					"controls/service-filter/main.js",
+					"controls/service-filter/style.css"
+				],
+				"refer": [
+					"pages/booking-done.html"
+				],
 				"priority": 0
 			}
 		},

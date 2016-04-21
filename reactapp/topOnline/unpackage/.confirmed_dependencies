@@ -266,7 +266,11 @@
 			"libs/utils.js"
 		],
 		"refer": [
-			"pages/service.html"
+			"pages/service.html",
+			"pages/company_service_order.html",
+			"pages/unlock.html",
+			"pages/setting.html",
+			"pages/login.html"
 		]
 	},
 	"pages/guide.html": {
@@ -432,6 +436,39 @@
 	"pages/user-comment.html": {
 		"resources": [
 			"pages/user-comment.js"
+		]
+	},
+	"pages/company_service_order.html": {
+		"resources": [
+			"pages/company_service_order.js",
+			"controls/hotel-price-filter/ui.html",
+			"mui/css/mui.indexedlist.css",
+			"controls/skill-filter/ui.html",
+			"mui/js/mui.indexedlist.js",
+			"controls/skill-filter/main.js",
+			"libs/vue.js",
+			"mui/css/mui.min.css",
+			"common/vue-filter.js",
+			"controls/hotel-price-filter/main.js",
+			"libs/tp.js",
+			"common/event-binder.js",
+			"styles/default.css",
+			"common/page-helper.js",
+			"controls/skill-filter/style.css",
+			"mui/js/mui.min.js",
+			"libs/utils.js",
+			"libs/jquery.js",
+			"controls/hotel-price-filter/style.css",
+			"common/element-maper.js",
+			"mui/fonts/mui.ttf",
+			"libs/ems-text.js",
+			"libs/ems.js",
+			"controls/service-filter/ui.html",
+			"controls/service-filter/main.js",
+			"controls/service-filter/style.css"
+		],
+		"refer": [
+			"pages/booking-done.html"
 		]
 	}
 }
