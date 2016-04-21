@@ -1,0 +1,12 @@
+<div class="hotel-price-filter">
+	<legend>可用服务</legend>
+	<ul>
+		<li v-repeat="languageRanges" class="{{ value==languageRange.value?'active':'' }}" v-on="tap:pickLanguage($index)">
+			{{text}}
+		</li> 
+	</ul>
+
+	<div class="btn-wraper">
+		<button type="button" data-event='tap>ok' class="mui-btn mui-btn-block mui-btn-warning hotel-btn-main">确定</button>
+	</div>
+</div>
