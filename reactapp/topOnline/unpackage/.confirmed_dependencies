@@ -468,7 +468,16 @@
 			"controls/service-filter/style.css"
 		],
 		"refer": [
-			"pages/booking-done.html"
+			"pages/booking-done.html",
+			"pages/choose_service.html"
+		]
+	},
+	"pages/choose_service.html": {
+		"resources": [
+			"mui/css/mui.indexedlist.css",
+			"mui/css/mui.min.css",
+			"mui/fonts/mui.ttf",
+			"styles/default.css"
 		]
 	}
 }

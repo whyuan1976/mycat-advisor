@@ -96,7 +96,15 @@
 					</a>
 				</li>	
 			<li class="mui-input-row">
-				<label style="margin-top: 5px;">每月服务天数</label>
+				<label style="margin-top: 5px;">每月现场服务天数</label>
+				<div class="mui-numbox" data-numbox-min='1'  data-numbox-max='31'>
+					<button class="mui-btn mui-numbox-btn-minus" type="button">-</button>
+					<input class="mui-numbox-input" type="number" value="20" />
+					<button class="mui-btn mui-numbox-btn-plus" type="button">+</button>
+				</div>
+			</li>
+			<li class="mui-input-row">
+				<label style="margin-top: 5px;">每月在线服务天数</label>
 				<div class="mui-numbox" data-numbox-min='1'  data-numbox-max='31'>
 					<button class="mui-btn mui-numbox-btn-minus" type="button">-</button>
 					<input class="mui-numbox-input" type="number" value="20" />
@@ -156,7 +164,15 @@
 					</a>
 				</li>		
 			<li class="mui-input-row">
-				<label style="margin-top: 5px;">每月服务天数</label>
+				<label style="margin-top: 5px;">每月现场服务天数</label>
+				<div class="mui-numbox" data-numbox-min='1'  data-numbox-max='31'>
+					<button class="mui-btn mui-numbox-btn-minus" type="button">-</button>
+					<input class="mui-numbox-input" type="number" value="20" />
+					<button class="mui-btn mui-numbox-btn-plus" type="button">+</button>
+				</div>
+			</li>
+			<li class="mui-input-row">
+				<label style="margin-top: 5px;">每月在线服务天数</label>
 				<div class="mui-numbox" data-numbox-min='1'  data-numbox-max='31'>
 					<button class="mui-btn mui-numbox-btn-minus" type="button">-</button>
 					<input class="mui-numbox-input" type="number" value="20" />
@@ -168,8 +184,8 @@
 					 	{{skill}}
 					</a>
 			</li>
-			<li data-event='tap>setServiceFilter' class="mui-table-view-cell mui-input-row">
-					<a class="mui-navigate-right hotel-color-gray">
+			<li class="mui-table-view-cell mui-input-row">
+					<a class="mui-navigate-right hotel-color-gray" data-url="choose_service.html">
 					 	可用服务
 					</a>
 			</li>					
