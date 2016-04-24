@@ -108,4 +108,13 @@ public class TabPostInfo {
     public void setDelFlag(Integer delFlag) {
         this.delFlag = delFlag;
     }
+
+    public TabPostInfo(String name, String code) {
+        this.name = name;
+        this.code = code;
+    }
+
+    public TabPostInfo() {
+
+    }
 }

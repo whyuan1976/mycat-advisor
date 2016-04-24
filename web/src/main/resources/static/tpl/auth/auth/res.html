@@ -1,0 +1,102 @@
+<div class="container">
+    <!--页面导航插件 ，具体使用方式 请参照 ui-api.doc-->
+    {{include '../../public/breadcrumbs'}}
+    <div class="card">
+        <div class="card-header">
+            <h2>权限关联资源
+                <small>{{authName}}</small>
+            </h2>
+            <ul class="actions">
+                <li>
+                    <!--新增按钮 ，这个url的意思是，先请求后台路径 um/post/init 后台SpringMvc Controller init方法,将返回的json数据用js绑定到 um/post/save 模板上。具体使用方式,请参照 ui-api.doc-->
+                    <a href="#auth/res/init?tpl=auth/res/save" class="btn-modal">
+                        <i class="zmdi zmdi-plus"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="bootgrid-header container-fluid">
+            <form action="#auth/auth/res/{{authId}}?tpl=auth/auth/res" id="mailForm" role="form">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="zmdi zmdi-search"></i></span>
+                            <div class="fg-line">
+                                <input type="text" class="form-control" name="code" value="{{query.code}}" placeholder="资源名称"/>
+                                <input type="hidden" name="authName" value="{{authName}}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-5">
+                        <button type="button" id="mailSearch" class="btn btn-primary btn-sm m-t-5 btn-search">
+                            {{lang.btn.search}}
+                        </button>
+                        <button class="btn btn-default btn-sm m-t-5 btn-modal waves-effect" data-href="#auth/res/init?tpl=auth/res/save">
+                            {{lang.btn.add}}
+                        </button>
+                        <!-- <button class="btn btn-xs btn-primary btn-sm m-t-5 btn-modal waves-effect" data-href="#addMail.do?tpl=sm/mail/add&target=sm/mail/add">
+                            <i class="zmdi zmdi-hc-fw zmdi-plus"></i>
+                            {{lang.btn.add}}
+                        </button> -->
+                        <!-- <a class="btn btn-default btn-sm m-t-5" href="#sm/house/base.do?tpl=sm/house/save&target=sm/house/index">
+                            {{lang.btn.add}}
+                        </a> -->
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="table-responsive">
+            <!--显示数据的表格-->
+            <table class="table table-striped table-hover table-ellipsis">
+                <thead>
+                <tr>
+                    <th width="5%">#</th>
+                    <th width="10%">资源名称</th>
+                    <th width="10%">资源类型</th>
+                    <th width="10%">资源描述</th>
+                    <th width="15%">资源路径</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!--循环遍历list,返回的json格式请严格参照这个模块已开发的格式 ，具体使用方式 请参照 ui-api.doc-->
+                {{each list}}
+                <tr>
+                    <td><input value="{{$value.RESOURCE_ID}}" type="checkbox" class="resId"  {{if $value.check!=null}}checked{{/if}}/></td>
+                    <td title="{{$value.RESOURCE_NAME}}">{{$value.RESOURCE_NAME}}</td>
+                    <td title="{{$value.RESOURCE_TYPE}}">
+                        {{$value.RESOURCE_TYPE}}
+                    </td>
+                    <td title="{{$value.RESOURCE_DESC}}">{{$value.RESOURCE_DESC}}</td>
+                    <td title="{{$value.RESOURCE_PATH}}">{{$value.RESOURCE_PATH}}</td>
+                </tr>
+                <!--循环结束-->
+                {{/each}}
+                </tbody>
+            </table>
+            {{#pageInfo | pagination:lang,'full'}}
+        </div>
+    </div>
+    <div class="modal-footer">
+
+       <button type="button" class="btn btn-default" data-dismiss="modal">{{lang.btn.close}}</button>
+    </div>
+</div>
+<script>
+    $('.resId').change(function(){
+        var thisNode = $(this);
+        $.post("auth/auth/changeRes", {
+            resId:thisNode.val(),
+            checked:thisNode.is(':checked'),
+            authId:'{{authId}}'
+        }, function (data) {
+            if(data.flag){
+                mycatui.notify.success("操作成功");
+            }else{
+                mycatui.notify.error("操作失败");
+            }
+        }, 'json');
+    });
+
+
+</script>
+

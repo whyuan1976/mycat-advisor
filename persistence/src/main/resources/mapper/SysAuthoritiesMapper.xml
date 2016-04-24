@@ -23,4 +23,23 @@ WHERE
     ]]>
     </select>
 
+	<select id="findListByName" resultType="map">
+		<![CDATA[
+		SELECT
+			auth.*,
+			modul.MODULE_NAME
+		FROM
+			SYS_AUTHORITIES auth
+		LEFT JOIN sys_modules modul ON modul.MODULE_ID = auth.MODULE_ID
+		WHERE
+			auth.AUTHORITY_MARK LIKE #{name} or auth.AUTHORITY_NAME LIKE #{name}
+
+    ]]>
+	</select>
+	<select id="findResIdsByAuthId" resultType="Long">
+	<![CDATA[
+		SELECT RESOURCE_ID from sys_authorities_resources where AUTHORITY_ID = #{id}
+    ]]>
+	</select>
+
 </mapper>
