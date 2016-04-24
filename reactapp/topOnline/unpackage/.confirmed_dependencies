@@ -270,7 +270,8 @@
 			"pages/company_service_order.html",
 			"pages/unlock.html",
 			"pages/setting.html",
-			"pages/login.html"
+			"pages/login.html",
+			"pages/adviser/company_service_order.html"
 		]
 	},
 	"pages/guide.html": {
@@ -431,12 +432,14 @@
 			"libs/ems.js",
 			"font-awesome/css/font-awesome.min.css",
 			"styles/default.css"
-		]
+		],
+		"refer": []
 	},
 	"pages/user-comment.html": {
 		"resources": [
 			"pages/user-comment.js"
-		]
+		],
+		"refer": []
 	},
 	"pages/company_service_order.html": {
 		"resources": [
@@ -465,7 +468,10 @@
 			"libs/ems.js",
 			"controls/service-filter/ui.html",
 			"controls/service-filter/main.js",
-			"controls/service-filter/style.css"
+			"controls/service-filter/style.css",
+			"mui/js/mui.poppicker.js",
+			"mui/js/mui.picker.min.js",
+			"mui/css/mui.picker.min.css"
 		],
 		"refer": [
 			"pages/booking-done.html",
@@ -478,6 +484,60 @@
 			"mui/css/mui.min.css",
 			"mui/fonts/mui.ttf",
 			"styles/default.css"
+		],
+		"refer": []
+	},
+	"pages/adviser/company_service_order.html": {
+		"resources": [
+			"mui/css/mui.picker.min.css",
+			"mui/css/mui.indexedlist.css",
+			"mui/css/mui.min.css",
+			"mui/fonts/mui.ttf",
+			"styles/default.css",
+			"mui/js/mui.poppicker.js",
+			"pages/adviser/company_service_order.js",
+			"mui/js/mui.min.js",
+			"mui/js/mui.picker.min.js",
+			"mui/js/mui.indexedlist.js",
+			"libs/ems.js",
+			"controls/skill-filter/main.js",
+			"libs/vue.js",
+			"common/vue-filter.js",
+			"controls/skill-filter/ui.html",
+			"libs/tp.js",
+			"common/event-binder.js",
+			"common/page-helper.js",
+			"controls/skill-filter/style.css",
+			"libs/utils.js",
+			"libs/jquery.js",
+			"common/element-maper.js",
+			"libs/ems-text.js"
+		],
+		"refer": [
+			"pages/adviser/choose_service.html"
+		]
+	},
+	"pages/adviser/choose_service.html": {
+		"resources": [
+			"pages/adviser/choose_service.js",
+			"controls/skill-filter/ui.html",
+			"controls/skill-filter/main.js",
+			"libs/vue.js",
+			"common/vue-filter.js",
+			"libs/tp.js",
+			"common/event-binder.js",
+			"common/page-helper.js",
+			"controls/skill-filter/style.css",
+			"mui/js/mui.min.js",
+			"libs/utils.js",
+			"libs/jquery.js",
+			"common/element-maper.js",
+			"libs/ems.js",
+			"libs/ems-text.js",
+			"mui/css/mui.min.css",
+			"styles/default.css",
+			"mui/css/mui.indexedlist.css",
+			"mui/fonts/mui.ttf"
 		]
 	}
 }

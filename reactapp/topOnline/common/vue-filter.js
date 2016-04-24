@@ -25,5 +25,11 @@ define(function(require, exports, module) {
 		var weekIndex = theDate.getDay();
 		return ["日", "一", "二", "三", "四", "五", "六"][weekIndex];
 	};
+	
+	exports.month = function(value) {
+		var theDate = new Date(value);
+		var monthIndex = theDate.getMonth();
+		return ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"][monthIndex];
+	};
 
 });
