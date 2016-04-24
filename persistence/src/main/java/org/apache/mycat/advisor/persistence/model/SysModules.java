@@ -1,9 +1,6 @@
 package org.apache.mycat.advisor.persistence.model;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Created by cjl on 2016/3/20.
@@ -17,14 +14,23 @@ public class SysModules {
     private String moduleDesc;
     private String moduleType;
     private Long parent;
-    private String moduleUrl;
-    private Integer iLevel;
+    private String tplUrl;
+    private String dataUrl;
     private Integer leaf;
     private String application;
     private String controller;
     private Integer enable;
     private Integer priority;
+    @Transient
+    private String check;
 
+    public String getCheck() {
+        return check;
+    }
+
+    public void setCheck(String check) {
+        this.check = check;
+    }
 
     public Long getModuleId() {
         return moduleId;
@@ -74,24 +80,28 @@ public class SysModules {
         this.parent = parent;
     }
 
-    @Basic
-    @Column(name = "MODULE_URL", nullable = true, insertable = true, updatable = true, length = 100)
-    public String getModuleUrl() {
-        return moduleUrl;
-    }
 
-    public void setModuleUrl(String moduleUrl) {
-        this.moduleUrl = moduleUrl;
-    }
 
     @Basic
-    @Column(name = "I_LEVEL", nullable = true, insertable = true, updatable = true)
-    public Integer getiLevel() {
-        return iLevel;
+    @Column(name = "TPL_URL", nullable = true, insertable = true, updatable = true, length = 100)
+    public String getTplUrl() {
+        return tplUrl;
     }
 
-    public void setiLevel(Integer iLevel) {
-        this.iLevel = iLevel;
+    public void setTplUrl(String tplUrl) {
+        this.tplUrl = tplUrl;
+    }
+
+
+
+    @Basic
+    @Column(name = "data_url", nullable = true, insertable = true, updatable = true)
+    public String getDataUrl() {
+        return dataUrl;
+    }
+
+    public void setDataUrl(String dataUrl) {
+        this.dataUrl = dataUrl;
     }
 
     @Basic
@@ -156,8 +166,8 @@ public class SysModules {
         if (moduleDesc != null ? !moduleDesc.equals(that.moduleDesc) : that.moduleDesc != null) return false;
         if (moduleType != null ? !moduleType.equals(that.moduleType) : that.moduleType != null) return false;
         if (parent != null ? !parent.equals(that.parent) : that.parent != null) return false;
-        if (moduleUrl != null ? !moduleUrl.equals(that.moduleUrl) : that.moduleUrl != null) return false;
-        if (iLevel != null ? !iLevel.equals(that.iLevel) : that.iLevel != null) return false;
+        if (tplUrl != null ? !tplUrl.equals(that.tplUrl) : that.tplUrl != null) return false;
+        if (dataUrl != null ? !dataUrl.equals(that.dataUrl) : that.dataUrl != null) return false;
         if (leaf != null ? !leaf.equals(that.leaf) : that.leaf != null) return false;
         if (application != null ? !application.equals(that.application) : that.application != null) return false;
         if (controller != null ? !controller.equals(that.controller) : that.controller != null) return false;
@@ -174,8 +184,8 @@ public class SysModules {
         result = 31 * result + (moduleDesc != null ? moduleDesc.hashCode() : 0);
         result = 31 * result + (moduleType != null ? moduleType.hashCode() : 0);
         result = 31 * result + (parent != null ? parent.hashCode() : 0);
-        result = 31 * result + (moduleUrl != null ? moduleUrl.hashCode() : 0);
-        result = 31 * result + (iLevel != null ? iLevel.hashCode() : 0);
+        result = 31 * result + (tplUrl != null ? tplUrl.hashCode() : 0);
+        result = 31 * result + (dataUrl != null ? dataUrl.hashCode() : 0);
         result = 31 * result + (leaf != null ? leaf.hashCode() : 0);
         result = 31 * result + (application != null ? application.hashCode() : 0);
         result = 31 * result + (controller != null ? controller.hashCode() : 0);

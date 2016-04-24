@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+        "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="org.apache.mycat.advisor.persistence.dao.TabVipMapper">
+
+    <select id="findListByUserName" resultType="map">
+        <![CDATA[
+            SELECT
+              vip.id,
+              vip.begin_time as beginTime,
+              vip.end_time as endTime,
+              vip.score,
+              userI.username
+            FROM
+              tab_vip vip
+              JOIN tab_user_info userI ON userI.id = vip.user_id
+            where userI.username like #{username}
+        ]]>
+    </select>
+
+</mapper>
