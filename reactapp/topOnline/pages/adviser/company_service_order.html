@@ -5,9 +5,10 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<title>企业顾问订单</title>
-		<link href="../mui/css/mui.min.css" rel="stylesheet" />
-		<link href="../mui/css/mui.indexedlist.css" rel="stylesheet" />
-		<link href="../styles/default.css" rel="stylesheet" />
+		<link href="../../mui/css/mui.min.css" rel="stylesheet" />
+		<link href="../../mui/css/mui.picker.min.css" rel="stylesheet" />
+		<link href="../../mui/css/mui.indexedlist.css" rel="stylesheet" />
+		<link href="../../styles/default.css" rel="stylesheet" />
 		<style>
 			html,
 			body {
@@ -51,7 +52,7 @@
 			.mui-bar-nav~.mui-content {
 				padding-top: 80px;
 			}
-						.mui-input-row .description {
+			.mui-input-row .description {
 				position: absolute;
 				font-size: 14px;
 				height: 22px;
@@ -60,7 +61,7 @@
 				margin-top: -11px;
 				right: 35px;
 			}
-					.mui-table-view-cell .hotel-right-text {
+			.mui-table-view-cell .hotel-right-text {
 			position: absolute;
 			font-size: 14px;
 			height: 16px;
@@ -78,36 +79,36 @@
 			<h1 class="mui-title">企业顾问订单</h1>
 		</header>
 		<div class="hotel-city-type">
-			<a >私人定制</a><a class="active">系统推荐</a>
+			<a id="normal_tab" class="active" data-event='tap>activeNormal'>私人定制</a><a id="list_tab" data-event='tap>activeSystem'>系统推荐</a>
 		</div>
 		<div class="mui-content">
-			<div id='list' class="mui-indexed-list mui-hidden">
-		<ul class="mui-table-view mui-input-group " >
-			<li data-event='tap>pickeDate' class="mui-table-view-cell mui-input-row">
+			<div id='normal' class="mui-indexed-list">
+			<ul class="mui-table-view mui-input-group " >
+			<li id="start" data-event='tap>pickeDate' class="mui-table-view-cell mui-input-row" data-options="start">
 					<a class="mui-navigate-right">
-						1月
-						<span class="description"><span class="hotel-color-gray">{{beginDate | day}}</span> 开始日期</span>
+						{{beginDate | month}}
+						<span class="description"><span class="hotel-color-gray"></span> 开始日期</span>
 					</a>
 				</li>
-				<li data-event='tap>pickeDate' class="mui-table-view-cell mui-input-row">
+				<li id="end" data-event='tap>pickeEndDate' class="mui-table-view-cell mui-input-row" data-options="end">
 					<a class="mui-navigate-right">
-						2月 共 {{dayNum}} 月 
-						<span class="description"><span class="hotel-color-gray">{{endDate | day}}</span> 结束日期</span>
+						{{endDate | month}} 
+						<span class="description"><span class="hotel-color-gray"></span> 结束日期</span>
 					</a>
 				</li>	
 			<li class="mui-input-row">
 				<label style="margin-top: 5px;">每月现场服务天数</label>
-				<div class="mui-numbox" data-numbox-min='1'  data-numbox-max='31'>
+				<div class="mui-numbox" data-numbox-min='1' data-numbox-max='31'>
 					<button class="mui-btn mui-numbox-btn-minus" type="button">-</button>
-					<input class="mui-numbox-input" type="number" value="20" />
+					<input id="sceneDay1" class="mui-numbox-input" type="number" value="10" />
 					<button class="mui-btn mui-numbox-btn-plus" type="button">+</button>
 				</div>
 			</li>
 			<li class="mui-input-row">
 				<label style="margin-top: 5px;">每月在线服务天数</label>
-				<div class="mui-numbox" data-numbox-min='1'  data-numbox-max='31'>
+				<div class="mui-numbox" data-numbox-min='1' data-numbox-max='31'>
 					<button class="mui-btn mui-numbox-btn-minus" type="button">-</button>
-					<input class="mui-numbox-input" type="number" value="20" />
+					<input id="onlineDay1" class="mui-numbox-input" type="number" value="10" />
 					<button class="mui-btn mui-numbox-btn-plus" type="button">+</button>
 				</div>
 			</li>
@@ -140,42 +141,42 @@
 			</li>
 			<li class="mui-input-row">
 				<label>具体要求</label>
-				<input id='account' type="text" class="mui-input-clear mui-input" placeholder="填写具体要求">
+				<input id='memo1' type="text" class="mui-input-clear mui-input" placeholder="填写具体要求">
 			</li>
 
 		</ul>
 					<div class="mui-content-padded">
-				<button data-url='./booking-done.html' type="button" class="mui-btn mui-btn-block mui-btn-warning hotel-btn-main">提交请求</button>
+				<button data-event='tap>sendNormalOrder'  type="button" class="mui-btn mui-btn-block mui-btn-warning hotel-btn-main">提交请求</button>
 			</div>
 			</div>
 			
-			<div id='list' class="mui-indexed-list ">
+			<div id='list' class="mui-indexed-list mui-hidden">
 		<ul class="mui-table-view mui-input-group " >
-						<li data-event='tap>pickeDate' class="mui-table-view-cell mui-input-row">
+						<li id="start" data-event='tap>pickeDate' class="mui-table-view-cell mui-input-row" data-options="start">
 					<a class="mui-navigate-right">
-						1月
-						<span class="description"><span class="hotel-color-gray">{{beginDate | day}}</span> 开始日期</span>
+						{{beginDate | month}}
+						<span class="description"><span class="hotel-color-gray"></span> 开始日期</span>
 					</a>
 				</li>
-				<li data-event='tap>pickeDate' class="mui-table-view-cell mui-input-row">
+				<li id="end" data-event='tap>pickeEndDate' class="mui-table-view-cell mui-input-row" data-options="end">
 					<a class="mui-navigate-right">
-						2月 共 {{dayNum}} 月 
-						<span class="description"><span class="hotel-color-gray">{{endDate | day}}</span> 结束日期</span>
+						{{endDate | month}} 
+						<span class="description"><span class="hotel-color-gray"></span> 结束日期</span>
 					</a>
-				</li>		
+				</li>	
 			<li class="mui-input-row">
 				<label style="margin-top: 5px;">每月现场服务天数</label>
-				<div class="mui-numbox" data-numbox-min='1'  data-numbox-max='31'>
+				<div class="mui-numbox" data-numbox-min='1' data-numbox-max='31'>
 					<button class="mui-btn mui-numbox-btn-minus" type="button">-</button>
-					<input class="mui-numbox-input" type="number" value="20" />
+					<input id="sceneDay2" class="mui-numbox-input" type="number" value="10" />
 					<button class="mui-btn mui-numbox-btn-plus" type="button">+</button>
 				</div>
 			</li>
 			<li class="mui-input-row">
 				<label style="margin-top: 5px;">每月在线服务天数</label>
-				<div class="mui-numbox" data-numbox-min='1'  data-numbox-max='31'>
+				<div class="mui-numbox" data-numbox-min='1' data-numbox-max='31'>
 					<button class="mui-btn mui-numbox-btn-minus" type="button">-</button>
-					<input class="mui-numbox-input" type="number" value="20" />
+					<input id="onlineDay2" class="mui-numbox-input" type="number" value="10" />
 					<button class="mui-btn mui-numbox-btn-plus" type="button">+</button>
 				</div>
 			</li>
@@ -196,14 +197,20 @@
 
 		</ul>
 					<div class="mui-content-padded">
-				<button data-url='./booking-done.html' type="button" class="mui-btn mui-btn-block mui-btn-warning hotel-btn-main">提交请求</button>
+				<button data-event='tap>sendSystemOrder' type="button" class="mui-btn mui-btn-block mui-btn-warning hotel-btn-main">提交请求</button>
 			</div>
 			</div>
 			
 		</div>
-		<script src="../mui/js/mui.min.js"></script>
-		<script src="../mui/js/mui.indexedlist.js"></script>
-		<script src="../libs/ems.js" data-main='./company_service_order.js'></script>
+		<script src="../../mui/js/mui.min.js"></script>
+		<script src="../../mui/js/mui.picker.min.js"></script>		
+		<script src="../../mui/js/mui.poppicker.js"></script>
+		<script src="../../mui/js/mui.indexedlist.js"></script>
+		<script src="../../libs/ems.js" data-main='./company_service_order.js'></script>
+		
+		
+		
+		
 	</body>
 
 </html>
