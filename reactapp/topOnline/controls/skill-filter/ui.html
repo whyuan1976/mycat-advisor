@@ -1,0 +1,32 @@
+<div class="hotel-price-filter">
+	<legend>开发语言</legend>
+	<ul>
+		<li v-repeat="languageRanges" class="{{ value==languageRange.value?'active':'' }}" v-on="tap:pickLanguage($index)">
+			{{text}}
+		</li> 
+	</ul>
+	<legend>平台</legend>
+	<ul>
+		<li v-repeat="platforms" class="{{ value==platform.value?'active':'' }}" v-on="tap:pickPlatform($index)">
+			{{text}}
+		</li> 
+	</ul>
+	
+	<legend>数据库</legend>
+	<ul>
+		<li v-repeat="dbs" class="{{ value==db.value?'active':'' }}" v-on="tap:pickDb($index)">
+			{{text}}
+		</li> 
+	</ul>
+	
+	<legend>其他</legend>
+	<ul>
+		<li v-repeat="others" class="{{ value==other.value?'active':'' }}" v-on="tap:pickOther($index)">
+			{{text}}
+		</li> 
+	</ul>
+	
+	<div class="btn-wraper">
+		<button type="button" data-event='tap>ok' class="mui-btn mui-btn-block mui-btn-warning hotel-btn-main">确定</button>
+	</div>
+</div>

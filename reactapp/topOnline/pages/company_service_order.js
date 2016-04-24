@@ -14,6 +14,7 @@ define(function(require, exports, module) {
 	var pageHepler = require('../common/page-helper');
 	var hotelPriceFilter = require('../controls/hotel-price-filter/main');
 	var skillFilter = require('../controls/skill-filter/main');
+	var serviceFilter = require('../controls/service-filter/main');
 
 
 
@@ -102,6 +103,14 @@ define(function(require, exports, module) {
 		skillFilter.show(function(rs) {
 			self.languageRange = rs.languageRange;
 			self.platform = rs.platform;
+		});
+	};
+	
+	//设置可用服务条件
+	self.setServiceFilter = function() {
+		serviceFilter.show(function(rs) {
+			//self.languageRange = rs.languageRange;
+			//self.platform = rs.platform;
 		});
 	};
 
