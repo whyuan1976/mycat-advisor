@@ -11,6 +11,7 @@
 					<a href="#um/post/init?tpl=um/post/save" class="btn-modal">
 						<i class="zmdi zmdi-plus"></i>
 					</a>
+					<a class="btn" onclick="foo()">测试</a>
 				</li>
 			</ul>
 		</div>
@@ -87,6 +88,20 @@
 		</div>
 		<!--分页插件注入，需要分页的话，原样写就行了-->
 
-		{{#pagination}}
+		{{#pageInfo | pagination:lang,'full'}}
 	</div>
 </div>
+<script>
+	function foo(){
+		var arry=[{'name':'张三','code':'zhangsan'}];
+
+		$.post("um/userInfo/test", {
+			posts:arry
+		}, function (data) {
+			console.log(data);
+		}, 'json');
+
+
+	}
+
+</script>

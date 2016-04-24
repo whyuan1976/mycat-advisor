@@ -1,0 +1,95 @@
+<div class="modal-header">
+    <h4 class="modal-title">{{if authorityId == null }}新增{{else}}修改{{/if}}</h4>
+</div>
+<form class="form-horizontal form-validate" id="doorSaveForm" method="post" action="auth/auth/save">
+    <input name="authorityId" type="hidden" value="{{authorityId}}">
+
+    <!--<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">-->
+    <div class="modal-body">
+        <div class="form-group">
+            <label for="authorityMark" class="col-sm-4 control-label">权限标识</label>
+
+            <div class="col-sm-5">
+                <div class="fg-line">
+                    <input type="text" class="form-control input-sm validate[required,maxSize[16]]" id="authorityMark" name="authorityMark"
+                           placeholder="权限标识" value="{{authorityMark}}">
+                </div>
+                <small class="help-block">&nbsp;</small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="authorityName" class="col-sm-4 control-label">权限名称</label>
+
+            <div class="col-sm-5">
+                <div class="fg-line">
+                    <input type="text" class="form-control input-sm validate[required,maxSize[16]]" id="authorityName" name="authorityName"
+                           placeholder="权限名称" value="{{authorityName}}">
+                </div>
+                <small class="help-block">&nbsp;</small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="authorityDesc" class="col-sm-4 control-label">权限说明</label>
+
+            <div class="col-sm-5">
+                <div class="fg-line">
+
+                    <input type="text" class="form-control input-sm validate[required,maxSize[16]]" id="authorityDesc" name="authorityDesc"
+                           placeholder="权限说明" value="{{authorityDesc}}">
+                </div>
+                <small class="help-block">&nbsp;</small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="message" class="col-sm-4 control-label">提示信息</label>
+
+            <div class="col-sm-5">
+                <div class="fg-line">
+                    <input type="text" class="form-control input-sm validate[required,maxSize[16]]" id="message" name="message"
+                           placeholder="资源描述" value="{{message}}">
+                </div>
+                <small class="help-block">&nbsp;</small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="enable" class="col-sm-4 control-label">是否可用</label>
+
+            <div class="col-sm-5">
+                <div class="fg-line">
+                    <input type="radio" id="enable" name="enable" value="1"  {{if enable===1}} checked{{/if}}/> 可用
+                    <input type="radio" name="enable" value="0" {{if enable===0}} checked{{/if}}/> 不可用
+                </div>
+                <small class="help-block">&nbsp;</small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="issys" class="col-sm-4 control-label">是否系统权限</label>
+
+            <div class="col-sm-5">
+                <div class="fg-line">
+                    <input type="radio" id="issys" name="issys" value="1"  {{if issys===1}} checked{{/if}}/> 是
+                    <input type="radio" name="issys" value="0" {{if issys===0}} checked{{/if}}/> 否
+                </div>
+                <small class="help-block">&nbsp;</small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="moduleId" class="col-sm-4 control-label">模块</label>
+
+            <div class="col-sm-5">
+                <div class="fg-line">
+                    <select name="moduleId" id="moduleId" class="select-picker" data-value="{{moduleId}}">
+                        {{each modules}}
+                        <option value="{{$value.moduleId}}">{{$value.moduleName}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+                <small class="help-block">&nbsp;</small>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary btn-save">{{lang.btn.save}}</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">{{lang.btn.close}}</button>
+    </div>
+</form>

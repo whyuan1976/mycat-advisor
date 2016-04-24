@@ -6,7 +6,7 @@
 			<h2>用户信息</h2>
 			<ul class="actions">
 				<li>
-					<a href="#um/company/init?tpl=um/userInfo/save" class="btn-modal">
+					<a href="#um/company/init?tpl=um/userInfo/save">
 						<i class="zmdi zmdi-plus"></i>
 					</a>
 				</li>
@@ -56,13 +56,16 @@
 					<td title="{{$value.userAlias}}">
 						{{$value.userAlias}}
 					</td>
-					<td title="{{$value.userType}}">{{$value.userType}}</td>
+					<td title="{{$value.typeName}}">{{$value.typeName}}</td>
 					<td title="{{$value.telephone}}">{{$value.telephone}}</td>
-					<td title="{{$value.company}}">{{$value.company}}</td>
+					<td title="{{$value.companyName}}">{{$value.companyName}}</td>
 					<td>
-						<button type="button" class="btn btn-xs btn-default btn-icon btn-modal waves-effect waves-circle waves-float waves-effect waves-circle waves-float"
-								 data-href="um/userInfo/get/{{$value.id}}?tpl=um/userInfo/save">
-							<span class="zmdi zmdi-edit"></span> </button>
+						<!--<a type="button" class="btn btn-xs btn-default "
+								 href="#um/userInfo/get/{{$value.id}}?tpl=um/userInfo/save">
+							<span class="zmdi zmdi-edit"></span> </a>-->
+						<a class="btn btn-xs btn-default btn-icon"
+								href="#um/userInfo/get/{{$value.id}}?tpl=um/userInfo/save">
+							<span class="zmdi zmdi-edit" style="margin-top:10px"></span> </a>
 						<!--<button type="button" class="btn btn-xs btn-default btn-icon btn-modal waves-effect waves-circle waves-float waves-effect waves-circle waves-float"
 								 data-href="sm/role/menu/{{$value.id}}?tpl=sm/role/tree">
 							<span class="zmdi zmdi-account"></span> </button>-->
@@ -75,6 +78,6 @@
 				</tbody>
 			</table>
 		</div>
-		{{#pagination}}
+		{{#pageInfo | pagination:lang,'full'}}
 	</div>
 </div>

@@ -1,0 +1,105 @@
+<div class="container">
+	<!--页面导航插件 ，具体使用方式 请参照 ui-api.doc-->
+	{{include '../../public/breadcrumbs'}}
+
+	<div class="card">
+		<div class="card-header">
+			<h2>系统角色管理</h2>
+			<ul class="actions">
+				<li>
+					<!--新增按钮 ，这个url的意思是，先请求后台路径 um/post/init 后台SpringMvc Controller init方法,将返回的json数据用js绑定到 um/post/save 模板上。具体使用方式,请参照 ui-api.doc-->
+					<a href="#auth/role/init?tpl=auth/role/save" class="btn-modal">
+						<i class="zmdi zmdi-plus"></i>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<!--表格上面的搜索框和按钮-->
+		<div class="bootgrid-header container-fluid">
+			<!--搜索用的form表单 tpl=表示模板的路径 ，具体使用方式 请参照 ui-api.doc-->
+			<form id="frmSearch" action="#auth/role/list?tpl=auth/role/index" role="form">
+				<div class="row">
+					<div class="col-sm-3">
+						<div class="input-group">
+							<span class="input-group-addon"><i class="zmdi zmdi-search"></i></span>
+
+							<div class="fg-line">
+								<!--这个是搜索的输入框，支持自动补全，需添加样式auto-complete  和data-url属性，这个地方输入一个返回json的地址 ，具体使用方式 请参照 ui-api.doc-->
+								<input type="text" class="form-control auto-complete" name="code"
+									   data-url="_data/typeahead/all.json" value="{{query.code}}" hidden="true"
+									   placeholder="角色名称">
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-2">
+						<!--搜索按钮，通过配置文件读取的按钮的名称，主要用于国际化 ，具体使用方式 请参照 ui-api.doc-->
+						<button type="button" class="btn btn-primary btn-sm m-t-5 waves-effect btn-search">
+							{{lang.btn.search}}
+						</button>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="table-responsive">
+			<!--显示数据的表格-->
+			<table class="table table-striped table-hover table-ellipsis">
+				<thead>
+				<tr>
+					<th width="5%">#</th>
+					<th width="10%">角色名称</th>
+					<th width="15%">资源描述</th>
+					<th width="10%">是否可用</th>
+					<th width="10%">系统权限</th>
+					<th width="*">操作</th>
+				</tr>
+				</thead>
+				<tbody>
+				<!--循环遍历list,返回的json格式请严格参照这个模块已开发的格式 ，具体使用方式 请参照 ui-api.doc-->
+				{{each list}}
+				<tr>
+					<td>{{$index+1}}</td>
+					<td title="{{$value.RESOURCE_NAME}}">{{$value.ROLE_NAME}}</td>
+					<td title="{{$value.RESOURCE_DESC}}">{{$value.ROLE_DESC}}</td>
+					<td title="">{{if $value.ENABLE==1}}可用{{else}}不可用{{/if}}</td>
+					<td title="">{{if $value.ISSYS==1}}可用{{else}}不可用{{/if}}</td>
+					<td>
+
+						<!--修改按钮，具体使用方式 请参照 ui-api.doc-->
+						<button type="button" class="btn btn-xs btn-default  btn-modal waves-effect"
+								 data-href="auth/role/get/{{$value.ROLE_ID}}?tpl=auth/role/save">
+							<span class="zmdi zmdi-edit"></span>&nbsp;修改 </button>
+						<a type="button" class="btn btn-xs btn-default btn-nav waves-effect"
+						   href="#auth/role/auth/{{$value.ROLE_ID}}?tpl=auth/role/auth&roleName={{$value.ROLE_NAME}}">
+							<span class="zmdi zmdi-account"></span> &nbsp;关联权限 </a>
+						<a type="button" class="btn btn-xs btn-default btn-nav waves-effect"
+						   href="#auth/role/model/{{$value.ROLE_ID}}?tpl=auth/role/model&roleName={{$value.ROLE_NAME}}">
+							<span class="zmdi zmdi-account"></span> &nbsp;关联菜单 </a>
+						<button type="button" class="btn btn-xs btn-danger  btn-del waves-effect"
+								data-url="auth/role/del/{{$value.ROLE_ID}}">
+							<span class="zmdi zmdi-delete"></span>&nbsp;删除 </button>
+					</td>
+				</tr>
+				<!--循环结束-->
+				{{/each}}
+				</tbody>
+			</table>
+		</div>
+		<!--分页插件注入，需要分页的话，原样写就行了-->
+
+		{{#pageInfo | pagination:lang,'full'}}
+	</div>
+</div>
+<script>
+	function foo(){
+		var arry=[{'name':'张三','code':'zhangsan'}];
+
+		$.post("um/userInfo/test", {
+			posts:arry
+		}, function (data) {
+			console.log(data);
+		}, 'json');
+
+
+	}
+
+</script>
