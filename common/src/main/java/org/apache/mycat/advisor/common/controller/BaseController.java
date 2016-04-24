@@ -9,6 +9,7 @@ import java.lang.reflect.Field;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -21,6 +22,15 @@ public abstract class BaseController {
        resultMap.success(object);
        return resultMap;
    }
+
+    protected ResultMap success(List list) {
+        ResultMap resultMap = new ResultMap();
+        Map<String, Object> data = new HashMap<>();
+        data.put("list", list);
+
+        resultMap.success(data);
+        return resultMap;
+    }
     protected ResultMap success(){
         ResultMap resultMap = new ResultMap();
         resultMap.success();

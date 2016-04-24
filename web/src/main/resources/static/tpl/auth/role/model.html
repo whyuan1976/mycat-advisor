@@ -1,0 +1,59 @@
+<div class="container">
+	{{include '../../public/breadcrumbs'}}
+
+	<div class="card">
+		<div class="card-header">
+			<h2>角色关联模块
+				<small>{{roleName}}</small>
+			</h2>
+			<ul class="actions">
+				<li>
+					<a href="#auth/model/init/0?tpl=auth/model/save" class="btn-modal">
+						<i class="zmdi zmdi-plus"></i>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class="table-responsive">
+			<table class="table table-striped table-hover">
+				<thead>
+				<tr>
+					<th>模块名称</th>
+					<th>模块类型</th>
+					<th>模块说明</th>
+
+				</tr>
+				</thead>
+				<tbody class="tbl-tree tree-single" data-lvl="1">
+				{{each list}}
+				<tr id="{{$value.moduleId}}" pid="{{$value.parent}}">
+					<td>
+						<input class="modelId" type="checkbox" {{$value.check}} value="{{$value.moduleId}}"/>{{$value.moduleName}}
+					</td>
+					<td>
+						{{$value.moduleDesc}}
+					</td>
+					<td>{{if $value.moduleType==1}}菜单{{else}}功能{{/if}}</td>
+				</tr>
+				{{/each}}
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+<script>
+	$('.modelId').change(function(){
+		var thisNode = $(this);
+		$.post("auth/role/changeModel", {
+			modelId:thisNode.val(),
+			checked:thisNode.is(':checked'),
+			roleId:'{{roleId}}'
+		}, function (data) {
+			if(data.flag){
+				mycatui.notify.success("操作成功");
+			}else{
+				mycatui.notify.error("操作失败");
+			}
+		}, 'json');
+	});
+</script>
