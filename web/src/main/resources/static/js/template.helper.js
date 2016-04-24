@@ -24,7 +24,7 @@ template.helper('dateFormat', function (date, format) {
     return moment(parseInt(date)).format(format);
 });
 
-/*template.helper('pagination', function (data, lang, type) {
+template.helper('pagination', function (data, lang, type) {
     // 分页属性配置
     var pageInfo = {
         totalCount: 'totalCount',
@@ -123,7 +123,7 @@ template.helper('dateFormat', function (date, format) {
             return '#' + URI(window.location.hash.substring(1)).setSearch(pageIndexName, pageIndex).setSearch(pageCountName, pageCount);
         }
     }
-});*/
+});
 
 template.helper('steps', function (data, step) {
     step = step || 4;
