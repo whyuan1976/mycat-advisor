@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
 	"pages/hotel-list-inner.html": {
 		"resources": [
 			"pages/hotel-list-inner.js",
@@ -270,7 +271,8 @@
 			"pages/company_service_order.html",
 			"pages/unlock.html",
 			"pages/setting.html",
-			"pages/login.html"
+			"pages/login.html",
+			"pages/adviser/company_service_order.html"
 		]
 	},
 	"pages/guide.html": {
@@ -431,12 +433,14 @@
 			"libs/ems.js",
 			"font-awesome/css/font-awesome.min.css",
 			"styles/default.css"
-		]
+		],
+		"refer": []
 	},
 	"pages/user-comment.html": {
 		"resources": [
 			"pages/user-comment.js"
-		]
+		],
+		"refer": []
 	},
 	"pages/company_service_order.html": {
 		"resources": [
@@ -465,7 +469,10 @@
 			"libs/ems.js",
 			"controls/service-filter/ui.html",
 			"controls/service-filter/main.js",
-			"controls/service-filter/style.css"
+			"controls/service-filter/style.css",
+			"mui/js/mui.poppicker.js",
+			"mui/js/mui.picker.min.js",
+			"mui/css/mui.picker.min.css"
 		],
 		"refer": [
 			"pages/booking-done.html",
@@ -478,6 +485,557 @@
 			"mui/css/mui.min.css",
 			"mui/fonts/mui.ttf",
 			"styles/default.css"
+		],
+		"refer": []
+	},
+	"pages/adviser/company_service_order.html": {
+		"resources": [
+			"mui/css/mui.picker.min.css",
+			"mui/css/mui.indexedlist.css",
+			"mui/css/mui.min.css",
+			"mui/fonts/mui.ttf",
+			"styles/default.css",
+			"mui/js/mui.poppicker.js",
+			"pages/adviser/company_service_order.js",
+			"mui/js/mui.min.js",
+			"mui/js/mui.picker.min.js",
+			"mui/js/mui.indexedlist.js",
+			"libs/ems.js",
+			"controls/skill-filter/main.js",
+			"libs/vue.js",
+			"common/vue-filter.js",
+			"controls/skill-filter/ui.html",
+			"libs/tp.js",
+			"common/event-binder.js",
+			"common/page-helper.js",
+			"controls/skill-filter/style.css",
+			"libs/utils.js",
+			"libs/jquery.js",
+			"common/element-maper.js",
+			"libs/ems-text.js"
+		],
+		"refer": [
+			"pages/adviser/choose_service.html"
+		]
+	},
+	"pages/adviser/choose_service.html": {
+		"resources": [
+			"pages/adviser/choose_service.js",
+			"controls/skill-filter/ui.html",
+			"controls/skill-filter/main.js",
+			"libs/vue.js",
+			"common/vue-filter.js",
+			"libs/tp.js",
+			"common/event-binder.js",
+			"common/page-helper.js",
+			"controls/skill-filter/style.css",
+			"mui/js/mui.min.js",
+			"libs/utils.js",
+			"libs/jquery.js",
+			"common/element-maper.js",
+			"libs/ems.js",
+			"libs/ems-text.js",
+			"mui/css/mui.min.css",
+			"styles/default.css",
+			"mui/css/mui.indexedlist.css",
+			"mui/fonts/mui.ttf"
 		]
 	}
+=======
+  "pages/hotel-list-inner.html": {
+    "resources": [
+      "pages/hotel-list-inner.js",
+      "controls/hotel-price-filter/ui.html",
+      "styles/images/hotel-loading.png",
+      "mui/css/mui.picker.min.css",
+      "font-awesome/fonts/fontawesome-webfont.woff",
+      "mui/js/mui.picker.min.js",
+      "font-awesome/css/font-awesome.min.css"
+    ],
+    "refer": [
+      "pages/query-filter.html",
+      "pages/area-filter.html",
+      "pages/hotel-detail.html"
+    ]
+  },
+  "pages/index.html": {
+    "resources": [
+      "font-awesome/fonts/fontawesome-webfont.woff",
+      "libs/vue.js",
+      "mui/css/mui.min.css",
+      "mui/js/mui.picker.min.js",
+      "common/vue-filter.js",
+      "controls/hotel-price-filter/main.js",
+      "libs/tp.js",
+      "common/event-binder.js",
+      "styles/default.css",
+      "font-awesome/css/font-awesome.min.css",
+      "mui/css/mui.picker.min.css",
+      "common/page-helper.js",
+      "controls/hotel-price-filter/ui.html",
+      "mui/js/mui.min.js",
+      "libs/utils.js",
+      "libs/jquery.js",
+      "pages/index.js",
+      "controls/hotel-price-filter/style.css",
+      "common/element-maper.js",
+      "mui/fonts/mui.ttf",
+      "libs/ems-text.js",
+      "libs/ems.js",
+      "styles/images/yuantiao.jpg",
+      "styles/images/shuijiao.jpg",
+      "styles/images/muwu.jpg",
+      "pages/service.html",
+      "pages/home.html"
+    ],
+    "refer": [
+      "pages/hotel-list.html",
+      "pages/city.html",
+      "pages/query-keyword.html",
+      "pages/home.html",
+      "pages/guide.html",
+      "pages/service.html"
+    ]
+  },
+  "pages/hotel-list.html": {
+    "resources": [
+      "pages/hotel-list-inner.html",
+      "controls/hotel-price-filter/ui.html",
+      "pages/hotel-list.js",
+      "libs/vue.js",
+      "mui/css/mui.min.css",
+      "common/vue-filter.js",
+      "controls/hotel-price-filter/main.js",
+      "libs/tp.js",
+      "common/event-binder.js",
+      "styles/default.css",
+      "common/page-helper.js",
+      "mui/js/mui.min.js",
+      "libs/utils.js",
+      "libs/jquery.js",
+      "controls/hotel-price-filter/style.css",
+      "mui/fonts/mui.ttf",
+      "common/element-maper.js",
+      "libs/ems-text.js",
+      "libs/ems.js"
+    ],
+    "refer": [
+      "pages/hotel-list-inner.html"
+    ]
+  },
+  "pages/city.html": {
+    "resources": [
+      "pages/city.js",
+      "libs/vue.js",
+      "mui/css/mui.min.css",
+      "common/vue-filter.js",
+      "mui/js/mui.indexedlist.js",
+      "common/event-binder.js",
+      "styles/default.css",
+      "common/page-helper.js",
+      "mui/css/mui.indexedlist.css",
+      "mui/js/mui.min.js",
+      "libs/utils.js",
+      "mui/fonts/mui.ttf",
+      "common/element-maper.js",
+      "libs/ems.js"
+    ],
+    "refer": []
+  },
+  "pages/query-keyword.html": {
+    "resources": [
+      "common/page-helper.js",
+      "mui/js/mui.min.js",
+      "libs/utils.js",
+      "libs/vue.js",
+      "mui/css/mui.min.css",
+      "common/vue-filter.js",
+      "mui/fonts/mui.ttf",
+      "common/element-maper.js",
+      "common/event-binder.js",
+      "pages/query-keyword.js",
+      "libs/ems.js",
+      "styles/default.css"
+    ],
+    "refer": []
+  },
+  "pages/query-filter.html": {
+    "resources": [
+      "pages/query-filter.js"
+    ],
+    "refer": []
+  },
+  "pages/area-filter.html": {
+    "resources": [
+      "common/page-helper.js",
+      "mui/js/mui.min.js",
+      "libs/utils.js",
+      "libs/vue.js",
+      "mui/css/mui.min.css",
+      "common/vue-filter.js",
+      "common/element-maper.js",
+      "common/event-binder.js",
+      "mui/fonts/mui.ttf",
+      "pages/area-filter.js",
+      "libs/ems.js",
+      "styles/default.css"
+    ],
+    "refer": []
+  },
+  "pages/hotel-detail.html": {
+    "resources": [
+      "pages/hotel-detail.js",
+      "controls/booking-date/ui.html",
+      "controls/room-type-filter/style.css",
+      "controls/room-type-filter/ui.html",
+      "controls/booking-date/style.css",
+      "controls/booking-date/main.js",
+      "controls/room-type-filter/main.js",
+      "styles/images/hotel-loading.png",
+      "mui/js/mui.picker.min.js",
+      "libs/tp.js",
+      "mui/css/mui.picker.min.css",
+      "libs/jquery.js",
+      "libs/ems-text.js"
+    ],
+    "refer": [
+      "pages/booking.html",
+      "pages/comment.html",
+      "pages/hotel-pic.html",
+      "pages/hotel-info.html",
+      "pages/room-info.html"
+    ]
+  },
+  "pages/booking.html": {
+    "resources": [
+      "mui/css/mui.picker.min.css",
+      "mui/js/mui.min.js",
+      "mui/css/mui.min.css",
+      "mui/js/mui.picker.min.js",
+      "pages/booking.js",
+      "libs/ems.js",
+      "styles/default.css",
+      "libs/vue.js",
+      "controls/price-detail/ui.html",
+      "controls/booking-date/style.css",
+      "controls/booking-date/main.js",
+      "common/vue-filter.js",
+      "libs/tp.js",
+      "common/event-binder.js",
+      "controls/booking-date/ui.html",
+      "common/page-helper.js",
+      "controls/price-detail/style.css",
+      "libs/utils.js",
+      "libs/jquery.js",
+      "mui/fonts/mui.ttf",
+      "common/element-maper.js",
+      "controls/price-detail/main.js",
+      "libs/ems-text.js"
+    ],
+    "refer": [
+      "pages/booking-done.html"
+    ]
+  },
+  "pages/comment.html": {
+    "resources": [
+      "pages/comment.js",
+      "mui/js/mui.min.js",
+      "mui/css/mui.min.css",
+      "mui/fonts/mui.ttf",
+      "libs/ems.js",
+      "styles/default.css"
+    ],
+    "refer": []
+  },
+  "pages/service.html": {
+    "resources": [
+      "font-awesome/fonts/fontawesome-webfont.woff",
+      "pages/service.js",
+      "libs/vue.js",
+      "mui/css/mui.min.css",
+      "mui/js/mui.picker.min.js",
+      "common/vue-filter.js",
+      "controls/hotel-price-filter/main.js",
+      "libs/tp.js",
+      "common/event-binder.js",
+      "styles/default.css",
+      "font-awesome/css/font-awesome.min.css",
+      "mui/css/mui.picker.min.css",
+      "common/page-helper.js",
+      "controls/hotel-price-filter/ui.html",
+      "mui/js/mui.min.js",
+      "libs/utils.js",
+      "libs/jquery.js",
+      "controls/hotel-price-filter/style.css",
+      "mui/fonts/mui.ttf",
+      "common/element-maper.js",
+      "libs/ems-text.js",
+      "libs/ems.js",
+      "controls/skill-filter/main.js",
+      "controls/skill-filter/ui.html",
+      "controls/skill-filter/style.css",
+      "mui/js/mui.poppicker.js"
+    ],
+    "refer": [
+      "pages/hotel-list.html",
+      "pages/query-keyword.html",
+      "pages/city.html",
+      "pages/booking-done.html"
+    ]
+  },
+  "pages/home.html": {
+    "resources": [
+      "styles/images/yuantiao.jpg",
+      "styles/images/muwu.jpg",
+      "styles/images/shuijiao.jpg",
+      "pages/service.html",
+      "pages/login.html",
+      "mui/css/mui.picker.min.css",
+      "mui/js/mui.min.js",
+      "mui/css/mui.min.css",
+      "mui/js/mui.picker.min.js",
+      "mui/fonts/mui.ttf",
+      "font-awesome/css/font-awesome.min.css",
+      "styles/default.css",
+      "pages/unlock.html",
+      "pages/setting.html",
+      "libs/vue.js",
+      "common/vue-filter.js",
+      "pages/home.js",
+      "common/element-maper.js",
+      "common/event-binder.js",
+      "common/page-helper.js",
+      "libs/ems.js",
+      "libs/utils.js"
+    ],
+    "refer": [
+      "pages/service.html",
+      "pages/company_service_order.html",
+      "pages/unlock.html",
+      "pages/setting.html",
+      "pages/login.html"
+    ]
+  },
+  "pages/guide.html": {
+    "resources": [
+      "mui/js/mui.min.js"
+    ],
+    "refer": []
+  },
+  "pages/login.html": {
+    "resources": [
+      "mui/css/mui.min.css",
+      "mui/js/mui.min.js",
+      "mui/fonts/mui.ttf",
+      "mui/js/app.js",
+      "mui/js/mui.enterfocus.js"
+    ],
+    "refer": [
+      "pages/index.html",
+      "pages/reg.html",
+      "pages/forget_password.html"
+    ]
+  },
+  "pages/reg.html": {
+    "resources": [
+      "mui/css/mui.min.css",
+      "mui/fonts/mui.ttf",
+      "mui/js/app.js",
+      "mui/js/mui.min.js"
+    ],
+    "refer": []
+  },
+  "pages/forget_password.html": {
+    "resources": [
+      "mui/css/mui.min.css",
+      "mui/fonts/mui.ttf",
+      "mui/js/app.js",
+      "mui/js/mui.min.js"
+    ],
+    "refer": []
+  },
+  "pages/unlock.html": {
+    "resources": [
+      "mui/js/app.js",
+      "mui/js/mui.min.js",
+      "mui/css/mui.min.css",
+      "mui/js/mui.locker.js"
+    ],
+    "refer": [
+      "pages/login.html"
+    ]
+  },
+  "pages/setting.html": {
+    "resources": [
+      "mui/js/app.js",
+      "mui/js/mui.locker.js",
+      "mui/js/mui.view.js"
+    ],
+    "refer": []
+  },
+  "pages/booking-done.html": {
+    "resources": [
+      "controls/booking-date/ui.html",
+      "controls/price-detail/ui.html",
+      "font-awesome/fonts/fontawesome-webfont.woff",
+      "font-awesome/css/font-awesome.min.css",
+      "controls/price-detail/style.css",
+      "controls/booking-date/style.css",
+      "controls/booking-date/main.js",
+      "pages/booking.js",
+      "controls/price-detail/main.js",
+      "libs/vue.js",
+      "mui/css/mui.min.css",
+      "common/vue-filter.js",
+      "libs/tp.js",
+      "common/event-binder.js",
+      "styles/default.css",
+      "common/page-helper.js",
+      "mui/js/mui.min.js",
+      "libs/utils.js",
+      "libs/jquery.js",
+      "mui/fonts/mui.ttf",
+      "common/element-maper.js",
+      "libs/ems-text.js",
+      "libs/ems.js"
+    ],
+    "refer": [
+      "pages/order-detail.html"
+    ]
+  },
+  "pages/order-detail.html": {
+    "resources": [
+      "pages/order-detail.js",
+      "font-awesome/fonts/fontawesome-webfont.woff",
+      "libs/vue.js",
+      "mui/css/mui.min.css",
+      "common/vue-filter.js",
+      "common/event-binder.js",
+      "styles/default.css",
+      "font-awesome/css/font-awesome.min.css",
+      "common/page-helper.js",
+      "mui/js/mui.min.js",
+      "libs/utils.js",
+      "mui/fonts/mui.ttf",
+      "common/element-maper.js",
+      "libs/ems.js"
+    ],
+    "refer": [
+      "pages/hotel-detail.html",
+      "pages/booking.html",
+      "pages/confirm-done.html",
+      "pages/user-comment.html"
+    ]
+  },
+  "pages/hotel-pic.html": {
+    "resources": [
+      "pages/hotel-pic.js"
+    ],
+    "refer": []
+  },
+  "pages/hotel-info.html": {
+    "resources": [
+      "mui/js/mui.min.js",
+      "mui/css/mui.min.css",
+      "pages/hotel-info.js",
+      "mui/fonts/mui.ttf",
+      "libs/ems.js",
+      "styles/default.css"
+    ],
+    "refer": []
+  },
+  "pages/room-info.html": {
+    "resources": [
+      "common/page-helper.js",
+      "pages/room-info.js",
+      "mui/js/mui.min.js",
+      "libs/utils.js",
+      "libs/vue.js",
+      "mui/css/mui.min.css",
+      "common/vue-filter.js",
+      "styles/images/hotel-loading.png",
+      "common/element-maper.js",
+      "common/event-binder.js",
+      "mui/fonts/mui.ttf",
+      "libs/ems.js",
+      "styles/default.css"
+    ],
+    "refer": [
+      "pages/booking.html"
+    ]
+  },
+  "pages/confirm-done.html": {
+    "resources": [
+      "font-awesome/fonts/fontawesome-webfont.woff",
+      "pages/confirm-done.js",
+      "mui/js/mui.min.js",
+      "mui/css/mui.min.css",
+      "mui/fonts/mui.ttf",
+      "libs/ems.js",
+      "font-awesome/css/font-awesome.min.css",
+      "styles/default.css"
+    ],
+    "refer": []
+  },
+  "pages/user-comment.html": {
+    "resources": [
+      "pages/user-comment.js",
+      "mui/js/mui.min.js",
+      "pages/user_score.js",
+      "styles/images/star_icon.gif",
+      "libs/jquery.js",
+      "mui/css/mui.min.css",
+      "mui/fonts/mui.ttf",
+      "styles/images/star.png",
+      "font-awesome/css/font-awesome.min.css",
+      "styles/user-comment.css",
+      "styles/default.css",
+      "pages/user-score.js"
+    ],
+    "refer": []
+  },
+  "pages/company_service_order.html": {
+    "resources": [
+      "pages/company_service_order.js",
+      "controls/hotel-price-filter/ui.html",
+      "mui/css/mui.indexedlist.css",
+      "controls/skill-filter/ui.html",
+      "mui/js/mui.indexedlist.js",
+      "controls/skill-filter/main.js",
+      "libs/vue.js",
+      "mui/css/mui.min.css",
+      "common/vue-filter.js",
+      "controls/hotel-price-filter/main.js",
+      "libs/tp.js",
+      "common/event-binder.js",
+      "styles/default.css",
+      "common/page-helper.js",
+      "controls/skill-filter/style.css",
+      "mui/js/mui.min.js",
+      "libs/utils.js",
+      "libs/jquery.js",
+      "controls/hotel-price-filter/style.css",
+      "common/element-maper.js",
+      "mui/fonts/mui.ttf",
+      "libs/ems-text.js",
+      "libs/ems.js",
+      "controls/service-filter/ui.html",
+      "controls/service-filter/main.js",
+      "controls/service-filter/style.css"
+    ],
+    "refer": [
+      "pages/booking-done.html",
+      "pages/choose_service.html"
+    ]
+  },
+  "pages/choose_service.html": {
+    "resources": [
+      "mui/css/mui.indexedlist.css",
+      "mui/css/mui.min.css",
+      "mui/fonts/mui.ttf",
+      "styles/default.css"
+    ],
+    "refer": []
+  }
+>>>>>>> e3aa4c12f5acccfde92a4eeb94588732495b3693
 }

@@ -1,7 +1,7 @@
 <div class="hotel-price-filter">
 	<legend>开发语言</legend>
 	<ul>
-		<li v-repeat="languageRanges" class="{{ value==languageRange.value?'active':'' }}" v-on="tap:pickLanguage($index)">
+		<li v-repeat="languageRanges" class="{{ languageRange.indexOf(value+';') != -1?'active':'' }}" v-on="tap:pickLanguage($index)">
 			{{text}}
 		</li> 
 	</ul>

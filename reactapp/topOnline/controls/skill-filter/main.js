@@ -12,7 +12,11 @@ define(function(require, exports, module) {
 	ui.addEventListener('touchmove', function(event) {
 		event.preventDefault();
 	});
-
+	self.computed = {
+	test: function() {
+			return true;	
+}
+	};
 	var mask = mui.createMask();
 	mask[0].addEventListener('tap', function() {
 		self.hide();
@@ -43,34 +47,44 @@ define(function(require, exports, module) {
 		}
 		self.hide();
 	};
+	
 
 	self.languageRanges = [{
 		text: '不限',
-		value: "0"
+		value: "L0"
 	}, {
 		text: 'Java',
-		value: "5"
+		value: "L1"
 	}, {
 		text: 'C#',
-		value: "1"
+		value: "L2"
 	}, {
 		text: 'Go',
-		value: "2"
+		value: "L3"
 	}, {
 		text: '.Net',
-		value: "3"
+		value: "L4"
 	}, {
 		text: 'Ruby',
-		value: "4"
+		value: "L5"
 	}, {
 		text: 'Python',
-		value: "5"
+		value: "L6"
 	}];
 
-	self.languageRange = self.languageRanges[0];
+	self.languageStr = self.languageRanges[0].text+";"
+	self.languageRange = self.languageRanges[0].value+";";
 
 	self.pickLanguage = function(index) {
-		self.languageRange = self.languageRanges[index];
+		var tmp =self.languageRanges[index].value+";";
+		var tmpStr =self.languageRanges[index].text+",";
+		if (self.languageRange.indexOf(tmp)!=-1){
+			self.languageRange = self.languageRange.replace(tmp, "");
+			self.languageStr = self.languageStr.replace(tmpStr, "");		
+		}else{
+			self.languageRange = self.languageRange+tmp;
+			self.languageStr = self.languageStr+tmpStr;
+		}
 	};
 
 	self.platforms = [{
