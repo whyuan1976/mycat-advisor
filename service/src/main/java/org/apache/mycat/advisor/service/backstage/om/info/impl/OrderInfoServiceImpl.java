@@ -46,7 +46,6 @@ public class OrderInfoServiceImpl extends BaseServiceImpl<TabOrder> implements
 	            type =Long.valueOf((String) tmpstr);
 	        }
 	        TabOrder order = new TabOrder();
-	        order.setType(type);
 	        PageHelper.startPage(pageIndex + 1, pageCount);
 	        PageInfo<TabOrder> pageInfo = new PageInfo<TabOrder>(orderMapper.listByType(order));
 	        return twoPage(pageInfo);

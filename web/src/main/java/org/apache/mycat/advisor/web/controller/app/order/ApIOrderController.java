@@ -1,5 +1,6 @@
 package org.apache.mycat.advisor.web.controller.app.order;
 
+import com.alibaba.fastjson.JSON;
 import org.apache.mycat.advisor.common.controller.BaseController;
 import org.apache.mycat.advisor.common.controller.ResultMap;
 import org.apache.mycat.advisor.persistence.model.TabOrder;
@@ -15,7 +16,7 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping("/app/order")
-public class OrderController extends BaseController{
+public class ApiOrderController extends BaseController{
 
 
 	ApiOrderService apiOrderService;
@@ -26,13 +27,30 @@ public class OrderController extends BaseController{
 		return success();
 	}
 
-	@RequestMapping("subscribe")
-	public ResultMap subscribe(TabOrder order, @RequestParam Map<String, Object> param) {
+	/**
+	 * 下单
+	 * @param order
+	 * @param param
+	 * @return
+	 */
+	@RequestMapping("enterprise/advisor/subscribe")
+	public ResultMap subscribe(@RequestParam Map<String, Object> param) {
 
-		boolean flag = apiOrderService.newOrder(order);
+		boolean flag = apiOrderService.newOrder(param,1L);
 		if (flag) {
 			return success();
 		}
 		return failure();
+	}
+
+	/**
+	 * 订单确认
+	 * @param order
+	 * @param param
+	 * @return
+	 */
+	@RequestMapping("affirm")
+	public ResultMap affirm(TabOrder order,@RequestParam Map<String, Object> param) {
+		return success();
 	}
 }
