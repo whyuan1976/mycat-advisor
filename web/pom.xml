@@ -94,6 +94,10 @@
             <groupId>tk.mybatis</groupId>
             <artifactId>mapper</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-spring</artifactId>
+        </dependency>
     </dependencies>
     <build>
         <finalName>advisor-web</finalName>
