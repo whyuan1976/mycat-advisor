@@ -33,12 +33,12 @@ public class ApiPayController extends BaseController{
 	 * @return
 	 */
 	@RequestMapping("subscribe")
-	public ResultMap subscribe(TabOrder order, @RequestParam Map<String, Object> param) {
+	public ResultMap subscribe(TabOrder order, @RequestParam Map<String, String> param) {
 
-		boolean flag = apiOrderService.newOrder(param,1L);
+		/*boolean flag = apiOrderService.newOrder(param,1L);
 		if (flag) {
 			return success();
-		}
+		}*/
 		return failure();
 	}
 
