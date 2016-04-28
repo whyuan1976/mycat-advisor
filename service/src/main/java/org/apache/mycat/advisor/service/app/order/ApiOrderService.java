@@ -1,5 +1,8 @@
 package org.apache.mycat.advisor.service.app.order;
 
+import org.apache.mycat.advisor.persistence.model.TabOrder;
+
+import java.text.ParseException;
 import java.util.Map;
 
 /**
@@ -8,5 +11,5 @@ import java.util.Map;
 public interface ApiOrderService {
 
 
-	boolean newOrder(Map<String, Object> orderMap, Long productId);
+	TabOrder newOrder(Map<String, String> orderMap, Long productId) throws ParseException;
 }

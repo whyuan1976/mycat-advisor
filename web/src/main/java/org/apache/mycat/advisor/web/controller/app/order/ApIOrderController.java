@@ -5,20 +5,22 @@ import org.apache.mycat.advisor.common.controller.BaseController;
 import org.apache.mycat.advisor.common.controller.ResultMap;
 import org.apache.mycat.advisor.persistence.model.TabOrder;
 import org.apache.mycat.advisor.service.app.order.ApiOrderService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.text.ParseException;
 import java.util.Map;
 
 /**
  * Created by cjl on 2016/4/20.
  */
 @RestController
-@RequestMapping("/app/order")
+@RequestMapping("/app/order/")
 public class ApiOrderController extends BaseController{
 
-
+	@Autowired
 	ApiOrderService apiOrderService;
 
 
@@ -34,13 +36,17 @@ public class ApiOrderController extends BaseController{
 	 * @return
 	 */
 	@RequestMapping("enterprise/advisor/subscribe")
-	public ResultMap subscribe(@RequestParam Map<String, Object> param) {
-
-		boolean flag = apiOrderService.newOrder(param,1L);
-		if (flag) {
-			return success();
+	public ResultMap subscribe(@RequestParam Map<String, String> param) {
+		TabOrder order = null;
+		try {
+			order = apiOrderService.newOrder(param,1L);
+			if (order == null) {
+				return failure("下单失败，请检查数据");
+			}
+		} catch (ParseException e) {
+			return failure("下单失败，请检查数据");
 		}
-		return failure();
+		return success(order);
 	}
 
 	/**

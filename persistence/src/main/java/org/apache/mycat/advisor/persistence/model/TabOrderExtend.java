@@ -4,7 +4,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.util.Date;
 
 
 /**
@@ -18,14 +17,15 @@ public class TabOrderExtend {
     private Long id;
     private Long orderId;
     private Integer type;
-    private Date beginDate;
-    private Date endDate;
+    private String beginDate;
+    private String endDate;
     private Integer onlineDay;
     private Long advisor1;
     private Long advisor2;
     private Long advisor3;
     @Column(name = "memo", nullable = true, insertable = true, updatable = true)
     private String memo;
+    private Integer sceneDay;
 
 
     public Long getId() {
@@ -58,21 +58,21 @@ public class TabOrderExtend {
 
     
     @Column(name = "begin_date", nullable = true, insertable = true, updatable = true)
-    public Date getBeginDate() {
+    public String getBeginDate() {
         return beginDate;
     }
 
-    public void setBeginDate(Date beginDate) {
+    public void setBeginDate(String beginDate) {
         this.beginDate = beginDate;
     }
 
     
     @Column(name = "end_date", nullable = true, insertable = true, updatable = true)
-    public Date getEndDate() {
+    public String getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(Date endDate) {
+    public void setEndDate(String endDate) {
         this.endDate = endDate;
     }
 
@@ -87,7 +87,7 @@ public class TabOrderExtend {
     }
 
     
-    @Column(name = "advisor_1", nullable = true, insertable = true, updatable = true)
+    @Column(name = "advisor1", nullable = true, insertable = true, updatable = true)
     public Long getAdvisor1() {
         return advisor1;
     }
@@ -97,7 +97,7 @@ public class TabOrderExtend {
     }
 
     
-    @Column(name = "advisor_2", nullable = true, insertable = true, updatable = true)
+    @Column(name = "advisor2", nullable = true, insertable = true, updatable = true)
     public Long getAdvisor2() {
         return advisor2;
     }
@@ -107,7 +107,7 @@ public class TabOrderExtend {
     }
 
     
-    @Column(name = "advisor_3", nullable = true, insertable = true, updatable = true)
+    @Column(name = "advisor3", nullable = true, insertable = true, updatable = true)
     public Long getAdvisor3() {
         return advisor3;
     }
@@ -156,5 +156,13 @@ public class TabOrderExtend {
 
     public String getMemo() {
         return memo;
+    }
+
+    public void setSceneDay(Integer sceneDay) {
+        this.sceneDay = sceneDay;
+    }
+    @Column(name = "scene_day", nullable = true, insertable = true, updatable = true)
+    public Integer getSceneDay() {
+        return sceneDay;
     }
 }
