@@ -57,7 +57,6 @@ public class OrderApprovalController extends BaseController {
 	@RequestMapping("list/unapproved")
 	public ResultMap unapproved(@RequestParam Map<String, Object> param) {
 		Page page = orderService.pageUnapproved(param);
-
 		return success(page);
 	}
 	
