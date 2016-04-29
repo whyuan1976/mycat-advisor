@@ -16,7 +16,7 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping("/app/order")
-public class ApiOrderController extends BaseController{
+public class ApIOrderController extends BaseController{
 
 
 	ApiOrderService apiOrderService;
