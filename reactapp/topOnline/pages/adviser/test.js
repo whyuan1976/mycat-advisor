@@ -84,6 +84,20 @@ self.test2 = function() {
 };
 		pageTo(data,"booking-done.html");
 	};
+self.test3 = function() {
+	initDb("test");
+	var tmp= db("test");
+	//update(tmp,'insert into t_order(id , code, status, type,create_time,update_time) values("1","xxxxx",0,5,110,110)');
+	query(tmp, 'select * from t_order order by id desc', function(res){
+		//alert(res.rows.length);
+        for (i = 0; i < res.rows.length; i++) {  
+            alert(res.rows.item(i).code);  
+        }  
+  
+        //showList($ul);  
+    });  
+
+}
 	
 	//初始化页面辅助模块
 	pageHepler.init({
