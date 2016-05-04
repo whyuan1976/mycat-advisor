@@ -14,12 +14,47 @@ public class TabOrder {
     @Id
     @Column(name = "id", nullable = false, insertable = true, updatable = true)
     private Long id;
+    /**
+     * 订单编号
+     */
+    private String orderNumber;
+    /**
+     * 产品id
+     */
     private Long productId;
+    /**
+     * 订单类型
+     */
+    private Long type;
+    /**
+     * 订单状态
+     */
     private Integer status;
+    /**
+     * 支付流水号
+     */
     private String paynumber;
+    /**
+     * 支付渠道
+     */
     private Integer paytype;
+    /**
+     * 订单流程
+     */
     private Integer orderStep;
+    /**
+     * 订单金额
+     */
     private Float earnings; //订单金额
+    /**
+     * 下单人
+     */
+    private Long orderPeople;
+    /**
+     * 处理人
+     */
+    private Long processPeople;
+
     private long createTime;
     private long updateTime;
 
@@ -105,6 +140,40 @@ public class TabOrder {
 
     public void setUpdateTime(long updateTime) {
         this.updateTime = updateTime;
+    }
+
+    @Column(name = "order_people", nullable = true, insertable = true, updatable = true)
+    public Long getOrderPeople() {
+        return orderPeople;
+    }
+
+    public void setOrderPeople(Long orderPeople) {
+        this.orderPeople = orderPeople;
+    }
+    @Column(name = "process_people", nullable = true, insertable = true, updatable = true)
+    public Long getProcessPeople() {
+        return processPeople;
+    }
+
+    public void setProcessPeople(Long processPeople) {
+        this.processPeople = processPeople;
+    }
+
+    @Column(name = "order_number", nullable = true, insertable = true, updatable = true)
+    public String getOrderNumber() {
+        return orderNumber;
+    }
+
+    public void setOrderNumber(String orderNumber) {
+        this.orderNumber = orderNumber;
+    }
+    @Column(name = "type", nullable = true, insertable = true, updatable = true)
+    public Long getType() {
+        return type;
+    }
+
+    public void setType(Long type) {
+        this.type = type;
     }
 
     @Override
